@@ -32,6 +32,7 @@ import com.tom.rv2ide.artificial.file.FileWriteResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.File
+import com.tom.rv2ide.R
 import com.tom.rv2ide.artificial.agents.Agents
 
 /*
@@ -49,6 +50,7 @@ class Gemini : AIAgent {
   private var currentAttemptCount = 0
   private val maxRetryAttempts = 3
   private var agents: Agents? = null
+  private var androidContext: Context? = null
   override val providerId = "gemini"
   override val providerName = "Google Gemini"
 
@@ -76,6 +78,7 @@ class Gemini : AIAgent {
         
   override fun initialize(apiKey: String, context: Context) {
       try {
+          androidContext = context
           agents = Agents(context)
           var selectedModel = agents?.getAgent() ?: "gemini-2.5-pro"
           
@@ -101,6 +104,7 @@ class Gemini : AIAgent {
   }
 
   override fun setContext(context: Context) {
+    androidContext = context
     fileWriter = AIFileWriter(context)
   }
 
@@ -257,17 +261,17 @@ class Gemini : AIAgent {
               errorMessage.contains("quota") ||
               errorMessage.contains("429") -> 
                 throw com.tom.rv2ide.artificial.exceptions.QuotaExceededException(
-                  "Gemini API quota exceeded. Switching to another provider..."
+                  androidContext?.getString(R.string.ai_gemini_quota_exceeded) ?: "Gemini API quota exceeded"
                 )
               errorMessage.contains("RATE_LIMIT") ||
               errorMessage.contains("rate limit") -> 
                 throw com.tom.rv2ide.artificial.exceptions.RateLimitException(
-                  "Gemini rate limit exceeded. Switching to another provider..."
+                  androidContext?.getString(R.string.ai_gemini_rate_limit) ?: "Gemini rate limit exceeded"
                 )
               errorMessage.contains("INVALID_ARGUMENT") ||
               errorMessage.contains("API key") -> 
                 throw com.tom.rv2ide.artificial.exceptions.InvalidApiKeyException(
-                  "Invalid Gemini API key. Please check your configuration."
+                  androidContext?.getString(R.string.ai_gemini_invalid_key) ?: "Invalid Gemini API key"
                 )
               else -> throw e
             }

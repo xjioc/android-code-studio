@@ -70,21 +70,134 @@
 
   <!-- AI Agent Deepseek -->
   <string name="ai_agent_deepseek_api_key">Deepseek API 密钥</string>
-  <string name="ai_agent_deepseek_api_key_summary">输入您的 OpenAI API 密钥以使用 AI 功能</string>
+  <string name="ai_agent_deepseek_api_key_summary">输入您的 Deepseek API 密钥以使用 AI 功能</string>
   <string name="ai_agent_deepseek_api_key_dialog_title">输入 Deepseek API 密钥</string>
 
   <!-- AI Agent OpenAI -->
   <string name="ai_agent_openai_api_key">OpenAI API 密钥</string>
   <string name="ai_agent_openai_api_key_summary">输入您的 OpenAI API 密钥以使用 AI 功能</string>
-  <string name="ai_agent_openai_api_key_dialog_title">输入 Deepseek API 密钥</string>
+  <string name="ai_agent_openai_api_key_dialog_title">输入 OpenAI API 密钥</string>
 
   <!-- AI Agent anthropic -->
   <string name="ai_agent_anthropic_api_key">Anthropic API 密钥</string>
-  <string name="ai_agent_anthropic_api_key_summary">输入您的 OpenAI API 密钥以使用 AI 功能</string>
-  <string name="ai_agent_anthropic_api_key_dialog_title">输入 Deepseek API 密钥</string>
+  <string name="ai_agent_anthropic_api_key_summary">输入您的 Anthropic API 密钥以使用 AI 功能</string>
+  <string name="ai_agent_anthropic_api_key_dialog_title">输入 Anthropic API 密钥</string>
 
   <!-- AI Agent grok -->
   <string name="ai_agent_grok_api_key">Grok API 密钥</string>
+  <string name="ai_agent_grok_api_key_summary">输入您的 Grok API 密钥以使用 AI 功能</string>
+  <string name="ai_agent_grok_api_key_dialog_title">输入 Grok API 密钥</string>
+
+  <!-- AI Agent 提供商对话框 -->
+  <string name="ai_provider_error_title">⚠️ 提供商错误</string>
+  <string name="ai_provider_error_message">当前提供商：%1$s\n\n错误：%2$s\n\n可用提供商：%3$d\n\n是否要切换到其他提供商？</string>
+  <string name="ai_provider_switch_manually">手动切换</string>
+  <string name="ai_provider_enable_auto_switch">启用自动切换</string>
+  <string name="ai_provider_select_title">选择提供商</string>
+  <string name="ai_provider_cancel">取消</string>
+  <string name="ai_provider_no_available_title">❌ 没有可用提供商</string>
+  <string name="ai_provider_no_available_message">错误：%1$s\n\n很遗憾，没有其他具有有效 API 密钥的提供商可用。\n\n请：\n1. 检查您的 API 密钥\n2. 验证账户配额\n3. 稍后重试</string>
+  <string name="ai_provider_ok">确定</string>
+  <string name="ai_provider_auto_switched_title">🔄 已自动切换提供商</string>
+  <string name="ai_provider_auto_switched_message">从：%1$s 切换\n到：%2$s\n\n原因：%3$s\n\n自动切换已启用。您可以在设置中禁用它。</string>
+  <string name="ai_provider_disable_auto_switch">禁用自动切换</string>
+
+  <!-- AI Agent 权限对话框 -->
+  <string name="ai_permission_file_write_title">AI 文件写入权限</string>
+  <string name="ai_permission_file_write_message">AI 想要写入：\n%1$s\n\n是否允许此操作？</string>
+  <string name="ai_permission_allow">允许</string>
+  <string name="ai_permission_deny">拒绝</string>
+  <string name="ai_permission_always_allow">始终允许</string>
+  <string name="ai_permission_settings_title">AI 权限</string>
+  <string name="ai_permission_save">保存</string>
+  <string name="ai_permission_cancel">取消</string>
+
+  <!-- AI Agent 处理消息 -->
+  <string name="ai_processing_analyzing">正在分析您的请求…</string>
+  <string name="ai_processing_thinking">正在换一种思路思考…</string>
+  <string name="ai_processing_modifying">正在修改文件…</string>
+  <string name="ai_processing_retrying">部分文件失败，正在重试…</string>
+  <string name="ai_processing_no_files_modified">没有文件被修改，正在重试…</string>
+  <string name="ai_processing_auto_switching">🔄 正在自动切换到其他提供商…</string>
+  <string name="ai_processing_switched">✅ 已切换到 %1$s</string>
+  <string name="ai_processing_switch_failed">%1$s\n\n❌ 切换提供商失败。</string>
+  <string name="ai_processing_no_alternative">%1$s\n\n❌ 没有可用的备选提供商。</string>
+  <string name="ai_processing_retry_error">错误：%1$s。正在重试…</string>
+  <string name="ai_processing_retry_exception">异常：%1$s。正在重试…</string>
+  <string name="ai_processing_failed_attempts">使用 %2$s 重试 %1$d 次后失败。\n\n请检查您的 API 密钥并重试。</string>
+
+  <!-- AI Agent 错误消息 -->
+  <string name="ai_error_rate_limit">⚠️ 超出速率限制\n\nAPI 速率限制已超出。\n请等待几分钟后重试。\n\n详情：%1$s</string>
+  <string name="ai_error_quota">⚠️ 超出配额\n\n您的 API 配额已耗尽。\n请检查您的账单或升级套餐。\n\n详情：%1$s</string>
+  <string name="ai_error_insufficient_balance">💳 余额不足\n\n您的账户余额过低，无法处理此请求。\n请充值或升级套餐。\n\n提供商：%1$s\n\n详情：%2$s</string>
+  <string name="ai_error_invalid_api_key">❌ 无效的 API 密钥\n\nAPI 密钥无效或已过期。\n请在配置中更新您的 API 密钥。\n\n详情：%1$s</string>
+  <string name="ai_error_network">🌐 网络错误\n\n无法连接到 API 服务器。\n请检查您的网络连接。\n\n详情：%1$s</string>
+  <string name="ai_error_timeout">⏱️ 超时错误\n\n请求耗时过长。\n请重试。\n\n详情：%1$s</string>
+  <string name="ai_error_json_parse">📄 JSON 解析错误\n\n解析 API 响应失败。\nAPI 可能遇到问题。\n\n详情：%1$s</string>
+  <string name="ai_error_general">❌ 发生错误\n\n提供商：%1$s\n错误类型：%2$s\n\n消息：%3$s\n\n堆栈跟踪（前500字符）：\n%4$s</string>
+
+  <!-- AI Agent 提供商特定错误消息 -->
+  <string name="ai_gemini_quota_exceeded">Gemini API 配额已超出，正在切换到其他提供商…</string>
+  <string name="ai_gemini_rate_limit">Gemini 速率限制已超出，正在切换到其他提供商…</string>
+  <string name="ai_gemini_invalid_key">无效的 Gemini API 密钥，请检查您的配置。</string>
+  <string name="ai_local_llm_not_configured">本地 LLM 未配置，请设置基础 URL 和模型名称。</string>
+
+  <!-- AI Agent 偏好设置界面 -->
+  <string name="ai_preferences_provider_hint">AI 提供商</string>
+  <string name="ai_preferences_model_hint">模型 / 代理</string>
+  <string name="ai_preferences_auto_switch_title">自动切换提供商</string>
+  <string name="ai_preferences_auto_switch_summary">出错时自动切换提供商</string>
+  <string name="ai_preferences_code_completion_title">代码补全</string>
+  <string name="ai_preferences_code_completion_summary">启用 AI 驱动的代码建议</string>
+  <string name="ai_preferences_provider_label">提供商：</string>
+  <string name="ai_preferences_model_label">模型：</string>
+  <string name="ai_preferences_not_set">未设置</string>
+
+  <!-- AI Agent 本地 LLM 配置对话框 -->
+  <string name="local_llm_title">配置本地 LLM</string>
+  <string name="local_llm_base_url_hint">基础 URL</string>
+  <string name="local_llm_model_name_hint">模型名称</string>
+  <string name="local_llm_cancel">取消</string>
+  <string name="local_llm_save">保存</string>
+
+  <!-- AI Agent 权限对话框 -->
+  <string name="ai_permissions_dialog_title">AI 文件写入权限</string>
+  <string name="ai_permissions_enable_write">启用 AI 文件写入</string>
+  <string name="ai_permissions_require_confirmation">写入前要求确认</string>
+  <string name="ai_permissions_auto_backup">写入前自动备份文件</string>
+  <string name="ai_permissions_warning">警告：启用文件写入后，AI 可以修改您的项目文件。请始终在应用前审查更改。</string>
+
+  <!-- AI Agent 建议视图 -->
+  <string name="suggestion_hint">Tab 键</string>
+
+  <!-- AI Agent 文件更改列表 -->
+  <string name="ai_file_change_icon_desc">文件图标</string>
+  <string name="ai_file_change_status_modified">已修改</string>
+
+  <!-- AI Agent API 密钥对话框 -->
+  <string name="api_key_enter_hint">请输入您的 %1$s API 密钥</string>
+  <string name="api_key_dialog_title">%1$s API 密钥</string>
+  <string name="api_key_dialog_message">请输入您的 %1$s API 密钥</string>
+  <string name="api_key_save">保存</string>
+  <string name="api_key_cancel">取消</string>
+  <string name="api_key_summary_click_to_set">点击设置 API 密钥</string>
+  <string name="api_key_summary_set">API 密钥：%1$s</string>
+
+  <!-- AI Agent 文件写入器消息 -->
+  <string name="ai_file_write_disabled">文件写入已禁用</string>
+  <string name="ai_file_path_not_allowed">路径不在允许的目录中</string>
+  <string name="ai_file_create_dir_failed">创建目录失败：%1$s</string>
+  <string name="ai_file_write_failed">写入文件失败：%1$s</string>
+  <string name="ai_file_security_error">安全错误：%1$s</string>
+  <string name="ai_file_backup_failed">创建备份失败：%1$s</string>
+  <string name="ai_file_backup_not_found">备份文件未找到</string>
+  <string name="ai_file_restore_failed">恢复备份失败：%1$s</string>
+
+  <!-- AI Agent 提供商服务消息 -->
+  <string name="ai_service_not_initialized">%1$s 服务未初始化</string>
+  <string name="ai_local_llm_connection_timeout">连接超时，请检查您的本地服务器。</string>
+  <string name="ai_local_llm_error">本地 LLM 错误 %1$d：%2$s</string>
+  <string name="ai_local_llm_empty_response">来自本地 LLM 的响应为空</string>
 
   <string name="no_acs_title">ACS 组件缺失</string>
   <string name="no_acs_summary">该应用程序似乎不完整或非官方，因为它缺少所需的 ACS 构建系统。要获得完整功能，请从可信来源安装官方 Android Code Studio。</string>
@@ -805,6 +918,7 @@
   <string name="idepref_general_themeSelector_summary">选择 Android Code Studio 主题（需要重启）。</string>
   <string name="idepref_general_projectConfig">项目配置</string>
   <string name="msg_app_launch_failed">启动失败，请先安装应用。</string>
+  <string name="msg_app_no_launcher">启动失败，该应用没有启动 Activity。</string>
   <string name="idepref_java_diagnosticEnabled_title">启用诊断</string>
   <string name="idepref_java_diagnosticsEnabled_summary">（实验性）是否应该分析 Java 源文件的错误。</string>
   <string name="title_reload_color_schemes">重载配色方案</string>

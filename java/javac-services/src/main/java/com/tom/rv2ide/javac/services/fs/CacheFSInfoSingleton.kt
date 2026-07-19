@@ -14,28 +14,35 @@
  *  You should have received a copy of the GNU General Public License
  *   along with AndroidIDE.  If not, see <https://www.gnu.org/licenses/>.
  */
-
 package com.tom.rv2ide.javac.services.fs
 
 import com.tom.rv2ide.utils.VMUtils
+import java.io.IOException
 import java.nio.file.Path
-import openjdk.tools.javac.file.CacheFSInfo
+import java.nio.file.attribute.BasicFileAttributes
+import java.util.jar.JarFile
+import java.util.concurrent.ConcurrentHashMap
 import org.slf4j.LoggerFactory
 
 /**
- * Singleton class for [CacheFSInfo] to avoid reading attributes of same file multiple times.
+ * Singleton that caches file system information (canonical paths, attributes, jar classpaths).
  *
- * @author Akash Yadav
+ * Replaces the original implementation that extended [openjdk.tools.javac.file.CacheFSInfo],
+ * which is unavailable at runtime on some Android devices due to classloader restrictions
+ * on the `openjdk` package.
  */
-object CacheFSInfoSingleton : CacheFSInfo() {
+object CacheFSInfoSingleton {
 
   const val TEST_PROP_ENABLED_ON_JVM = "ide.testing.javac.fsCache.isEnabledOnJVM"
   private val log = LoggerFactory.getLogger(CacheFSInfoSingleton::class.java)
 
+  private val canonicalPathCache = ConcurrentHashMap<Path, Path>()
+  private val attributeCache = ConcurrentHashMap<Path, BasicFileAttributes?>()
+  private val jarClassPathCache = ConcurrentHashMap<Path, List<Path>>()
+
   /** Caches information about the given [Path]. */
   @JvmOverloads
   fun cache(file: Path, cacheJarClasspath: Boolean = true) {
-
     if (System.getProperty(TEST_PROP_ENABLED_ON_JVM, null) != "true") {
       if (VMUtils.isJvm()) {
         return
@@ -43,18 +50,55 @@ object CacheFSInfoSingleton : CacheFSInfo() {
     }
 
     try {
-      // Cache canonical path
       getCanonicalFile(file)
-
-      // Cache attributes
       getAttributes(file)
-
-      // Cache jar classpath if requested
       if (cacheJarClasspath) {
         getJarClassPath(file)
       }
     } catch (err: Throwable) {
       log.warn("Failed to cache jar file: {}", file, err)
     }
+  }
+
+  /** Returns a cached canonical path for [file]. */
+  fun getCanonicalFile(file: Path): Path =
+    canonicalPathCache.computeIfAbsent(file) {
+      try {
+        it.toRealPath()
+      } catch (_: IOException) {
+        it.toAbsolutePath().normalize()
+      }
+    }
+
+  /** Returns cached [BasicFileAttributes] for [file]. */
+  fun getAttributes(file: Path): BasicFileAttributes? =
+    attributeCache.computeIfAbsent(file) {
+      try {
+        java.nio.file.Files.readAttributes(it, BasicFileAttributes::class.java)
+      } catch (_: IOException) {
+        null
+      }
+    }
+
+  /** Returns a cached list of classpath entries from the jar at [file]. */
+  fun getJarClassPath(file: Path): List<Path> =
+    jarClassPathCache.computeIfAbsent(file) {
+      try {
+        JarFile(file.toFile()).use { jar ->
+          jar.manifest?.mainAttributes?.getValue("Class-Path")
+            ?.split(" ")
+            ?.filter { it.isNotBlank() }
+            ?.map { file.resolveSibling(it) }
+            ?: emptyList()
+        }
+      } catch (_: IOException) {
+        emptyList()
+      }
+    }
+
+  fun clearCache() {
+    canonicalPathCache.clear()
+    attributeCache.clear()
+    jarClassPathCache.clear()
   }
 }

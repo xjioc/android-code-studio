@@ -19,6 +19,7 @@ package com.tom.rv2ide.artificial.file
 
 import android.content.Context
 import com.tom.rv2ide.artificial.permissions.AIPermissionManager
+import com.tom.rv2ide.R
 import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
@@ -46,11 +47,11 @@ class AIFileWriter(private val context: Context) {
         createBackup: Boolean = true
     ): FileWriteResult {
         if (!permissionManager.isFileWriteEnabled()) {
-            return FileWriteResult.PermissionDenied("File writing is disabled")
+            return FileWriteResult.PermissionDenied(context.getString(R.string.ai_file_write_disabled))
         }
 
         if (!permissionManager.isPathAllowed(filePath)) {
-            return FileWriteResult.PermissionDenied("Path not in allowed directories")
+            return FileWriteResult.PermissionDenied(context.getString(R.string.ai_file_path_not_allowed))
         }
 
         val file = File(filePath)
@@ -59,7 +60,7 @@ class AIFileWriter(private val context: Context) {
         try {
             file.parentFile?.mkdirs()
         } catch (e: Exception) {
-            return FileWriteResult.Error("Failed to create directories: ${e.message}")
+            return FileWriteResult.Error(context.getString(R.string.ai_file_create_dir_failed, e.message))
         }
 
         // Backup existing file
@@ -75,9 +76,9 @@ class AIFileWriter(private val context: Context) {
             file.writeText(content)
             FileWriteResult.Success(filePath, backupCreated = createBackup && file.exists())
         } catch (e: IOException) {
-            FileWriteResult.Error("Failed to write file: ${e.message}")
+            FileWriteResult.Error(context.getString(R.string.ai_file_write_failed, e.message))
         } catch (e: SecurityException) {
-            FileWriteResult.Error("Security error: ${e.message}")
+            FileWriteResult.Error(context.getString(R.string.ai_file_security_error, e.message))
         }
     }
 
@@ -91,7 +92,7 @@ class AIFileWriter(private val context: Context) {
             file.copyTo(backupFile, overwrite = true)
             FileWriteResult.Success(backupFile.absolutePath, backupCreated = true)
         } catch (e: Exception) {
-            FileWriteResult.Error("Failed to create backup: ${e.message}")
+            FileWriteResult.Error(context.getString(R.string.ai_file_backup_failed, e.message))
         }
     }
 
@@ -112,14 +113,14 @@ class AIFileWriter(private val context: Context) {
             val targetFile = File(targetPath)
             
             if (!backupFile.exists()) {
-                return FileWriteResult.Error("Backup file not found")
+                return FileWriteResult.Error(context.getString(R.string.ai_file_backup_not_found))
             }
             
             targetFile.parentFile?.mkdirs()
             backupFile.copyTo(targetFile, overwrite = true)
             FileWriteResult.Success(targetPath, backupCreated = false)
         } catch (e: Exception) {
-            FileWriteResult.Error("Failed to restore backup: ${e.message}")
+            FileWriteResult.Error(context.getString(R.string.ai_file_restore_failed, e.message))
         }
     }
 

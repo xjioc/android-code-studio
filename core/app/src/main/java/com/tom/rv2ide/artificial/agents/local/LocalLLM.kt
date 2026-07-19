@@ -21,6 +21,7 @@ import android.content.Context
 import com.tom.rv2ide.artificial.agents.AIAgent
 import com.tom.rv2ide.artificial.agents.AIAgentRegistry
 import com.tom.rv2ide.artificial.agents.ModificationAttempt
+import com.tom.rv2ide.R
 import com.tom.rv2ide.artificial.agents.Agents
 import com.tom.rv2ide.artificial.secrets.ApiKey
 import com.tom.rv2ide.artificial.rules.WritingRules
@@ -57,6 +58,7 @@ class LocalLLM : AIAgent {
   private var currentAttemptCount = 0
   private val maxRetryAttempts = 3
   private var agents: Agents? = null
+  private var appContext: Context? = null
   override val providerId = "localllm"
   override val providerName = "Local LLM"
 
@@ -92,7 +94,7 @@ class LocalLLM : AIAgent {
           android.util.Log.d("LocalLLM", "Initialized with baseUrl=$baseUrl, model=$modelName")
           
           if (baseUrl == null || baseUrl!!.isEmpty() || modelName == null || modelName!!.isEmpty()) {
-              throw IllegalStateException("Local LLM not configured. Please set base URL and model name.")
+              throw IllegalStateException(context.getString(R.string.ai_local_llm_not_configured))
           }
       } catch (e: Exception) {
           throw e
@@ -107,6 +109,7 @@ class LocalLLM : AIAgent {
   }
 
   override fun setContext(context: Context) {
+    appContext = context
     fileWriter = AIFileWriter(context)
   }
 
@@ -283,7 +286,7 @@ class LocalLLM : AIAgent {
               errorMessage.contains("timeout") ||
               errorMessage.contains("connect") -> 
                 throw com.tom.rv2ide.artificial.exceptions.RateLimitException(
-                  "Connection timeout. Please check your local server."
+                  appContext?.getString(R.string.ai_local_llm_connection_timeout) ?: "Connection timeout. Please check your local server."
                 )
               else -> throw e
             }
@@ -292,7 +295,7 @@ class LocalLLM : AIAgent {
           if (!response.isSuccessful) {
             val errorBody = response.body?.string() ?: "Unknown error"
             return@withContext Result.failure(
-              Exception("Local LLM error ${response.code}: $errorBody")
+              Exception(appContext?.getString(R.string.ai_local_llm_error, response.code, errorBody) ?: "Local LLM error ${response.code}: $errorBody")
             )
           }
 
@@ -306,7 +309,7 @@ class LocalLLM : AIAgent {
               .getString("content")
 
           if (generatedResponse.isBlank()) {
-            return@withContext Result.failure(Exception("Empty response from Local LLM"))
+            return@withContext Result.failure(Exception(appContext?.getString(R.string.ai_local_llm_empty_response) ?: "Empty response from Local LLM"))
           }
 
           conversationHistory.add(ConversationMessage("user", prompt))

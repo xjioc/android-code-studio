@@ -44,7 +44,11 @@ buildscript {
 
 tasks.configureEach {
     if (name.contains("desugar", ignoreCase = true)) {
-        enabled = false
+        // Keep desugar*FileDependencies tasks enabled: they produce the
+        // external_file_lib_dex directory that mergeExtDex* tasks require.
+        if (!name.contains("FileDependencies", ignoreCase = true)) {
+            enabled = false
+        }
     }
 }
 

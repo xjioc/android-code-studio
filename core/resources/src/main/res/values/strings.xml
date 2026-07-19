@@ -75,16 +75,129 @@
 
   <!-- AI Agent OpenAI -->
   <string name="ai_agent_openai_api_key">OpenAI API Key</string>
-  <string name="ai_agent_openai_api_key_summary">Enter your Deepseek API key to use AI features</string>
-  <string name="ai_agent_openai_api_key_dialog_title">Enter Deepseek API Key</string>
+  <string name="ai_agent_openai_api_key_summary">Enter your OpenAI API key to use AI features</string>
+  <string name="ai_agent_openai_api_key_dialog_title">Enter OpenAI API Key</string>
 
   <!-- AI Agent anthropic -->
   <string name="ai_agent_anthropic_api_key">Anthropic API Key</string>
-  <string name="ai_agent_anthropic_api_key_summary">Enter your Deepseek API key to use AI features</string>
-  <string name="ai_agent_anthropic_api_key_dialog_title">Enter Deepseek API Key</string>
+  <string name="ai_agent_anthropic_api_key_summary">Enter your Anthropic API key to use AI features</string>
+  <string name="ai_agent_anthropic_api_key_dialog_title">Enter Anthropic API Key</string>
 
   <!-- AI Agent grok -->
   <string name="ai_agent_grok_api_key">Grok API Key</string>
+  <string name="ai_agent_grok_api_key_summary">Enter your Grok API key to use AI features</string>
+  <string name="ai_agent_grok_api_key_dialog_title">Enter Grok API Key</string>
+
+  <!-- AI Agent Provider dialogs -->
+  <string name="ai_provider_error_title">⚠️ Provider Error</string>
+  <string name="ai_provider_error_message">Current Provider: %1$s\n\nError: %2$s\n\nAvailable providers: %3$d\n\nWould you like to switch to another provider?</string>
+  <string name="ai_provider_switch_manually">Switch Manually</string>
+  <string name="ai_provider_enable_auto_switch">Enable Auto-Switch</string>
+  <string name="ai_provider_select_title">Select Provider</string>
+  <string name="ai_provider_cancel">Cancel</string>
+  <string name="ai_provider_no_available_title">❌ No Providers Available</string>
+  <string name="ai_provider_no_available_message">Error: %1$s\n\nUnfortunately, there are no other providers available with valid API keys.\n\nPlease:\n1. Check your API keys\n2. Verify account quotas\n3. Try again later</string>
+  <string name="ai_provider_ok">OK</string>
+  <string name="ai_provider_auto_switched_title">🔄 Auto-Switched Provider</string>
+  <string name="ai_provider_auto_switched_message">Switched from: %1$s\nSwitched to: %2$s\n\nReason: %3$s\n\nAuto-switch is enabled. You can disable it in settings.</string>
+  <string name="ai_provider_disable_auto_switch">Disable Auto-Switch</string>
+
+  <!-- AI Agent Permission dialogs -->
+  <string name="ai_permission_file_write_title">AI File Write Permission</string>
+  <string name="ai_permission_file_write_message">AI wants to write to:\n%1$s\n\nAllow this action?</string>
+  <string name="ai_permission_allow">Allow</string>
+  <string name="ai_permission_deny">Deny</string>
+  <string name="ai_permission_always_allow">Always Allow</string>
+  <string name="ai_permission_settings_title">AI Permissions</string>
+  <string name="ai_permission_save">Save</string>
+  <string name="ai_permission_cancel">Cancel</string>
+
+  <!-- AI Agent processing messages -->
+  <string name="ai_processing_analyzing">Analyzing your request...</string>
+  <string name="ai_processing_thinking">Thinking differently...</string>
+  <string name="ai_processing_modifying">Modifying files...</string>
+  <string name="ai_processing_retrying">Some files failed. Retrying...</string>
+  <string name="ai_processing_no_files_modified">No files were modified. Retrying...</string>
+  <string name="ai_processing_auto_switching">🔄 Auto-switching to another provider...</string>
+  <string name="ai_processing_switched">✅ Switched to %1$s</string>
+  <string name="ai_processing_switch_failed">%1$s\n\n❌ Failed to switch providers.</string>
+  <string name="ai_processing_no_alternative">%1$s\n\n❌ No alternative providers available.</string>
+  <string name="ai_processing_retry_error">Error: %1$s. Retrying...</string>
+  <string name="ai_processing_retry_exception">Exception: %1$s. Trying again...</string>
+  <string name="ai_processing_failed_attempts">Failed after %1$d attempts with %2$s.\n\nPlease check your API key and try again.</string>
+
+  <!-- AI Agent error messages -->
+  <string name="ai_error_rate_limit">⚠️ RATE LIMIT EXCEEDED\n\nThe API rate limit has been exceeded.\nPlease wait a few minutes before trying again.\n\nDetails: %1$s</string>
+  <string name="ai_error_quota">⚠️ QUOTA EXCEEDED\n\nYour API quota has been exhausted.\nPlease check your billing or upgrade your plan.\n\nDetails: %1$s</string>
+  <string name="ai_error_insufficient_balance">💳 INSUFFICIENT BALANCE\n\nYour account balance is too low to process this request.\nPlease add credits or upgrade your plan.\n\nProvider: %1$s\n\nDetails: %2$s</string>
+  <string name="ai_error_invalid_api_key">❌ INVALID API KEY\n\nThe API key is invalid or expired.\nPlease update your API key in the configuration.\n\nDetails: %1$s</string>
+  <string name="ai_error_network">🌐 NETWORK ERROR\n\nCould not connect to the API server.\nPlease check your internet connection.\n\nDetails: %1$s</string>
+  <string name="ai_error_timeout">⏱️ TIMEOUT ERROR\n\nThe request took too long to complete.\nPlease try again.\n\nDetails: %1$s</string>
+  <string name="ai_error_json_parse">📄 JSON PARSING ERROR\n\nFailed to parse API response.\nThe API may be experiencing issues.\n\nDetails: %1$s</string>
+  <string name="ai_error_general">❌ ERROR OCCURRED\n\nProvider: %1$s\nError Type: %2$s\n\nMessage: %3$s\n\nStack Trace (first 500 chars):\n%4$s</string>
+
+  <!-- AI Agent provider-specific error messages -->
+  <string name="ai_gemini_quota_exceeded">Gemini API quota exceeded. Switching to another provider...</string>
+  <string name="ai_gemini_rate_limit">Gemini rate limit exceeded. Switching to another provider...</string>
+  <string name="ai_gemini_invalid_key">Invalid Gemini API key. Please check your configuration.</string>
+  <string name="ai_local_llm_not_configured">Local LLM not configured. Please set base URL and model name.</string>
+
+  <!-- AI Agent preferences UI -->
+  <string name="ai_preferences_provider_hint">AI Provider</string>
+  <string name="ai_preferences_model_hint">Model / Agent</string>
+  <string name="ai_preferences_auto_switch_title">Auto-Switch Provider</string>
+  <string name="ai_preferences_auto_switch_summary">Automatically switch provider on errors</string>
+  <string name="ai_preferences_code_completion_title">Code Completion</string>
+  <string name="ai_preferences_code_completion_summary">Enable AI-powered code suggestions</string>
+  <string name="ai_preferences_provider_label">Provider:</string>
+  <string name="ai_preferences_model_label">Model:</string>
+  <string name="ai_preferences_not_set">Not set</string>
+
+  <!-- AI Agent Local LLM config dialog -->
+  <string name="local_llm_title">Configure Local LLM</string>
+  <string name="local_llm_base_url_hint">Base URL</string>
+  <string name="local_llm_model_name_hint">Model Name</string>
+  <string name="local_llm_cancel">Cancel</string>
+  <string name="local_llm_save">Save</string>
+
+  <!-- AI Agent permissions dialog -->
+  <string name="ai_permissions_dialog_title">AI File Write Permissions</string>
+  <string name="ai_permissions_enable_write">Enable AI file writing</string>
+  <string name="ai_permissions_require_confirmation">Require confirmation before writing</string>
+  <string name="ai_permissions_auto_backup">Auto backup files before writing</string>
+  <string name="ai_permissions_warning">Warning: Enabling file writing allows AI to modify your project files. Always review changes before applying.</string>
+
+  <!-- AI Agent suggestion view -->
+  <string name="suggestion_hint">Tab</string>
+
+  <!-- AI Agent file change list -->
+  <string name="ai_file_change_icon_desc">File icon</string>
+  <string name="ai_file_change_status_modified">Modified</string>
+
+  <!-- AI Agent API key dialogs -->
+  <string name="api_key_enter_hint">Enter your %1$s API key</string>
+  <string name="api_key_dialog_title">%1$s API Key</string>
+  <string name="api_key_dialog_message">Enter your %1$s API key</string>
+  <string name="api_key_save">Save</string>
+  <string name="api_key_cancel">Cancel</string>
+  <string name="api_key_summary_click_to_set">Click to set API key</string>
+  <string name="api_key_summary_set">API Key: %1$s</string>
+
+  <!-- AI Agent file writer messages -->
+  <string name="ai_file_write_disabled">File writing is disabled</string>
+  <string name="ai_file_path_not_allowed">Path not in allowed directories</string>
+  <string name="ai_file_create_dir_failed">Failed to create directories: %1$s</string>
+  <string name="ai_file_write_failed">Failed to write file: %1$s</string>
+  <string name="ai_file_security_error">Security error: %1$s</string>
+  <string name="ai_file_backup_failed">Failed to create backup: %1$s</string>
+  <string name="ai_file_backup_not_found">Backup file not found</string>
+  <string name="ai_file_restore_failed">Failed to restore backup: %1$s</string>
+
+  <!-- AI Agent provider service messages -->
+  <string name="ai_service_not_initialized">%1$s service not initialized</string>
+  <string name="ai_local_llm_connection_timeout">Connection timeout. Please check your local server.</string>
+  <string name="ai_local_llm_error">Local LLM error %1$d: %2$s</string>
+  <string name="ai_local_llm_empty_response">Empty response from Local LLM</string>
 
   <string name="no_acs_title">ACS Components Missing</string>
   <string name="no_acs_summary">This application appears to be incomplete or unofficial, as it is missing the required ACS build system. For full functionality, please install the official Android Code Studio from a trusted source.</string>
@@ -839,6 +952,7 @@
   <string name="idepref_general_themeSelector_summary">Select a theme for Android Code Studio (requires restart).</string>
   <string name="idepref_general_projectConfig">Project configuration</string>
   <string name="msg_app_launch_failed">Launch failed. Install the application first.</string>
+  <string name="msg_app_no_launcher">Launch failed. The application has no launcher activity.</string>
   <string name="idepref_java_diagnosticEnabled_title">Diagnostics enabled</string>
   <string name="idepref_java_diagnosticsEnabled_summary">(EXPERIMENTAL) Whether the Java source files should be analyzed for errors or not.</string>
   <string name="title_reload_color_schemes">Reload color schemes</string>

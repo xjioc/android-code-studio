@@ -18,6 +18,7 @@
 package com.tom.rv2ide.artificial.agents
 
 import android.content.Context
+import com.tom.rv2ide.R
 import com.tom.rv2ide.artificial.agents.google.Gemini
 import com.tom.rv2ide.artificial.agents.openai.OpenAI
 import com.tom.rv2ide.artificial.agents.anthropic.Anthropic
@@ -140,14 +141,14 @@ class AIAgentManager(private val context: Context) {
         var providerSwitched = false
 
         currentAgent?.resetAttemptCount()
-        callback.onProcessing("Analyzing your request...")
+        callback.onProcessing(context.getString(R.string.ai_processing_analyzing))
 
         while (!success && (currentAgent?.canRetry() == true)) {
             try {
                 val currentAttempt = currentAgent?.getCurrentAttemptCount() ?: 0
 
                 if (currentAttempt > 0 && !providerSwitched) {
-                    callback.onRetry(currentAttempt, "Thinking differently...")
+                    callback.onRetry(currentAttempt, context.getString(R.string.ai_processing_thinking))
                     delay(1000)
                 }
 
@@ -164,7 +165,7 @@ class AIAgentManager(private val context: Context) {
                     onSuccess = { response ->
                         
                         if (response.contains("FILE_TO_MODIFY:")) {
-                            callback.onProcessing("Modifying files...")
+                            callback.onProcessing(context.getString(R.string.ai_processing_modifying))
                             val modifications = processModifications(response, previousFileStates, callback)
 
                             if (modifications.isNotEmpty()) {
@@ -186,12 +187,12 @@ class AIAgentManager(private val context: Context) {
                                     callback.onSuccess(response, results, summary)
                                     success = true
                                 } else {
-                                    callback.onProcessing("Some files failed. Retrying...")
+                                    callback.onProcessing(context.getString(R.string.ai_processing_retrying))
                                     currentAgent?.incrementAttemptCount()
                                     delay(1500)
                                 }
                             } else {
-                                callback.onProcessing("No files were modified. Retrying...")
+                                callback.onProcessing(context.getString(R.string.ai_processing_no_files_modified))
                                 currentAgent?.incrementAttemptCount()
                                 delay(1500)
                             }
@@ -217,7 +218,7 @@ class AIAgentManager(private val context: Context) {
                               val alternativeProvider = getAlternativeProvider()
                               if (alternativeProvider != null) {
                                   callback.onProcessing("⚠️ $currentProviderName: $errorMsg")
-                                  callback.onProcessing("🔄 Auto-switching to another provider...")
+                                  callback.onProcessing(context.getString(R.string.ai_processing_auto_switching))
                                   delay(1500)
                                   
                                   if (setProvider(alternativeProvider)) {
@@ -225,15 +226,15 @@ class AIAgentManager(private val context: Context) {
                                       currentAgent?.resetAttemptCount()
                                       
                                       val newProviderName = currentAgent?.providerName ?: "Unknown"
-                                      callback.onProcessing("✅ Switched to $newProviderName")
+                                      callback.onProcessing(context.getString(R.string.ai_processing_switched, newProviderName))
                                   } else {
                                       val errorDisplay = formatErrorMessage(error)
-                                      callback.onError("$errorDisplay\n\n❌ Failed to switch providers.")
+                                      callback.onError(context.getString(R.string.ai_processing_switch_failed, errorDisplay))
                                       success = true
                                   }
                               } else {
                                   val errorDisplay = formatErrorMessage(error)
-                                  callback.onError("$errorDisplay\n\n❌ No alternative providers available.")
+                                  callback.onError(context.getString(R.string.ai_processing_no_alternative, errorDisplay))
                                   success = true
                               }
                           } else {
@@ -244,7 +245,7 @@ class AIAgentManager(private val context: Context) {
                       } else if ((currentAgent?.canRetry() == true) && !providerSwitched) {
                           callback.onRetry(
                               currentAgent?.getCurrentAttemptCount() ?: 0,
-                              "Error: ${error.message?.take(50) ?: "Unknown error"}. Retrying..."
+                              context.getString(R.string.ai_processing_retry_error, error.message?.take(50) ?: "Unknown error")
                           )
                           currentAgent?.incrementAttemptCount()
                           delay(1500)
@@ -261,7 +262,7 @@ class AIAgentManager(private val context: Context) {
                 if (currentAgent?.canRetry() == true) {
                     callback.onRetry(
                         currentAgent?.getCurrentAttemptCount() ?: 0,
-                        "Exception: ${e.message?.take(50) ?: "Unknown"}. Trying again..."
+                        context.getString(R.string.ai_processing_retry_exception, e.message?.take(50) ?: "Unknown")
                     )
                     currentAgent?.incrementAttemptCount()
                     delay(1500)
@@ -276,7 +277,7 @@ class AIAgentManager(private val context: Context) {
         if (!success) {
           val attemptCount = currentAgent?.getCurrentAttemptCount() ?: 0
           val agentName = currentAgent?.providerName ?: "No agent initialized"
-          callback.onError("Failed after $attemptCount attempts with $agentName.\n\nPlease check your API key and try again.")
+          callback.onError(context.getString(R.string.ai_processing_failed_attempts, attemptCount, agentName))
           undoLastModification()
         }
     }
@@ -361,21 +362,21 @@ class AIAgentManager(private val context: Context) {
         
         return when (error) {
             is com.tom.rv2ide.artificial.exceptions.RateLimitException -> 
-                "⚠️ RATE LIMIT EXCEEDED\n\nThe API rate limit has been exceeded.\nPlease wait a few minutes before trying again.\n\nDetails: $errorMessage"
+                context.getString(R.string.ai_error_rate_limit, errorMessage)
             is com.tom.rv2ide.artificial.exceptions.QuotaExceededException -> 
-                "⚠️ QUOTA EXCEEDED\n\nYour API quota has been exhausted.\nPlease check your billing or upgrade your plan.\n\nDetails: $errorMessage"
+                context.getString(R.string.ai_error_quota, errorMessage)
             is com.tom.rv2ide.artificial.exceptions.InsufficientBalanceException -> 
-                "💳 INSUFFICIENT BALANCE\n\nYour account balance is too low to process this request.\nPlease add credits or upgrade your plan.\n\nProvider: $providerName\n\nDetails: $errorMessage"
+                context.getString(R.string.ai_error_insufficient_balance, providerName, errorMessage)
             is com.tom.rv2ide.artificial.exceptions.InvalidApiKeyException -> 
-                "❌ INVALID API KEY\n\nThe API key is invalid or expired.\nPlease update your API key in the configuration.\n\nDetails: $errorMessage"
+                context.getString(R.string.ai_error_invalid_api_key, errorMessage)
             is java.net.UnknownHostException ->
-                "🌐 NETWORK ERROR\n\nCould not connect to the API server.\nPlease check your internet connection.\n\nDetails: $errorMessage"
+                context.getString(R.string.ai_error_network, errorMessage)
             is java.net.SocketTimeoutException ->
-                "⏱️ TIMEOUT ERROR\n\nThe request took too long to complete.\nPlease try again.\n\nDetails: $errorMessage"
+                context.getString(R.string.ai_error_timeout, errorMessage)
             is org.json.JSONException ->
-                "📄 JSON PARSING ERROR\n\nFailed to parse API response.\nThe API may be experiencing issues.\n\nDetails: $errorMessage"
+                context.getString(R.string.ai_error_json_parse, errorMessage)
             else -> 
-                "❌ ERROR OCCURRED\n\nProvider: $providerName\nError Type: ${error.javaClass.simpleName}\n\nMessage: $errorMessage\n\nStack Trace (first 500 chars):\n$stackTrace"
+                context.getString(R.string.ai_error_general, providerName, error.javaClass.simpleName, errorMessage, stackTrace)
         }
     }
 

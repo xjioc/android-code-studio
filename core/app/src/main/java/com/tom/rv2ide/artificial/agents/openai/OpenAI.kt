@@ -36,6 +36,7 @@ import com.tom.rv2ide.artificial.agents.AIAgent
 import com.tom.rv2ide.artificial.agents.AIAgentRegistry
 import com.tom.rv2ide.artificial.secrets.ApiKey
 import com.tom.rv2ide.artificial.agents.ModificationAttempt
+import com.tom.rv2ide.R
 
 /*
  * @author Mohammed-baqer-null @ https://github.com/Mohammed-baqer-null
@@ -52,6 +53,7 @@ class OpenAI : AIAgent {
   private var currentAttemptCount = 0
   private val maxRetryAttempts = 3
   private var agents: Agents? = null
+  private var appContext: Context? = null
   private var selectedModel: String = "gpt-4o"
   override val providerId = "openai"
   override val providerName = "OpenAI"
@@ -102,6 +104,7 @@ class OpenAI : AIAgent {
   }
 
   override fun setContext(context: Context) {
+    appContext = context
     fileWriter = AIFileWriter(context)
   }
 
@@ -186,7 +189,7 @@ class OpenAI : AIAgent {
         try {
           val key = apiKey
               ?: return@withContext Result.failure(
-                  IllegalStateException("OpenAI service not initialized")
+                  IllegalStateException(appContext?.getString(R.string.ai_service_not_initialized, "OpenAI") ?: "OpenAI service not initialized")
               )
 
           val fileContents = readRelevantFiles()

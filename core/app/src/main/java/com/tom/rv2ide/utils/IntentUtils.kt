@@ -20,6 +20,8 @@ package com.tom.rv2ide.utils
 import android.content.Context
 import android.content.Intent
 import android.os.Build
+import android.os.Handler
+import android.os.Looper
 import androidx.annotation.RequiresApi
 import androidx.core.app.ShareCompat
 import androidx.core.content.FileProvider
@@ -36,6 +38,8 @@ import java.io.File
 object IntentUtils {
 
   private const val RESULT_LAUNCH_APP_INTENT_SENDER = 223
+  private const val LAUNCH_RETRY_MAX_ATTEMPTS = 5
+  private const val LAUNCH_RETRY_DELAY_MS = 500L
 
   @JvmStatic
   fun openImage(context: Context, file: File) {
@@ -108,7 +112,7 @@ object IntentUtils {
     try {
       val launchIntent = context.packageManager.getLaunchIntentForPackage(packageName)
       if (launchIntent == null) {
-        flashError(R.string.msg_app_launch_failed)
+        retryLaunchApp(context, packageName, logError, 1)
         return false
       }
 
@@ -123,6 +127,53 @@ object IntentUtils {
     }
   }
 
+  private fun retryLaunchApp(
+      context: Context,
+      packageName: String,
+      logError: Boolean,
+      attempt: Int,
+  ) {
+    if (attempt > LAUNCH_RETRY_MAX_ATTEMPTS) {
+      showLaunchError(context, packageName, logError)
+      return
+    }
+
+    Handler(Looper.getMainLooper()).postDelayed({
+      try {
+        val launchIntent = context.packageManager.getLaunchIntentForPackage(packageName)
+        if (launchIntent != null) {
+          context.startActivity(launchIntent)
+          return@postDelayed
+        }
+      } catch (_: Throwable) {
+        // fall through to retry
+      }
+      retryLaunchApp(context, packageName, logError, attempt + 1)
+    }, LAUNCH_RETRY_DELAY_MS)
+  }
+
+  private fun showLaunchError(context: Context, packageName: String, logError: Boolean) {
+    val isInstalled =
+        try {
+          context.packageManager.getPackageInfo(packageName, 0) != null
+        } catch (_: Exception) {
+          false
+        }
+
+    if (isInstalled) {
+      flashError(R.string.msg_app_no_launcher)
+    } else {
+      flashError(R.string.msg_app_launch_failed)
+    }
+
+    if (logError) {
+      ILogger.ROOT.error(
+          if (isInstalled) "No launcher for '{}'" else "Package '{}' not found",
+          packageName,
+      )
+    }
+  }
+
   @RequiresApi(33)
   private fun launchAppApi33(
       context: Context,
@@ -134,11 +185,32 @@ object IntentUtils {
       sender.sendIntent(context, RESULT_LAUNCH_APP_INTENT_SENDER, null, null, null)
       true
     } catch (e: Throwable) {
-      flashError(R.string.msg_app_launch_failed)
-      if (logError) {
-        ILogger.ROOT.error("Failed to launch app", e)
-      }
+      retryLaunchAppApi33(context, packageName, logError, 1)
       false
     }
+  }
+
+  @RequiresApi(33)
+  private fun retryLaunchAppApi33(
+      context: Context,
+      packageName: String,
+      logError: Boolean,
+      attempt: Int,
+  ) {
+    if (attempt > LAUNCH_RETRY_MAX_ATTEMPTS) {
+      showLaunchError(context, packageName, logError)
+      return
+    }
+
+    Handler(Looper.getMainLooper()).postDelayed({
+      try {
+        val sender = context.packageManager.getLaunchIntentSenderForPackage(packageName)
+        sender.sendIntent(context, RESULT_LAUNCH_APP_INTENT_SENDER, null, null, null)
+        return@postDelayed
+      } catch (_: Throwable) {
+        // fall through to retry
+      }
+      retryLaunchAppApi33(context, packageName, logError, attempt + 1)
+    }, LAUNCH_RETRY_DELAY_MS)
   }
 }

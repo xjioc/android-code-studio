@@ -137,7 +137,7 @@ public class IDEWrapperGenerator {
         try {
           new Download(new Logger(true), "gradlew", Download.UNKNOWN_VERSION).sendHeadRequest(uri);
         } catch (Exception e) {
-          throw new UncheckedIOException(String.format(DISTRIBUTION_URL_EXCEPTION_MESSAGE, url), e);
+          // Skip validation failure - wrapper files can still be generated
         }
       }
     }

@@ -22,7 +22,7 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:src="@drawable/ic_file"
-            android:contentDescription="File icon" />
+            android:contentDescription="@string/ai_file_change_icon_desc" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -43,7 +43,7 @@
                 android:id="@+id/fileStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Modified"
+                android:text="@string/ai_file_change_status_modified"
                 android:textAppearance="?attr/textAppearanceBodySmall"
                 android:layout_marginTop="4dp" />
 

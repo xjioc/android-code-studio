@@ -27,6 +27,7 @@ import com.tom.rv2ide.artificial.project.awareness.ProjectTreeResult
 import com.tom.rv2ide.artificial.file.AIFileWriter
 import com.tom.rv2ide.artificial.file.FileWriteResult
 import com.tom.rv2ide.artificial.exceptions.*
+import com.tom.rv2ide.R
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.File
@@ -50,6 +51,7 @@ class Anthropic : AIAgent {
   private var currentAttemptCount = 0
   private val maxRetryAttempts = 3
   private var agents: Agents? = null
+  private var appContext: Context? = null
   private var selectedModel: String = "claude-sonnet-4-20250514"
   override val providerId = "claude"
   override val providerName = "Anthropic Claude"
@@ -97,6 +99,7 @@ class Anthropic : AIAgent {
   }
 
   override fun setContext(context: Context) {
+    appContext = context
     fileWriter = AIFileWriter(context)
   }
 
@@ -181,7 +184,7 @@ class Anthropic : AIAgent {
         try {
           val key = apiKey
               ?: return@withContext Result.failure(
-                  IllegalStateException("Anthropic service not initialized")
+                  IllegalStateException(appContext?.getString(R.string.ai_service_not_initialized, "Anthropic") ?: "Anthropic service not initialized")
               )
 
           val fileContents = readRelevantFiles()

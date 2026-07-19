@@ -27,9 +27,7 @@ import com.tom.rv2ide.javac.services.NBMemberEnter
 import com.tom.rv2ide.javac.services.NBParserFactory
 import com.tom.rv2ide.javac.services.NBResolve
 import com.tom.rv2ide.javac.services.NBTreeMaker
-import com.tom.rv2ide.javac.services.fs.CacheFSInfoSingleton
 import com.tom.rv2ide.javac.services.fs.JarPackageProviderImpl
-import com.tom.rv2ide.utils.VMUtils
 import com.tom.rv2ide.zipfs2.JarPackageProvider
 import java.net.URI
 import jdkx.tools.DiagnosticListener
@@ -47,8 +45,6 @@ import openjdk.tools.javac.comp.Check
 import openjdk.tools.javac.comp.CompileStates
 import openjdk.tools.javac.comp.Enter
 import openjdk.tools.javac.comp.Modules
-import openjdk.tools.javac.file.CacheFSInfo
-import openjdk.tools.javac.file.FSInfo
 import openjdk.tools.javac.main.Arguments
 import openjdk.tools.javac.main.JavaCompiler
 import openjdk.tools.javac.model.JavacElements
@@ -69,7 +65,9 @@ class ReusableContext(cancelService: CancelService) : Context(), TaskListener {
 
   init {
     put(Log.logKey, ReusableLog.factory)
-    put(FSInfo::class.java, if (VMUtils.isJvm()) CacheFSInfo() else CacheFSInfoSingleton)
+    // FSInfo (openjdk.tools.javac.file.FSInfo) is unavailable on some Android devices.
+    // The javac compiler will create a default instance when needed.
+    // CacheFSInfoSingleton is used directly by ModuleProject for classpath caching.
     put(JavaCompiler.compilerKey, ReusableJavaCompiler.factory)
     put(JavacFlowListener.flowListenerKey, JavacFlowListener { this.hasFlowCompleted(it) })
     put(JarPackageProvider::class.java, JarPackageProviderImpl)

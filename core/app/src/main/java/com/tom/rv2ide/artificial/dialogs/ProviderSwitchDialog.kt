@@ -21,6 +21,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import android.preference.PreferenceManager
+import com.tom.rv2ide.R
 
 /*
  * @author Mohammed-baqer-null @ https://github.com/Mohammed-baqer-null
@@ -55,23 +56,25 @@ class ProviderSwitchDialog(private val context: Context) {
         val providerNames = availableProviders.map { it.second }.toTypedArray()
         
         MaterialAlertDialogBuilder(context)
-            .setTitle("⚠️ Provider Error")
+            .setTitle(context.getString(R.string.ai_provider_error_title))
             .setMessage(
-                "Current Provider: $currentProvider\n\n" +
-                "Error: $errorMessage\n\n" +
-                "Available providers: ${availableProviders.size}\n\n" +
-                "Would you like to switch to another provider?"
+                context.getString(
+                    R.string.ai_provider_error_message,
+                    currentProvider,
+                    errorMessage,
+                    availableProviders.size
+                )
             )
-            .setPositiveButton("Switch Manually") { dialog, _ ->
+            .setPositiveButton(context.getString(R.string.ai_provider_switch_manually)) { dialog, _ ->
                 dialog.dismiss()
                 showProviderSelectionDialog(availableProviders, onProviderSelected)
             }
-            .setNegativeButton("Enable Auto-Switch") { dialog, _ ->
+            .setNegativeButton(context.getString(R.string.ai_provider_enable_auto_switch)) { dialog, _ ->
                 setAutoSwitch(true)
                 onEnableAutoSwitch()
                 dialog.dismiss()
             }
-            .setNeutralButton("Cancel") { dialog, _ ->
+            .setNeutralButton(context.getString(R.string.ai_provider_cancel)) { dialog, _ ->
                 dialog.dismiss()
             }
             .setCancelable(false)
@@ -86,12 +89,12 @@ class ProviderSwitchDialog(private val context: Context) {
         val providerIds = availableProviders.map { it.first }
         
         MaterialAlertDialogBuilder(context)
-            .setTitle("Select Provider")
+            .setTitle(context.getString(R.string.ai_provider_select_title))
             .setItems(providerNames) { dialog, which ->
                 onProviderSelected(providerIds[which])
                 dialog.dismiss()
             }
-            .setNegativeButton("Cancel") { dialog, _ ->
+            .setNegativeButton(context.getString(R.string.ai_provider_cancel)) { dialog, _ ->
                 dialog.dismiss()
             }
             .show()
@@ -99,16 +102,11 @@ class ProviderSwitchDialog(private val context: Context) {
     
     private fun showNoProvidersAvailableDialog(errorMessage: String) {
         MaterialAlertDialogBuilder(context)
-            .setTitle("❌ No Providers Available")
+            .setTitle(context.getString(R.string.ai_provider_no_available_title))
             .setMessage(
-                "Error: $errorMessage\n\n" +
-                "Unfortunately, there are no other providers available with valid API keys.\n\n" +
-                "Please:\n" +
-                "1. Check your API keys\n" +
-                "2. Verify account quotas\n" +
-                "3. Try again later"
+                context.getString(R.string.ai_provider_no_available_message, errorMessage)
             )
-            .setPositiveButton("OK") { dialog, _ ->
+            .setPositiveButton(context.getString(R.string.ai_provider_ok)) { dialog, _ ->
                 dialog.dismiss()
             }
             .show()
@@ -120,17 +118,19 @@ class ProviderSwitchDialog(private val context: Context) {
         reason: String
     ): MaterialAlertDialogBuilder {
         return MaterialAlertDialogBuilder(context)
-            .setTitle("🔄 Auto-Switched Provider")
+            .setTitle(context.getString(R.string.ai_provider_auto_switched_title))
             .setMessage(
-                "Switched from: $fromProvider\n" +
-                "Switched to: $toProvider\n\n" +
-                "Reason: $reason\n\n" +
-                "Auto-switch is enabled. You can disable it in settings."
+                context.getString(
+                    R.string.ai_provider_auto_switched_message,
+                    fromProvider,
+                    toProvider,
+                    reason
+                )
             )
-            .setPositiveButton("OK") { dialog, _ ->
+            .setPositiveButton(context.getString(R.string.ai_provider_ok)) { dialog, _ ->
                 dialog.dismiss()
             }
-            .setNegativeButton("Disable Auto-Switch") { dialog, _ ->
+            .setNegativeButton(context.getString(R.string.ai_provider_disable_auto_switch)) { dialog, _ ->
                 setAutoSwitch(false)
                 dialog.dismiss()
             }

@@ -27,6 +27,7 @@ import com.tom.rv2ide.artificial.project.awareness.ProjectTreeResult
 import com.tom.rv2ide.artificial.file.AIFileWriter
 import com.tom.rv2ide.artificial.file.FileWriteResult
 import com.tom.rv2ide.artificial.exceptions.*
+import com.tom.rv2ide.R
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.File
@@ -46,6 +47,7 @@ class DeepSeek : AIAgent {
   private var currentAttemptCount = 0
   private val maxRetryAttempts = 3
   private var agents: Agents? = null
+  private var appContext: Context? = null
   private var selectedModel: String = "deepseek-chat"
   override val providerId = "deepseek"
   override val providerName = "DeepSeek"
@@ -93,6 +95,7 @@ class DeepSeek : AIAgent {
   }
 
   override fun setContext(context: Context) {
+    appContext = context
     fileWriter = AIFileWriter(context)
   }
 
@@ -177,7 +180,7 @@ class DeepSeek : AIAgent {
         try {
           val key = apiKey
               ?: return@withContext Result.failure(
-                  IllegalStateException("DeepSeek service not initialized")
+                  IllegalStateException(appContext?.getString(R.string.ai_service_not_initialized, "DeepSeek") ?: "DeepSeek service not initialized")
               )
 
           val fileContents = readRelevantFiles()

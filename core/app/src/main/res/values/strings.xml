@@ -59,6 +59,11 @@
 
   <string name="edit">Edit</string>
 
-
+  <!-- AI Agent strings -->
+  <string name="ai_service_not_initialized">%1$s service not initialized</string>
+  <string name="ai_local_llm_not_configured">Local LLM is not configured. Please set base URL and model name in settings.</string>
+  <string name="ai_local_llm_connection_timeout">Connection timeout. Please check your local server.</string>
+  <string name="ai_local_llm_error">Local LLM error %1$d: %2$s</string>
+  <string name="ai_local_llm_empty_response">Empty response from Local LLM</string>
 
 </resources>
