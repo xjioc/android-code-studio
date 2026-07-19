@@ -43,6 +43,7 @@ import kotlinx.coroutines.withContext
  */
 
 class EmptyActivity : Template {
+  override val englishName: String = "Empty Activity"
   override fun displayName(context: Context) = context.getString(R.string.template_empty_activity)
   override val templateType = Template.TemplateType.ACTIVITY
 

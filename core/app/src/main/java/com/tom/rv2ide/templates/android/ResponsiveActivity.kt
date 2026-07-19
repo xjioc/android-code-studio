@@ -44,6 +44,7 @@ import kotlinx.coroutines.withContext
  */
 
 class ResponsiveActivity : Template {
+  override val englishName: String = "Responsive Activity"
   override fun displayName(context: Context) = context.getString(R.string.template_responsive_activity)
   override val templateType = Template.TemplateType.ACTIVITY
 

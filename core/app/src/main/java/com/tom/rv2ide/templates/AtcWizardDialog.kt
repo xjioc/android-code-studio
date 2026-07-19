@@ -233,9 +233,9 @@ class AtcWizardDialog : BottomSheetDialogFragment() {
 
   private fun proceedToOptionsPage(ctx: Context) {
     binding.root.post {
-      val templateName = "My${selectedTemplate?.displayName(ctx)?.replace(" ", "")}" ?: "MyProject"
+      val templateName = "My${selectedTemplate?.englishName?.replace(" ", "")}" ?: "MyProject"
       val packageSuffix =
-          "my${selectedTemplate?.displayName(ctx)?.replace(" ", ".")?.lowercase()}" ?: "myproject"
+          "my${selectedTemplate?.englishName?.replace(" ", ".")?.lowercase()}" ?: "myproject"
 
       binding.projectNameInput.setText(templateName)
       binding.packageNameInput.setText("com.example.$packageSuffix")
@@ -261,11 +261,11 @@ class AtcWizardDialog : BottomSheetDialogFragment() {
   private fun createProject(ctx: Context) {
     val proj =
         binding.projectNameInput.text?.toString()?.trim().takeUnless { it.isNullOrBlank() }
-            ?: selectedTemplate?.displayName(ctx)?.replace(" ", "")
+            ?: selectedTemplate?.englishName?.replace(" ", "")
             ?: "MyProject"
     val pkg =
         binding.packageNameInput.text?.toString()?.trim().takeUnless { it.isNullOrBlank() }
-            ?: "com.example.${selectedTemplate?.displayName(ctx)?.replace(" ", ".")?.lowercase() ?: "myproject"}"
+            ?: "com.example.${selectedTemplate?.englishName?.replace(" ", ".")?.lowercase() ?: "myproject"}"
 
     var lang =
         if (binding.languageInput.text?.toString()?.lowercase()?.startsWith("java") == true)

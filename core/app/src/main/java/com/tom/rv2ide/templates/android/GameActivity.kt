@@ -44,6 +44,7 @@ import kotlinx.coroutines.withContext
  */
 
 class GameActivity : Template {
+  override val englishName: String = "Game Activity"
   override fun displayName(context: Context) = context.getString(R.string.template_game_activity)
   override val templateType = Template.TemplateType.ACTIVITY
 

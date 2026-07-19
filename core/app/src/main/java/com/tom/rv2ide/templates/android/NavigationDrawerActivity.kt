@@ -44,6 +44,7 @@ import kotlinx.coroutines.withContext
  */
 
 class NavigationDrawerActivity : Template {
+  override val englishName: String = "Navigation Drawer"
   override fun displayName(context: Context) = context.getString(R.string.template_navigation_drawer)
   override val templateType = Template.TemplateType.ACTIVITY
 

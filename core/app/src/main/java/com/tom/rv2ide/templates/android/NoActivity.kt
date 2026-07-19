@@ -41,6 +41,7 @@ import kotlinx.coroutines.withContext
  */
 
 class NoActivity : Template {
+  override val englishName: String = "No Activity"
   override fun displayName(context: Context) = context.getString(R.string.template_no_activity)
   override val templateType = Template.TemplateType.ACTIVITY
 

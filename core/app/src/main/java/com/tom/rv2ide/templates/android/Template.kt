@@ -28,7 +28,12 @@ import java.io.File
  */
 
 interface Template {
+  /** Localized display name for UI. */
   fun displayName(context: Context): String
+
+  /** English name used for project name and package name generation. */
+  val englishName: String
+
   val templateType: TemplateType
 
   /**

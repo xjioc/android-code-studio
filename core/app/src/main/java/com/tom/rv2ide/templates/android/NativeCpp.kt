@@ -44,6 +44,7 @@ import kotlinx.coroutines.withContext
  */
 
 class NativeCpp : Template {
+  override val englishName: String = "Native C++"
   override fun displayName(context: Context) = context.getString(R.string.template_native_cpp)
   override val templateType = Template.TemplateType.ACTIVITY
 

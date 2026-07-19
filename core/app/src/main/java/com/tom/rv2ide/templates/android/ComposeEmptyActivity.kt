@@ -41,6 +41,7 @@ import com.tom.rv2ide.templates.preferences.Options
  */
 
 class ComposeEmptyActivity : Template {
+  override val englishName: String = "Compose Activity"
   override fun displayName(context: Context) = context.getString(R.string.template_compose_activity)
   override val templateType = Template.TemplateType.ACTIVITY
 

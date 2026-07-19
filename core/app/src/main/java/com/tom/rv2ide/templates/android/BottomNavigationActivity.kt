@@ -44,6 +44,7 @@ import kotlinx.coroutines.withContext
  */
 
 class BottomNavigationActivity : Template {
+  override val englishName: String = "Bottom Navigation"
   override fun displayName(context: Context) = context.getString(R.string.template_bottom_navigation)
   override val templateType = Template.TemplateType.ACTIVITY
 

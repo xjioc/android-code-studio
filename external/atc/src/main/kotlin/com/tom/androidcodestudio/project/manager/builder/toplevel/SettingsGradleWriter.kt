@@ -202,6 +202,9 @@ object RepositoryPresets {
   val STANDARD_GROOVY =
       """
           repositories {
+              maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+              maven { url 'https://maven.aliyun.com/repository/google' }
+              maven { url 'https://maven.aliyun.com/repository/central' }
               google()
               mavenCentral()
               gradlePluginPortal()
@@ -213,6 +216,9 @@ object RepositoryPresets {
   val STANDARD_KTS =
       """
           repositories {
+              maven { url = uri("https://maven.aliyun.com/repository/gradle-plugin") }
+              maven { url = uri("https://maven.aliyun.com/repository/google") }
+              maven { url = uri("https://maven.aliyun.com/repository/central") }
               google()
               mavenCentral()
               gradlePluginPortal()
@@ -225,6 +231,8 @@ object RepositoryPresets {
       """
           repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
           repositories {
+              maven { url 'https://maven.aliyun.com/repository/google' }
+              maven { url 'https://maven.aliyun.com/repository/central' }
               google()
               mavenCentral()
           }
@@ -236,6 +244,8 @@ object RepositoryPresets {
       """
           repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
           repositories {
+              maven { url = uri("https://maven.aliyun.com/repository/google") }
+              maven { url = uri("https://maven.aliyun.com/repository/central") }
               google()
               mavenCentral()
           }
