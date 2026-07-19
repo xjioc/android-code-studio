@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Credentials (Optional)"
+        android:text="@string/credentials_optional"
         android:textSize="14sp"
         android:textColor="?android:textColorSecondary"
         android:layout_marginBottom="8dp"/>
@@ -18,7 +18,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Username"
+        android:hint="@string/username"
         style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
         
         <com.google.android.material.textfield.TextInputEditText
@@ -33,7 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:hint="Password/Token"
+        android:hint="@string/password_token"
         app:endIconMode="password_toggle"
         style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
         

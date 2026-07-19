@@ -152,9 +152,9 @@ class RemotesFragment : Fragment() {
         }
         
         MaterialAlertDialogBuilder(requireContext())
-            .setTitle("Add Remote")
+            .setTitle(requireContext().getString(R.string.git_add_remote))
             .setView(dialogView)
-            .setPositiveButton("Add") { _, _ ->
+            .setPositiveButton(requireContext().getString(R.string.add)) { _, _ ->
                 val name = editTextName.text.toString().trim()
                 val url = editTextUrl.text.toString().trim()
                 
@@ -164,10 +164,10 @@ class RemotesFragment : Fragment() {
                     showErrorDialog("Invalid Input", "Name and URL cannot be empty")
                 }
             }
-            .setNegativeButton("Cancel", null)
+            .setNegativeButton(requireContext().getString(R.string.cancel), null)
             .show()
     }
-    
+
     private fun showPushDialog() {
         val remotesList = adapter.currentList
         if (remotesList.isEmpty()) {
@@ -184,10 +184,10 @@ class RemotesFragment : Fragment() {
         prefsManager.getPassword()?.let { editTextPassword.setText(it) }
         
         MaterialAlertDialogBuilder(requireContext())
-            .setTitle("Push to Remote")
-            .setMessage("Push your commits to ${remotesList[0].name}")
+            .setTitle(requireContext().getString(R.string.git_push_to_remote))
+            .setMessage(requireContext().getString(R.string.git_push_message, remotesList[0].name))
             .setView(dialogView)
-            .setPositiveButton("Push") { _, _ ->
+            .setPositiveButton(requireContext().getString(R.string.push)) { _, _ ->
                 val username = editTextUsername.text.toString().takeIf { it.isNotBlank() }
                 val password = editTextPassword.text.toString().takeIf { it.isNotBlank() }
                 
@@ -202,13 +202,13 @@ class RemotesFragment : Fragment() {
                     password = password
                 )
             }
-            .setNegativeButton("Cancel", null)
-            .setNeutralButton("Without credentials") { _, _ ->
+            .setNegativeButton(requireContext().getString(R.string.cancel), null)
+            .setNeutralButton(requireContext().getString(R.string.without_credentials)) { _, _ ->
                 viewModel.push(remoteName = remotesList[0].name)
             }
             .show()
     }
-    
+
     private fun showPullDialog() {
         val remotesList = adapter.currentList
         if (remotesList.isEmpty()) {
@@ -224,10 +224,10 @@ class RemotesFragment : Fragment() {
         prefsManager.getPassword()?.let { editTextPassword.setText(it) }
         
         MaterialAlertDialogBuilder(requireContext())
-            .setTitle("Pull from Remote")
-            .setMessage("Pull changes from ${remotesList[0].name}")
+            .setTitle(requireContext().getString(R.string.git_pull_from_remote))
+            .setMessage(requireContext().getString(R.string.git_pull_message, remotesList[0].name))
             .setView(dialogView)
-            .setPositiveButton("Pull") { _, _ ->
+            .setPositiveButton(requireContext().getString(R.string.pull)) { _, _ ->
                 val username = editTextUsername.text.toString().takeIf { it.isNotBlank() }
                 val password = editTextPassword.text.toString().takeIf { it.isNotBlank() }
                 
@@ -242,13 +242,13 @@ class RemotesFragment : Fragment() {
                     password = password
                 )
             }
-            .setNegativeButton("Cancel", null)
-            .setNeutralButton("Without credentials") { _, _ ->
+            .setNegativeButton(requireContext().getString(R.string.cancel), null)
+            .setNeutralButton(requireContext().getString(R.string.without_credentials)) { _, _ ->
                 viewModel.pull(remoteName = remotesList[0].name)
             }
             .show()
     }
-    
+
     private fun showFetchDialog() {
         val remotesList = adapter.currentList
         if (remotesList.isEmpty()) {
@@ -265,10 +265,10 @@ class RemotesFragment : Fragment() {
         prefsManager.getPassword()?.let { editTextPassword.setText(it) }
         
         MaterialAlertDialogBuilder(requireContext())
-            .setTitle("Fetch from Remote")
-            .setMessage("Fetch changes from ${remotesList[0].name}")
+            .setTitle(requireContext().getString(R.string.git_fetch_from_remote))
+            .setMessage(requireContext().getString(R.string.git_fetch_message, remotesList[0].name))
             .setView(dialogView)
-            .setPositiveButton("Fetch") { _, _ ->
+            .setPositiveButton(requireContext().getString(R.string.fetch)) { _, _ ->
                 val username = editTextUsername.text.toString().takeIf { it.isNotBlank() }
                 val password = editTextPassword.text.toString().takeIf { it.isNotBlank() }
                 
@@ -283,8 +283,8 @@ class RemotesFragment : Fragment() {
                     password = password
                 )
             }
-            .setNegativeButton("Cancel", null)
-            .setNeutralButton("Without credentials") { _, _ ->
+            .setNegativeButton(requireContext().getString(R.string.cancel), null)
+            .setNeutralButton(requireContext().getString(R.string.without_credentials)) { _, _ ->
                 viewModel.fetch(remoteName = remotesList[0].name)
             }
             .show()
@@ -292,15 +292,15 @@ class RemotesFragment : Fragment() {
 
     private fun showRemoveRemoteConfirmation(remoteName: String) {
         MaterialAlertDialogBuilder(requireContext())
-            .setTitle("Remove Remote")
-            .setMessage("Are you sure you want to remove remote '$remoteName'?")
-            .setPositiveButton("Remove") { _, _ ->
+            .setTitle(requireContext().getString(R.string.git_remove_remote))
+            .setMessage(requireContext().getString(R.string.git_remove_remote_message, remoteName))
+            .setPositiveButton(requireContext().getString(R.string.remove)) { _, _ ->
                 viewModel.removeRemote(remoteName)
             }
-            .setNegativeButton("Cancel", null)
+            .setNegativeButton(requireContext().getString(R.string.cancel), null)
             .show()
     }
-    
+
     override fun onDestroyView() {
         super.onDestroyView()
         progressDialog.dismiss()

@@ -17,6 +17,7 @@
 
 package com.tom.rv2ide.handlers
 
+import com.tom.rv2ide.R
 import android.content.Context
 import androidx.core.view.GravityCompat
 import com.tom.rv2ide.actions.ActionData
@@ -81,7 +82,7 @@ class FileTreeActionHandler : BaseEventHandler() {
     }
 
     if (MB_10 < event.file.length()) {
-      flashError("File is too big!")
+      flashError(context.getString(R.string.file_too_big))
       log.warn(
           "Cannot open {} as it is too big. File size: {} bytes",
           event.file,

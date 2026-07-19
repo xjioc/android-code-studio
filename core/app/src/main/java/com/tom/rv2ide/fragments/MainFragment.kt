@@ -84,15 +84,15 @@ class MainFragment : BaseFragment() {
     // Common git clone options
     private val COMMON_GIT_OPTIONS =
         listOf(
-            GitOption("--depth 1", "Shallow clone (faster)"),
-            GitOption("--single-branch", "Clone single branch only"),
-            GitOption("--recursive", "Clone with submodules"),
-            GitOption("--no-tags", "Don't fetch tags"),
-            GitOption("--bare", "Create bare repository"),
+            GitOption("--depth 1", R.string.git_clone_shallow),
+            GitOption("--single-branch", R.string.git_clone_single_branch),
+            GitOption("--recursive", R.string.git_clone_submodules),
+            GitOption("--no-tags", R.string.git_clone_no_tags),
+            GitOption("--bare", R.string.git_clone_bare),
         )
   }
 
-  data class GitOption(val flag: String, val description: String)
+  data class GitOption(val flag: String, val descriptionRes: Int)
 
   override fun onCreateView(
       inflater: LayoutInflater,
@@ -284,7 +284,7 @@ class MainFragment : BaseFragment() {
   }
 
   private fun showProjectOptionsDialog(project: File, onActionComplete: () -> Unit) {
-    val options = arrayOf("Backup project", "Delete project", "Rename")
+    val options = arrayOf(getString(R.string.git_backup_project), getString(R.string.git_delete_project), getString(R.string.rename))
 
     val builder = DialogUtils.newMaterialDialogBuilder(requireContext())
     builder.setTitle(project.name)
@@ -444,11 +444,11 @@ class MainFragment : BaseFragment() {
     val binding = LayoutDialogProgressBinding.inflate(layoutInflater)
 
     binding.message.visibility = View.VISIBLE
-    binding.message.text = "Backing up project..."
+    binding.message.text = getString(R.string.git_backing_up)
     binding.progress.isIndeterminate = true
 
-    builder.setTitle("Backup in Progress")
-    builder.setMessage("Creating backup of ${project.name}")
+    builder.setTitle(getString(R.string.backup_in_progress))
+    builder.setMessage(getString(R.string.backup_creating, project.name))
     builder.setView(binding.root)
     builder.setCancelable(false)
 
@@ -483,11 +483,11 @@ class MainFragment : BaseFragment() {
           dialog.dismiss()
 
           val successBuilder = DialogUtils.newMaterialDialogBuilder(requireContext())
-          successBuilder.setTitle("Backup Completed")
+          successBuilder.setTitle(getString(R.string.backup_completed))
           successBuilder.setMessage(
               "Project backed up successfully!\n\nLocation:\n${backupFile.absolutePath}"
           )
-          successBuilder.setPositiveButton("OK") { d, _ ->
+          successBuilder.setPositiveButton(getString(R.string.ok)) { d, _ ->
             d.dismiss()
             onComplete()
           }
@@ -499,9 +499,9 @@ class MainFragment : BaseFragment() {
           dialog.dismiss()
 
           val errorBuilder = DialogUtils.newMaterialDialogBuilder(requireContext())
-          errorBuilder.setTitle("Backup Failed")
-          errorBuilder.setMessage("Failed to backup project: ${e.localizedMessage}")
-          errorBuilder.setPositiveButton("OK", null)
+          errorBuilder.setTitle(getString(R.string.backup_failed))
+          errorBuilder.setMessage(getString(R.string.backup_failed_message, e.localizedMessage))
+          errorBuilder.setPositiveButton(getString(R.string.ok), null)
           errorBuilder.show()
         }
       }
@@ -527,11 +527,11 @@ class MainFragment : BaseFragment() {
     val binding = LayoutDialogProgressBinding.inflate(layoutInflater)
 
     binding.message.visibility = View.VISIBLE
-    binding.message.text = "Deleting project..."
+    binding.message.text = getString(R.string.git_deleting_project)
     binding.progress.isIndeterminate = true
 
-    builder.setTitle("Delete in Progress")
-    builder.setMessage("Deleting ${project.name}")
+    builder.setTitle(getString(R.string.delete_in_progress))
+    builder.setMessage(getString(R.string.deleting, project.name))
     builder.setView(binding.root)
     builder.setCancelable(false)
 
@@ -602,7 +602,7 @@ class MainFragment : BaseFragment() {
 
     COMMON_GIT_OPTIONS.forEach { option ->
       val chip = Chip(requireContext())
-      chip.text = option.description
+      chip.text = getString(option.descriptionRes)
       chip.isCheckable = true
       chip.isCheckedIconVisible = true
       chip.tag = option.flag

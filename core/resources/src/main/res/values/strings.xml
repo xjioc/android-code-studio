@@ -200,6 +200,27 @@
   <string name="ai_local_llm_empty_response">Empty response from Local LLM</string>
 
   <string name="no_acs_title">ACS Components Missing</string>
+
+  <!-- General buttons / 通用按钮 -->
+  <string name="ok">OK</string>
+  <string name="apply">Apply</string>
+  <string name="close">Close</string>
+  <string name="clear">Clear</string>
+  <string name="retry">Retry</string>
+  <string name="discard">Discard</string>
+  <string name="push">Push</string>
+  <string name="pull">Pull</string>
+  <string name="fetch">Fetch</string>
+  <string name="remove">Remove</string>
+  <string name="add">Add</string>
+  <string name="import_">Import</string>
+  <string name="generate">Generate</string>
+  <string name="edit">Edit</string>
+  <string name="init_">Initialize</string>
+  <string name="clone">Clone</string>
+  <string name="refresh">Refresh</string>
+  <string name="loading">Loading…</string>
+  <string name="without_credentials">Without credentials</string>
   <string name="no_acs_summary">This application appears to be incomplete or unofficial, as it is missing the required ACS build system. For full functionality, please install the official Android Code Studio from a trusted source.</string>
 
   <string name="no_internet">No internet connection</string>
@@ -1155,4 +1176,489 @@ This AI agent is designed to assist you in developing Android applications direc
   <string name="lsp_ok_button">OK</string>
   <string name="lsp_installation_failed_description">Failed to install update: %s</string>
   <string name="lsp_retry_button">Retry</string>
+
+  <!-- Git strings / Git 相关 -->
+  <string name="git_settings_title">Git User Configuration</string>
+  <string name="git_name_label">Name:</string>
+  <string name="git_user_label">User</string>
+  <string name="git_email_label">Email:</string>
+  <string name="git_edit_user_config">Edit User Config</string>
+  <string name="git_credentials">Credentials</string>
+  <string name="git_remember_credentials">Remember credentials</string>
+  <string name="git_remember_credentials_summary">Save username and password for push/pull</string>
+  <string name="git_status_label">Status:</string>
+  <string name="git_not_saved">Not saved</string>
+  <string name="git_saved">Saved</string>
+  <string name="git_clear_credentials">Clear Saved Credentials</string>
+  <string name="git_clear_credentials_title">Clear Credentials</string>
+  <string name="git_clear_credentials_message">Are you sure you want to clear saved credentials?</string>
+  <string name="git_user_config_title">Git User Config</string>
+  <string name="git_commit_changes">Commit Changes</string>
+  <string name="git_commit">Commit</string>
+  <string name="git_discard_changes">Discard Changes</string>
+  <string name="git_discard_changes_message">Are you sure you want to discard changes in %1$s? This cannot be undone.</string>
+  <string name="git_create_branch">Create New Branch</string>
+  <string name="git_delete_branch">Delete Branch</string>
+  <string name="git_delete_branch_message">Are you sure you want to delete branch \'%1$s\'?</string>
+  <string name="git_add_remote">Add Remote</string>
+  <string name="git_push_to_remote">Push to Remote</string>
+  <string name="git_push_message">Push your commits to %1$s</string>
+  <string name="git_pull_from_remote">Pull from Remote</string>
+  <string name="git_pull_message">Pull changes from %1$s</string>
+  <string name="git_fetch_from_remote">Fetch from Remote</string>
+  <string name="git_fetch_message">Fetch changes from %1$s</string>
+  <string name="git_remove_remote">Remove Remote</string>
+  <string name="git_remove_remote_message">Are you sure you want to remove remote \'%1$s\'?</string>
+  <string name="git_init_repo">Initialize Repository</string>
+  <string name="git_init_repo_page">Initialize Repository</string>
+  <string name="git_clone_repo_page">Clone Repository</string>
+  <string name="git_open_repo_page">Open Existing Repository</string>
+  <string name="no_terminal_session">No Terminal Session</string>
+  <string name="create_first_terminal">Create your first terminal session</string>
+  <string name="initialize_terminal">Initialize Terminal</string>
+  <string name="more_options">More options</string>
+  <string name="update">Update</string>
+  <string name="git_init_repo_message">Initialize a new Git repository at:\n%1$s\n\nChoose initial branch name:</string>
+  <string name="git_clone_repo_message">Clone to: %1$s</string>
+  <string name="git_no_repo">No Repository Found</string>
+  <string name="git_no_repo_summary">Initialize a new repository, clone an existing one, or open an existing repository</string>
+  <string name="git_remote_operations">Remote Operations</string>
+  <string name="git_no_remotes">No remotes configured\nAdd a remote to push/pull changes</string>
+  <string name="git_commit_history">Commit History</string>
+  <string name="git_no_commits">No commits yet</string>
+  <string name="git_current_branch">Current: %1$s</string>
+
+  <!-- Editor operations / 编辑器操作 -->
+  <string name="editor_uppercase">Convert to uppercase</string>
+  <string name="editor_lowercase">Convert to lowercase</string>
+  <string name="editor_delete_line">Delete line</string>
+  <string name="editor_duplicate_line">Duplicate line</string>
+  <string name="editor_copy_line">Copy line</string>
+  <string name="editor_comment_line">Comment line</string>
+  <string name="editor_move_up">Move line up</string>
+  <string name="editor_move_down">Move line down</string>
+  <string name="editor_insert_above">Insert line above</string>
+  <string name="editor_insert_below">Insert line below</string>
+  <string name="editor_select_line">Select line</string>
+  <string name="editor_trim_whitespace">Trim trailing whitespace</string>
+  <string name="editor_indent_line">Indent line</string>
+  <string name="editor_unindent_line">Unindent line</string>
+  <string name="editor_join_lines">Join lines</string>
+  <string name="editor_clear_all">Clear all</string>
+  <string name="editor_confirm_clear">Are you sure you want to clear all text? This action cannot be undone.</string>
+  <string name="editor_cleared">Editor cleared</string>
+  <string name="editor_auto_saved">Auto-saved: %1$s</string>
+  <string name="editor_installation_succeeded">Installation succeeded</string>
+  <string name="editor_select_module">Select Module</string>
+  <string name="editor_font_default">JetBrains Mono (Default)</string>
+
+  <!-- File modification / 文件修改 -->
+  <string name="file_modifying">Modifying…</string>
+  <string name="file_modified_success">Modified successfully</string>
+  <string name="file_modified_fail">Failed to modify</string>
+  <string name="file_status_modified">Modified</string>
+  <string name="file_attempt">Attempt #%1$d</string>
+  <string name="file_attempt_success">Success</string>
+  <string name="file_attempt_failed">Failed</string>
+
+  <!-- String extraction / 字符串提取 -->
+  <string name="string_extract_from">Extract String from %1$s?</string>
+  <string name="string_translatable">Translatable</string>
+  <string name="string_skip">Skip</string>
+  <string name="string_extract">Extract</string>
+
+  <!-- File Management / 文件管理 -->
+  <string name="file_no_match_filters">No files match the filters</string>
+  <string name="file_click">Clicked on file: %1$s</string>
+  <string name="file_copy_to">Copy to</string>
+  <string name="file_move_to">Move to</string>
+  <string name="file_copy_path">Copy full path</string>
+  <string name="file_name_empty">Name cannot be empty</string>
+  <string name="file_already_exists">A file with this name already exists</string>
+  <string name="file_renamed">Renamed successfully</string>
+  <string name="file_rename_fail">Failed to rename</string>
+  <string name="file_path_copied">Path copied to clipboard</string>
+  <string name="file_delete_confirm_file">Are you sure you want to delete this file?</string>
+  <string name="file_delete_confirm_folder">Are you sure you want to delete this folder and all its contents?</string>
+  <string name="file_deleted">Deleted successfully</string>
+  <string name="file_delete_fail">Failed to delete</string>
+  <string name="file_cannot_access_folder">Cannot access this folder</string>
+  <string name="file_source_not_exist">Source file doesn\'t exist</string>
+  <string name="file_dest_already_exists">File already exists in destination</string>
+  <string name="file_same_source_dest">Source and destination are the same</string>
+  <string name="file_cannot_move_into_self">Cannot move a folder into itself</string>
+  <string name="file_moving">Moving %1$s to %2$s</string>
+  <string name="file_moved">File moved successfully!</string>
+  <string name="file_move_fail">Failed to move: %1$s</string>
+  <string name="file_copying">Copying %1$s to %2$s</string>
+  <string name="file_copied">File copied successfully!</string>
+  <string name="file_copy_fail">Failed to copy: %1$s</string>
+  <string name="file_dir_not_exist">Directory doesn\'t exist: %1$s</string>
+  <string name="file_cannot_read_dir">Cannot read directory: %1$s</string>
+
+  <!-- NDK / CMake / NDK / CMake -->
+  <string name="ndk_cmake_not_installed">Not installed</string>
+  <string name="ndk_cmake_no_versions">No versions available</string>
+  <string name="ndk_cmake_select_version">Please select a version from the dropdown first</string>
+  <string name="ndk_cmake_remove_confirm">Are you sure you want to remove %1$s version %2$s?</string>
+  <string name="ndk_cmake_remove_success">%1$s %2$s removed</string>
+  <string name="ndk_cmake_remove_fail">Failed to remove %1$s %2$s</string>
+  <string name="ndk_cmake_no_versions_to_remove">No versions found to remove</string>
+  <string name="ndk_cmake_unsupported_arch">Unsupported architecture: %1$s</string>
+  <string name="ndk_cmake_package_filename_fail">Failed to get package filename: %1$s</string>
+  <string name="ndk_cmake_empty_filename">Empty filename received from manifest</string>
+  <string name="ndk_cmake_download_success">Successfully downloaded</string>
+  <string name="ndk_cmake_install_success">Installation completed successfully!</string>
+
+  <!-- Color picker / 颜色选择器 -->
+  <string name="color_dynamic">Dynamic Color</string>
+  <string name="color_hex_hint">Hex Color</string>
+  <string name="color_alpha">Alpha</string>
+  <string name="color_red">Red</string>
+  <string name="color_green">Green</string>
+  <string name="color_blue">Blue</string>
+
+  <!-- Review Changes / 审查变更 -->
+  <string name="review_changes">Review Changes</string>
+  <string name="review_summary">Summary</string>
+  <string name="review_files_to_modify">Files to be Modified</string>
+  <string name="review_code_preview">Code Preview</string>
+  <string name="review_apply">Apply Changes</string>
+
+  <!-- Build variants / 构建变体 -->
+  <string name="build_variant_hint">Build Variant</string>
+  <string name="compile_sdk_hint">Compile SDK</string>
+
+  <!-- Material Icons / Material 图标 -->
+  <string name="material_icons_web_title">Material Icons</string>
+  <string name="m3icons_search_hint">Search icons…</string>
+
+  <!-- Asset Studio / 素材工作室 -->
+  <string name="asset_studio_title">Asset Studio</string>
+  <string name="asset_icon_name_hint">Icon Name</string>
+  <string name="asset_icon_description">File icon</string>
+
+  <!-- Log Viewer / 日志查看器 -->
+  <string name="log_search_hint">Search logs</string>
+
+  <!-- Dependency Updater / 依赖更新 -->
+  <string name="dep_update_available">Update available: %1$s</string>
+  <string name="dep_up_to_date">Up to date</string>
+  <string name="dep_not_found">Not found in repositories</string>
+  <string name="dep_update_warning">Warning</string>
+  <string name="dep_update_confirm_single">You are about to update:\n\n%1$s\nDo you want to proceed?</string>
+  <string name="dep_update_confirm_multi">You are about to update %1$d dependencies. Do you want to continue with all updates?</string>
+  <string name="dep_update_confirm_btn">Confirm Update</string>
+  <string name="dep_update_complete">Update Complete</string>
+  <string name="dep_update_success">Successfully updated: %1$s</string>
+  <string name="dep_update_fail">Failed to update: %1$s</string>
+  <string name="dep_update_multi_fail">Failed to update dependencies: %1$s</string>
+  <string name="dep_error">Error</string>
+
+  <!-- Template display names / 模板显示名称 -->
+  <string name="template_native_cpp">Native C++</string>
+  <string name="template_empty_activity">Empty Activity</string>
+  <string name="template_responsive_activity">Responsive activity</string>
+  <string name="template_bottom_navigation">Bottom Navigation</string>
+  <string name="template_compose_activity">Compose Activity</string>
+  <string name="template_basic_activity">Basic Activity</string>
+  <string name="template_game_activity">Game Activity</string>
+
+  <!-- Other misc / 其他 -->
+  <string name="select_destination">Select Destination</string>
+  <string name="review_changes_title">Review Changes</string>
+  <string name="agent_settings">Agent settings</string>
+  <string name="ide_configurations">IDE Configurations</string>
+
+  <!-- Chat navigation menu / 聊天导航菜单 -->
+  <string name="nav_chat">Chat</string>
+  <string name="nav_settings">Settings</string>
+
+  <!-- Terminal navigation menu / 终端导航菜单 -->
+  <string name="nav_hide">Hide</string>
+  <string name="nav_terminal">Terminal</string>
+  <string name="nav_new_session">New Session</string>
+
+  <!-- Git navigation rail / Git 导航栏 -->
+  <string name="nav_changes">Changes</string>
+
+  <!-- File browser menu / 文件浏览器菜单 -->
+  <string name="menu_search">Search</string>
+  <string name="menu_filter">Filter</string>
+  <string name="menu_show_all">Show All</string>
+  <string name="menu_folders_only">Folders Only</string>
+  <string name="menu_files_only">Files Only</string>
+  <string name="menu_filter_by_ext">Filter by Extension</string>
+  <string name="menu_all_files">All Files</string>
+  <string name="menu_xml_files">XML Files (.xml)</string>
+  <string name="menu_text_files">Text Files (.txt)</string>
+  <string name="menu_pdf_files">PDF Files (.pdf)</string>
+  <string name="menu_images">Images (.jpg, .png, .gif)</string>
+  <string name="menu_videos">Videos (.mp4, .mkv, .avi)</string>
+  <string name="menu_audio">Audio (.mp3, .wav, .m4a)</string>
+  <string name="menu_apk_files">APK Files (.apk)</string>
+  <string name="menu_archives">Archives (.zip, .rar, .7z)</string>
+  <string name="menu_custom_ext">Custom Extension…</string>
+
+  <!-- AI sidebar / AI 侧边栏 -->
+  <string name="ai_undo_done">Last modification undone</string>
+  <string name="ai_undo_none">Nothing to undo</string>
+  <string name="git_new_branch">New Branch</string>
+
+  <!-- Backup / 备份 -->
+  <string name="backup_in_progress">Backup in Progress</string>
+  <string name="backup_creating">Creating backup of %1$s</string>
+  <string name="backup_completed">Backup Completed</string>
+  <string name="backup_failed">Backup Failed</string>
+  <string name="backup_failed_message">Failed to backup project: %1$s</string>
+  <string name="delete_in_progress">Delete in Progress</string>
+  <string name="deleting">Deleting %1$s</string>
+
+  <!-- Terminal / 终端 -->
+  <string name="terminal_appearance">Appearance</string>
+  <string name="terminal_text_size">Text Size</string>
+  <string name="terminal_hide_extra_keys">Hide extra keys toolbar</string>
+
+  <!-- File browser / 文件浏览器 -->
+  <string name="enter_custom_extension">Enter Custom Extension</string>
+  <string name="enter_extension_hint">Enter file extension without the dot</string>
+  <string name="file_rename">Rename</string>
+  <string name="file_rename_message">Enter new name for %1$s</string>
+  <string name="file_delete_format">Delete %1$s</string>
+  <string name="file_too_big">File is too big!</string>
+
+  <!-- Dialog labels / 对话框标签 -->
+  <string name="commit_message">Commit message</string>
+  <string name="credentials_optional">Credentials (Optional)</string>
+  <string name="username">Username</string>
+  <string name="password">Password</string>
+  <string name="password_token">Password/Token</string>
+  <string name="user_name">User Name</string>
+  <string name="user_email">User Email</string>
+  <string name="repository_url">Repository URL</string>
+  <string name="remote_name_hint">Remote name (e.g., origin)</string>
+  <string name="remote_url">Remote URL</string>
+  <string name="branch_name">Branch name</string>
+  <string name="destination">Destination</string>
+  <string name="version_name">Version Name</string>
+  <string name="version_code">Version Code</string>
+  <string name="min_sdk">Min SDK</string>
+  <string name="target_sdk">Target SDK</string>
+  <string name="edit_icon">Edit Icon</string>
+  <string name="color_label">Color</string>
+  <string name="change">Change</string>
+  <string name="save_and_copy">Save &amp; Copy</string>
+  <string name="current_color">Current Color</string>
+  <string name="color_presets">Color Presets</string>
+  <string name="update_dependency">Update Dependency</string>
+  <string name="import_vector_xml">Import Vector XML</string>
+  <string name="material_icons">Material Icons</string>
+  <string name="save_to">Save to</string>
+  <string name="select_module">Select Module</string>
+  <string name="select_ndk_version">Select NDK Version</string>
+  <string name="select_cmake_version">Select CMake Version</string>
+  <string name="ndk_not_found">NDK Not Found</string>
+  <string name="remove_ndk">Remove NDK</string>
+  <string name="remove_ndk_message">Are you sure you want to remove NDK version %1$s?</string>
+  <string name="remove_cmake">Remove CMake</string>
+  <string name="remove_cmake_message">Are you sure you want to remove CMake version %1$s?</string>
+  <string name="project_setup_failed">Project Setup Failed</string>
+  <string name="view_error">View Error</string>
+  <string name="full_error_details">Full Error Details</string>
+  <string name="copy_again">Copy Again</string>
+  <string name="loading_versions">Loading versions…</string>
+  <string name="no_versions_available">No versions available</string>
+  <string name="failed_to_load">Failed to load</string>
+  <string name="failed_to_fetch_versions">Failed to fetch versions: %1$s</string>
+  <string name="error_loading">Error loading</string>
+  <string name="error_fetching_versions">Error fetching versions: %1$s</string>
+  <string name="request_timed_out">Request timed out</string>
+  <string name="error_occurred">An error occurred: %1$s</string>
+  <string name="unsupported_architecture">Unsupported architecture: %1$s</string>
+  <string name="no_ndk_versions">No NDK versions found in the repository</string>
+  <string name="no_cmake_versions">No CMake versions found in the repository</string>
+
+  <!-- Toast messages / Toast 提示 -->
+  <string name="copied_to_clipboard">Copied to clipboard</string>
+  <string name="trailing_whitespace_removed">Trailing whitespace removed</string>
+  <string name="permission_denied_read">Permission denied to read storage</string>
+  <string name="permission_denied_manage">Permission denied to manage storage</string>
+  <string name="unable_to_start_activity">Unable to start activity</string>
+  <string name="permission_denied">Permission denied</string>
+  <string name="selected_build_variant_not_found">Selected build variant not found</string>
+  <string name="cannot_run_application">Cannot run application. Unable to determine package name.</string>
+  <string name="install_failure">Install failure: %1$s</string>
+  <string name="invalid_ndk">Invalid NDK: %1$s</string>
+  <string name="ndk_version_selected">NDK %1$s selected</string>
+  <string name="invalid_cmake">Invalid CMake: %1$s</string>
+  <string name="cmake_selected">CMake %1$s selected</string>
+  <string name="please_select_ndk">Please select ndk version from the dropdown first</string>
+  <string name="failed_get_package_filename">Failed to get package filename: %1$s</string>
+  <string name="empty_filename_from_manifest">Empty filename received from manifest</string>
+  <string name="installation_failed">Installation failed: %1$s</string>
+  <string name="download_failed">Download failed: %1$s</string>
+  <string name="failed_get_package_info">Failed to get package info: %1$s</string>
+  <string name="please_select_cmake">Please select a CMake version from the dropdown first</string>
+
+  <!-- Asset Studio Toasts / 素材工作室 -->
+  <string name="icon_imported">Icon imported from Material Icons</string>
+  <string name="failed_load_vector">Failed to load vector from selection</string>
+  <string name="error_loading_image">Error loading image: %1$s</string>
+  <string name="failed_read_xml">Failed to read XML content</string>
+  <string name="error_loading_xml">Error loading XML: %1$s</string>
+  <string name="xml_preview_updated">XML Preview updated</string>
+  <string name="image_preview_updated">Image Preview updated</string>
+  <string name="select_image_or_xml">Please select an image or XML file first</string>
+  <string name="vector_imported">Vector imported</string>
+  <string name="failed_parse_vector">Failed to parse vector XML</string>
+  <string name="no_project_opened">No project opened</string>
+  <string name="generated_icons">Generated %1$d icons in %2$s</string>
+  <string name="error_generating_icons">Error generating icons: %1$s</string>
+  <string name="copy_to">Copy to</string>
+  <string name="select_color">Select Color</string>
+  <string name="what_would_you_like">What would you like me to do?</string>
+  <string name="m3_icons">M3 Icons</string>
+  <string name="no_recent_assets">No recent assets</string>
+
+  <!-- Preferences Toasts / 设置提示 -->
+  <string name="font_copied_success">Font copied successfully: %1$s</string>
+  <string name="error_copying_font">Error copying font: %1$s</string>
+  <string name="using_default_font">Using default font</string>
+  <string name="font_selected">Font selected: %1$s</string>
+  <string name="error_opening_file_picker">Error opening file picker: %1$s</string>
+  <string name="restarting">Restarting…</string>
+
+  <!-- Template Toasts / 模板提示 -->
+  <string name="creating_native_cpp">Creating native c++…</string>
+  <string name="creating_empty_activity">Creating Empty Activity…</string>
+  <string name="creating_responsive_activity">Creating Responsive Activity…</string>
+  <string name="creating_no_activity">Creating no Activity…</string>
+  <string name="creating_bottom_nav_activity">Creating Bottom Navigation Activity…</string>
+  <string name="creating_compose_empty_activity">Creating Compose Empty Activity…</string>
+  <string name="creating_basic_activity">Creating Basic Activity…</string>
+  <string name="creating_nav_drawer_activity">Creating Navigation drawer Activity…</string>
+
+  <!-- Other / 其他 -->
+  <string name="import_project">import project</string>
+  <string name="git_nav">Git</string>
+
+  <!-- AI Assistant / AI 助手 -->
+  <string name="ai_tab_chat">Chat</string>
+  <string name="ai_tab_history">History</string>
+  <string name="ai_send">Send</string>
+  <string name="ai_status">Status</string>
+  <string name="ai_ready_to_assist">Ready to assist you</string>
+  <string name="ai_modification_summary">Modification Summary</string>
+  <string name="ai_modifying">Modifying…</string>
+  <string name="ai_ask_hint">Ask AI anything…</string>
+  <string name="ai_enter_request">Please enter a request</string>
+  <string name="ai_project_loaded">Project loaded successfully</string>
+  <string name="ai_project_load_failed">Failed to load project</string>
+  <string name="ai_error_loading_project">Error loading project: %1$s</string>
+  <string name="ai_project_path_not_set">Project path not set</string>
+  <string name="ai_file_not_found">File not found: %1$s</string>
+  <string name="ai_opened">Opened: %1$s</string>
+  <string name="ai_error_opening_file">Error opening file: %1$s</string>
+  <string name="ai_conversation_cleared_ready">Conversation cleared. Ready for new request.</string>
+  <string name="ai_conversation_cleared">Conversation cleared</string>
+  <string name="ai_error_clearing">Error clearing: %1$s</string>
+  <string name="ai_copy">Copy</string>
+  <string name="ai_code_copied">Code copied to clipboard</string>
+  <string name="ai_switched_to">Switched to %1$s</string>
+  <string name="ai_no_valid_api_key">No valid API key for %1$s</string>
+  <string name="ai_model_switched_to">Model switched to: %1$s</string>
+  <string name="ai_modified_successfully">Modified successfully</string>
+
+  <!-- Git ViewModel messages / Git ViewModel 状态消息 -->
+  <string name="git_user_config_updated">User config updated</string>
+  <string name="git_user_config_update_failed">Failed to update user config</string>
+  <string name="git_remote_added">Remote added successfully</string>
+  <string name="git_remote_add_failed">Failed to add remote</string>
+  <string name="git_remote_removed">Remote removed</string>
+  <string name="git_remote_remove_failed">Failed to remove remote</string>
+  <string name="git_staging_file">Staging file…</string>
+  <string name="git_file_staged">File staged</string>
+  <string name="git_file_staging_failed">Failed to stage file</string>
+  <string name="git_staging_all">Staging all files…</string>
+  <string name="git_all_files_staged">All files staged</string>
+  <string name="git_staging_all_failed">Failed to stage files</string>
+  <string name="git_unstaging_file">Unstaging file…</string>
+  <string name="git_file_unstaged">File unstaged</string>
+  <string name="git_file_unstaging_failed">Failed to unstage file</string>
+  <string name="git_fetching">Fetching from remote…</string>
+  <string name="git_discarding_changes">Discarding changes…</string>
+  <string name="git_changes_discarded">Changes discarded</string>
+  <string name="git_discard_failed">Failed to discard changes</string>
+  <string name="git_creating_branch">Creating branch…</string>
+  <string name="git_branch_created">Branch created</string>
+  <string name="git_branch_create_failed">Failed to create branch</string>
+  <string name="git_switching_branch">Switching branch…</string>
+  <string name="git_switched_to">Switched to %1$s</string>
+  <string name="git_checkout_failed">Failed to checkout branch</string>
+  <string name="git_deleting_branch">Deleting branch…</string>
+  <string name="git_branch_deleted">Branch deleted</string>
+  <string name="git_branch_delete_failed">Failed to delete branch</string>
+  <string name="git_committing">Committing changes…</string>
+  <string name="git_changes_committed">Changes committed</string>
+  <string name="git_commit_failed">Failed to commit</string>
+  <string name="git_pushing">Pushing to remote…</string>
+  <string name="git_pulling">Pulling from remote…</string>
+  <string name="git_cloning">Cloning repository…</string>
+  <string name="git_initializing">Initializing repository…</string>
+  <string name="git_opening">Opening repository…</string>
+
+  <!-- Git Fragment messages / Git Fragment 消息 -->
+  <string name="git_clone_single_branch">Clone single branch only</string>
+  <string name="git_clone_shallow">Shallow clone (faster)</string>
+  <string name="git_clone_submodules">Clone with submodules</string>
+  <string name="git_clone_no_tags">Don\'t fetch tags</string>
+  <string name="git_clone_bare">Create bare repository</string>
+  <string name="git_backup_project">Backup project</string>
+  <string name="git_delete_project">Delete project</string>
+  <string name="git_rename">Rename</string>
+  <string name="git_backing_up">Backing up project…</string>
+  <string name="git_deleting_project">Deleting project…</string>
+  <string name="git_branch_name_empty">Branch name cannot be empty</string>
+  <string name="git_cannot_delete_current">Cannot delete current branch</string>
+  <string name="git_commit_empty">Commit message cannot be empty</string>
+  <string name="git_credentials_cleared">Credentials cleared</string>
+  <string name="git_name_email_empty">Name and email cannot be empty</string>
+  <string name="git_init_failed">Failed to initialize repository</string>
+  <string name="git_url_empty">URL cannot be empty</string>
+
+  <!-- Git UI / Git 界面 -->
+  <string name="git_stage_all">Stage All</string>
+  <string name="git_no_changes">No changes detected</string>
+  <string name="git_stage">Stage</string>
+  <string name="git_unstage">Unstage</string>
+  <string name="git_checkout">Checkout</string>
+  <string name="git_remove">Remove</string>
+  <string name="git_file_tree">File Tree</string>
+
+  <!-- Asset Studio / 素材工作室 -->
+  <string name="asset_preview">Preview</string>
+  <string name="asset_source">Source</string>
+  <string name="asset_select_image">Select Image</string>
+  <string name="asset_load_xml">Load XML</string>
+  <string name="asset_choose_image_or_xml">Choose an image or XML vector to create app icons</string>
+  <string name="asset_icon_settings">Icon Settings</string>
+  <string name="asset_shape">Shape</string>
+  <string name="asset_circle">Circle</string>
+  <string name="asset_square">Square</string>
+  <string name="asset_rounded">Rounded</string>
+  <string name="asset_background_color">Background Color</string>
+  <string name="asset_choose_color">Choose Color</string>
+  <string name="asset_custom">Custom</string>
+  <string name="asset_foreground_scale">Foreground Scale</string>
+  <string name="asset_rounded_corners">Rounded Corners</string>
+  <string name="asset_generate_icons">Generate Icons</string>
+
+  <!-- Other / 其他 -->
+  <string name="download">Download</string>
+  <string name="edit_version_sdk">Edit Version &amp; SDK</string>
+  <string name="goto_my_project">Goto my project</string>
+  <string name="updating_dependencies">Updating Dependencies</string>
+  <string name="project_settings">Project settings</string>
+  <string name="backup_my_project">Backup my project</string>
+
 </resources>

@@ -28,7 +28,7 @@ import java.io.File
  */
 
 interface Template {
-  val displayName: String
+  fun displayName(context: Context): String
   val templateType: TemplateType
 
   /**

@@ -17,13 +17,13 @@
 
 package com.tom.rv2ide.experimental.assetstudio.m3icons
 
+import com.tom.rv2ide.R
 import android.content.Context
 import android.graphics.Bitmap
 import android.view.LayoutInflater
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.radiobutton.MaterialRadioButton
-import com.tom.rv2ide.R
 
 /**
  * @author Mohammed-baqer-null @ https://github.com/Mohammed-baqer-null
@@ -48,15 +48,15 @@ object CopyDialogHandler {
         radioDrawable.isChecked = true
 
         MaterialAlertDialogBuilder(context)
-            .setTitle("Copy to")
+            .setTitle(context.getString(R.string.copy_to))
             .setView(dialogView)
-            .setPositiveButton("Copy") { dialog, _ ->
+            .setPositiveButton(context.getString(R.string.copy)) { dialog, _ ->
                 val fileName = fileNameInput.text.toString().ifEmpty { icon.name }
                 val destination = if (radioDrawable.isChecked) "drawable" else "mipmap"
                 IconCopier.copyIconToDestination(context, fileName, bitmap, destination, xmlContent)
                 dialog.dismiss()
             }
-            .setNegativeButton("Cancel", null)
+            .setNegativeButton(context.getString(R.string.cancel), null)
             .show()
     }
 
@@ -78,9 +78,9 @@ object CopyDialogHandler {
         radioDrawable.isChecked = true
 
         MaterialAlertDialogBuilder(context)
-            .setTitle("Copy to")
+            .setTitle(context.getString(R.string.copy_to))
             .setView(dialogView)
-            .setPositiveButton("Copy") { dialog, _ ->
+            .setPositiveButton(context.getString(R.string.copy)) { dialog, _ ->
                 val finalFileName = fileNameInput.text.toString().ifEmpty { fileName }
                 val destination = if (radioDrawable.isChecked) "drawable" else "mipmap"
                 IconCopier.copyIconToDestination(
@@ -94,7 +94,7 @@ object CopyDialogHandler {
                 )
                 dialog.dismiss()
             }
-            .setNegativeButton("Cancel", null)
+            .setNegativeButton(context.getString(R.string.cancel), null)
             .show()
     }
 }

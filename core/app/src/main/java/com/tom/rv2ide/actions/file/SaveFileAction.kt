@@ -17,6 +17,7 @@
 
 package com.tom.rv2ide.actions.file
 
+import com.tom.rv2ide.R
 import android.content.Context
 import androidx.core.content.ContextCompat
 import com.tom.rv2ide.actions.ActionData
@@ -24,7 +25,6 @@ import com.tom.rv2ide.actions.EditorRelatedAction
 import com.tom.rv2ide.activities.editor.BaseEditorActivity
 import com.tom.rv2ide.models.SaveResult
 import com.tom.rv2ide.projects.internal.ProjectManagerImpl
-import com.tom.rv2ide.resources.R
 import com.tom.rv2ide.utils.flashError
 import com.tom.rv2ide.utils.flashSuccess
 import org.slf4j.LoggerFactory

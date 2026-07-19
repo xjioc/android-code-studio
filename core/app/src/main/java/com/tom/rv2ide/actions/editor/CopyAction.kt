@@ -17,10 +17,10 @@
 
 package com.tom.rv2ide.actions.editor
 
+import com.tom.rv2ide.R
 import android.content.Context
 import com.tom.rv2ide.actions.ActionData
 import com.tom.rv2ide.actions.BaseEditorAction
-import com.tom.rv2ide.resources.R
 
 /** @author Akash Yadav */
 class CopyAction(context: Context, override val order: Int) : BaseEditorAction() {

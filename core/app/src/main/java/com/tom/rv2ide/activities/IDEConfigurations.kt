@@ -17,6 +17,7 @@
 
 package com.tom.rv2ide.activities
 
+import com.tom.rv2ide.R
 import android.content.res.Configuration
 import android.os.Bundle
 import android.view.View
@@ -28,7 +29,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.google.android.material.button.MaterialButton
 import com.tom.customizablecardview.CustomizableCardView
-import com.tom.rv2ide.R
 import com.tom.rv2ide.activities.IdeConfigurations.*
 import com.tom.rv2ide.activities.IdeConfigurations.net.isOnline
 import com.tom.rv2ide.app.BaseApplication
@@ -118,10 +118,10 @@ class IDEConfigurations : EdgeToEdgeIDEActivity() {
     lifecycleScope.launch(Dispatchers.IO) {
       try {
       } catch (e: TimeoutCancellationException) {
-        withContext(Dispatchers.Main) { flashError("Request timed out") }
+        withContext(Dispatchers.Main) { flashError(getString(R.string.request_timed_out)) }
       } catch (e: Exception) {
         withContext(Dispatchers.Main) {
-          flashError("An error occurred: ${e.message}")
+          flashError(getString(R.string.error_occurred, e.message))
         }
         e.printStackTrace()
       }
@@ -157,8 +157,8 @@ class IDEConfigurations : EdgeToEdgeIDEActivity() {
   private fun setUpDropdown() {
     val dropdown = findViewById<AutoCompleteTextView>(R.id.ndks_dropdown)
     val cmake_dropdown = findViewById<AutoCompleteTextView>(R.id.cmake_dropdown)
-    dropdown.setText("Loading versions...", false)
-    cmake_dropdown.setText("Loading versions...", false)
+    dropdown.setText(getString(R.string.loading_versions), false)
+    cmake_dropdown.setText(getString(R.string.loading_versions), false)
 
     val cpuArch = getCpuArchitecture()
     val architecture: AcsCommandInterface.Architecture =
@@ -167,7 +167,7 @@ class IDEConfigurations : EdgeToEdgeIDEActivity() {
           "arm64-v8a" -> AcsCommandInterface.Architecture.ARM64_V8A
           "x86_64" -> AcsCommandInterface.Architecture.X86_64
           else -> {
-            flashError("Unsupported architecture: $cpuArch")
+            flashError(getString(R.string.unsupported_architecture, cpuArch))
             return
           }
         }
@@ -238,12 +238,12 @@ class IDEConfigurations : EdgeToEdgeIDEActivity() {
                 }
               }
             } else {
-              dropdown.setText("No versions available", false)
-              flashError("No NDK versions found in the repository")
+              dropdown.setText(getString(R.string.no_versions_available), false)
+              flashError(getString(R.string.no_ndk_versions))
             }
           } else {
-            dropdown.setText("Failed to load", false)
-            flashError("Failed to fetch versions: ${versionsResult.errorOutput}")
+            dropdown.setText(getString(R.string.failed_to_load), false)
+            flashError(getString(R.string.failed_to_fetch_versions, versionsResult.errorOutput))
           }
 
           // Process CMake versions
@@ -295,18 +295,18 @@ class IDEConfigurations : EdgeToEdgeIDEActivity() {
                 }
               }
             } else {
-              cmake_dropdown.setText("No versions available", false)
-              flashError("No CMake versions found in the repository")
+              cmake_dropdown.setText(getString(R.string.no_versions_available), false)
+              flashError(getString(R.string.no_cmake_versions))
             }
           } else {
-            cmake_dropdown.setText("Failed to load", false)
-            flashError("Failed to fetch versions: ${cmakeVersionsResult.errorOutput}")
+            cmake_dropdown.setText(getString(R.string.failed_to_load), false)
+            flashError(getString(R.string.failed_to_fetch_versions, cmakeVersionsResult.errorOutput))
           }
         }
       } catch (e: Exception) {
         withContext(Dispatchers.Main) {
-          dropdown.setText("Error loading", false)
-          flashError("Error fetching versions: ${e.message}")
+          dropdown.setText(getString(R.string.error_loading), false)
+          flashError(getString(R.string.error_fetching_versions, e.message))
         }
         e.printStackTrace()
       }

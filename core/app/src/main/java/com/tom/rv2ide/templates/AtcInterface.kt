@@ -1,5 +1,6 @@
 package com.tom.rv2ide.templates
 
+import com.tom.rv2ide.R
 import android.content.Context
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -9,7 +10,6 @@ import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.color.MaterialColors
-import com.tom.rv2ide.resources.R
 import com.tom.rv2ide.templates.android.Template
 import com.tom.rv2ide.templates.android.TemplateRegistry
 
@@ -136,7 +136,7 @@ class TemplateGridAdapter(
 
   override fun onBindViewHolder(holder: TemplateViewHolder, position: Int) {
     val template = templates[position]
-    holder.templateName.text = template.displayName
+    holder.templateName.text = template.displayName(context)
 
     // Get image resource by template class name (e.g., basic_activity.png)
     val imageResId =

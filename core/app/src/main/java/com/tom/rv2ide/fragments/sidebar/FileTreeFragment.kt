@@ -16,6 +16,7 @@
  */
 package com.tom.rv2ide.fragments.sidebar
 
+import com.tom.rv2ide.R
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle

@@ -16,6 +16,7 @@
 */
 package com.tom.rv2ide.activities
 
+import com.tom.rv2ide.R
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -29,7 +30,6 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
-import com.tom.rv2ide.R
 import com.tom.rv2ide.app.EdgeToEdgeIDEActivity
 import com.tom.rv2ide.viewmodel.MainViewModel
 import com.tom.rv2ide.viewmodel.MainViewModel.Companion.SCREEN_MAIN
@@ -48,7 +48,7 @@ class FileBrowserActivity : EdgeToEdgeIDEActivity() {
             if (isGranted) {
                 loadFileBrowserFragment()
             } else {
-                Toast.makeText(this, "Permission denied to read storage", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.permission_denied_read), Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -58,7 +58,7 @@ class FileBrowserActivity : EdgeToEdgeIDEActivity() {
                 if (Environment.isExternalStorageManager()) {
                     loadFileBrowserFragment()
                 } else {
-                    Toast.makeText(this, "Permission denied to manage storage", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.permission_denied_manage), Toast.LENGTH_SHORT).show()
                 }
             }
         }

@@ -16,10 +16,13 @@
 */
 package com.tom.rv2ide.viewmodel
 
+import android.app.Application
+import android.content.Context
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.tom.rv2ide.R
 import com.tom.rv2ide.git.CommitInfo
 import com.tom.rv2ide.git.FileChange
 import com.tom.rv2ide.git.GitManager
@@ -36,8 +39,9 @@ import com.tom.rv2ide.utils.*
  * @author Mohammed-baqer-null @ https://github.com/Mohammed-baqer-null
  */
 
-class GitViewModel : ViewModel() {
-    
+class GitViewModel(application: Application) : AndroidViewModel(application) {
+
+    private val appContext: Context = application
     private var gitManager: GitManager? = null
     
     private val _changedFiles = MutableLiveData<List<FileChange>>()
@@ -78,7 +82,7 @@ class GitViewModel : ViewModel() {
                 _operationResult.postValue(
                     OperationResult(
                         success = success,
-                        message = if (success) "User config updated" else "Failed to update user config"
+                        message = if (success) appContext.getString(R.string.git_user_config_updated) else appContext.getString(R.string.git_user_config_update_failed)
                     )
                 )
             }
@@ -123,7 +127,7 @@ class GitViewModel : ViewModel() {
                 _operationResult.postValue(
                     OperationResult(
                         success = success,
-                        message = if (success) "Remote added successfully" else "Failed to add remote"
+                        message = if (success) appContext.getString(R.string.git_remote_added) else appContext.getString(R.string.git_remote_add_failed)
                     )
                 )
                 if (success) refreshRemotes()
@@ -138,7 +142,7 @@ class GitViewModel : ViewModel() {
                 _operationResult.postValue(
                     OperationResult(
                         success = success,
-                        message = if (success) "Remote removed" else "Failed to remove remote"
+                        message = if (success) appContext.getString(R.string.git_remote_removed) else appContext.getString(R.string.git_remote_remove_failed)
                     )
                 )
                 if (success) refreshRemotes()
@@ -148,13 +152,13 @@ class GitViewModel : ViewModel() {
     
     fun stageFile(filePath: String) {
         viewModelScope.launch {
-            _progressMessage.postValue("Staging file...")
+            _progressMessage.postValue(appContext.getString(R.string.git_staging_file))
             withContext(Dispatchers.IO) {
                 val success = gitManager?.stageFile(filePath) ?: false
                 _operationResult.postValue(
                     OperationResult(
                         success = success,
-                        message = if (success) "File staged" else "Failed to stage file"
+                        message = if (success) appContext.getString(R.string.git_file_staged) else appContext.getString(R.string.git_file_staging_failed)
                     )
                 )
                 if (success) refreshChangedFiles()
@@ -165,13 +169,13 @@ class GitViewModel : ViewModel() {
     
     fun stageAllFiles() {
         viewModelScope.launch {
-            _progressMessage.postValue("Staging all files...")
+            _progressMessage.postValue(appContext.getString(R.string.git_staging_all))
             withContext(Dispatchers.IO) {
                 val success = gitManager?.stageAllFiles() ?: false
                 _operationResult.postValue(
                     OperationResult(
                         success = success,
-                        message = if (success) "All files staged" else "Failed to stage files"
+                        message = if (success) appContext.getString(R.string.git_all_files_staged) else appContext.getString(R.string.git_staging_all_failed)
                     )
                 )
                 if (success) refreshChangedFiles()
@@ -182,13 +186,13 @@ class GitViewModel : ViewModel() {
 
     fun unstageFile(filePath: String) {
         viewModelScope.launch {
-            _progressMessage.postValue("Unstaging file...")
+            _progressMessage.postValue(appContext.getString(R.string.git_unstaging_file))
             withContext(Dispatchers.IO) {
                 val success = gitManager?.unstageFile(filePath) ?: false
                 _operationResult.postValue(
                     OperationResult(
                         success = success,
-                        message = if (success) "File unstaged" else "Failed to unstage file"
+                        message = if (success) appContext.getString(R.string.git_file_unstaged) else appContext.getString(R.string.git_file_unstaging_failed)
                     )
                 )
                 if (success) refreshChangedFiles()
@@ -199,10 +203,10 @@ class GitViewModel : ViewModel() {
     
     fun fetch(remoteName: String = "origin", username: String? = null, password: String? = null) {
         viewModelScope.launch {
-            _progressMessage.postValue("Fetching from remote...")
+            _progressMessage.postValue(appContext.getString(R.string.git_fetching))
             withContext(Dispatchers.IO) {
                 val result = gitManager?.fetch(remoteName, username, password)
-                    ?: FetchResult(false, "Git manager not initialized")
+                    ?: FetchResult(false, appContext.getString(R.string.error_occurred, "Git manager not initialized"))
                 _pushPullResult.postValue(
                     RemoteOperationResult(
                         success = result.success,
@@ -220,13 +224,13 @@ class GitViewModel : ViewModel() {
     
     fun discardChanges(filePath: String) {
         viewModelScope.launch {
-            _progressMessage.postValue("Discarding changes...")
+            _progressMessage.postValue(appContext.getString(R.string.git_discarding_changes))
             withContext(Dispatchers.IO) {
                 val success = gitManager?.discardChanges(filePath) ?: false
                 _operationResult.postValue(
                     OperationResult(
                         success = success,
-                        message = if (success) "Changes discarded" else "Failed to discard changes"
+                        message = if (success) appContext.getString(R.string.git_changes_discarded) else appContext.getString(R.string.git_discard_failed)
                     )
                 )
                 if (success) refreshChangedFiles()
@@ -237,13 +241,13 @@ class GitViewModel : ViewModel() {
     
     fun createBranch(branchName: String) {
         viewModelScope.launch {
-            _progressMessage.postValue("Creating branch...")
+            _progressMessage.postValue(appContext.getString(R.string.git_creating_branch))
             withContext(Dispatchers.IO) {
                 val success = gitManager?.createBranch(branchName) ?: false
                 _operationResult.postValue(
                     OperationResult(
                         success = success,
-                        message = if (success) "Branch created" else "Failed to create branch"
+                        message = if (success) appContext.getString(R.string.git_branch_created) else appContext.getString(R.string.git_branch_create_failed)
                     )
                 )
                 if (success) {
@@ -256,13 +260,13 @@ class GitViewModel : ViewModel() {
     
     fun checkoutBranch(branchName: String) {
         viewModelScope.launch {
-            _progressMessage.postValue("Switching branch...")
+            _progressMessage.postValue(appContext.getString(R.string.git_switching_branch))
             withContext(Dispatchers.IO) {
                 val success = gitManager?.checkoutBranch(branchName) ?: false
                 _operationResult.postValue(
                     OperationResult(
                         success = success,
-                        message = if (success) "Switched to $branchName" else "Failed to checkout branch"
+                        message = if (success) appContext.getString(R.string.git_switched_to, branchName) else appContext.getString(R.string.git_checkout_failed)
                     )
                 )
                 if (success) {
@@ -275,13 +279,13 @@ class GitViewModel : ViewModel() {
     
     fun deleteBranch(branchName: String) {
         viewModelScope.launch {
-            _progressMessage.postValue("Deleting branch...")
+            _progressMessage.postValue(appContext.getString(R.string.git_deleting_branch))
             withContext(Dispatchers.IO) {
                 val success = gitManager?.deleteBranch(branchName) ?: false
                 _operationResult.postValue(
                     OperationResult(
                         success = success,
-                        message = if (success) "Branch deleted" else "Failed to delete branch"
+                        message = if (success) appContext.getString(R.string.git_branch_deleted) else appContext.getString(R.string.git_branch_delete_failed)
                     )
                 )
                 if (success) refreshBranches()
@@ -292,13 +296,13 @@ class GitViewModel : ViewModel() {
 
     fun commit(message: String, author: String, email: String) {
         viewModelScope.launch {
-            _progressMessage.postValue("Committing changes...")
+            _progressMessage.postValue(appContext.getString(R.string.git_committing))
             withContext(Dispatchers.IO) {
                 val success = gitManager?.commit(message, author, email) ?: false
                 _operationResult.postValue(
                     OperationResult(
                         success = success,
-                        message = if (success) "Changes committed" else "Failed to commit"
+                        message = if (success) appContext.getString(R.string.git_changes_committed) else appContext.getString(R.string.git_commit_failed)
                     )
                 )
                 if (success) {
@@ -312,10 +316,10 @@ class GitViewModel : ViewModel() {
     
     fun push(remoteName: String = "origin", branchName: String? = null, username: String? = null, password: String? = null) {
         viewModelScope.launch {
-            _progressMessage.postValue("Pushing to remote...")
+            _progressMessage.postValue(appContext.getString(R.string.git_pushing))
             withContext(Dispatchers.IO) {
                 val result = gitManager?.push(remoteName, branchName, username, password) 
-                    ?: PushResult(false, "Git manager not initialized")
+                    ?: PushResult(false, appContext.getString(R.string.error_occurred, "Git manager not initialized"))
                 _pushPullResult.postValue(
                     RemoteOperationResult(
                         success = result.success,
@@ -330,10 +334,10 @@ class GitViewModel : ViewModel() {
     
     fun pull(remoteName: String = "origin", branchName: String? = null, username: String? = null, password: String? = null) {
         viewModelScope.launch {
-            _progressMessage.postValue("Pulling from remote...")
+            _progressMessage.postValue(appContext.getString(R.string.git_pulling))
             withContext(Dispatchers.IO) {
                 val result = gitManager?.pull(remoteName, branchName, username, password)
-                    ?: PullResult(false, "Git manager not initialized")
+                    ?: PullResult(false, appContext.getString(R.string.error_occurred, "Git manager not initialized"))
                 _pushPullResult.postValue(
                     RemoteOperationResult(
                         success = result.success,
@@ -351,7 +355,7 @@ class GitViewModel : ViewModel() {
     
     fun cloneRepository(remoteUrl: String, localPath: String, username: String? = null, password: String? = null) {
         viewModelScope.launch {
-            _progressMessage.postValue("Cloning repository...")
+            _progressMessage.postValue(appContext.getString(R.string.git_cloning))
             withContext(Dispatchers.IO) {
                 gitManager = GitManager(localPath)
                 val success = gitManager?.clone(remoteUrl, localPath, username, password) ?: false
@@ -363,7 +367,7 @@ class GitViewModel : ViewModel() {
                     _operationResult.postValue(
                         OperationResult(
                             success = false,
-                            message = "Failed to clone repository"
+                            message = appContext.getString(R.string.git_clone_failed)
                         )
                     )
                 }
@@ -374,7 +378,7 @@ class GitViewModel : ViewModel() {
     
     fun initializeRepository(path: String, initialBranch: String = "main") {
         viewModelScope.launch {
-            _progressMessage.postValue("Initializing repository...")
+            _progressMessage.postValue(appContext.getString(R.string.git_initializing))
             withContext(Dispatchers.IO) {
                 gitManager = GitManager(path)
                 val success = gitManager?.initRepository(initialBranchName = initialBranch) ?: false
@@ -392,7 +396,7 @@ class GitViewModel : ViewModel() {
     
     fun openExistingRepository(path: String) {
         viewModelScope.launch {
-            _progressMessage.postValue("Opening repository...")
+            _progressMessage.postValue(appContext.getString(R.string.git_opening))
             withContext(Dispatchers.IO) {
                 gitManager = GitManager(path)
                 val success = gitManager?.openRepository() ?: false
@@ -451,7 +455,7 @@ class GitViewModel : ViewModel() {
                 _operationResult.postValue(
                     OperationResult(
                         success = success,
-                        message = if (success) "Changes committed" else "Failed to commit"
+                        message = if (success) appContext.getString(R.string.git_changes_committed) else appContext.getString(R.string.git_commit_failed)
                     )
                 )
                 if (success) {

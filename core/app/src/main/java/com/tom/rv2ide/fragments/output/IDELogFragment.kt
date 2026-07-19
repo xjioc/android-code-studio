@@ -24,8 +24,8 @@ import androidx.lifecycle.Lifecycle
 import androidx.preference.PreferenceManager
 import ch.qos.logback.classic.Logger
 import ch.qos.logback.classic.LoggerContext
-import com.tom.rv2ide.R
 import com.tom.rv2ide.logging.LifecycleAwareAppender
+import com.tom.rv2ide.R
 import com.tom.rv2ide.resources.R.string
 import org.slf4j.LoggerFactory
 

@@ -17,6 +17,7 @@
 
 package com.tom.rv2ide.actions.filetree
 
+import com.tom.rv2ide.R
 import android.content.Context
 import android.view.LayoutInflater
 import androidx.core.view.isVisible
@@ -28,7 +29,6 @@ import com.tom.rv2ide.databinding.LayoutCreateFileJavaBinding
 import com.tom.rv2ide.eventbus.events.file.FileCreationEvent
 import com.tom.rv2ide.preferences.databinding.LayoutDialogTextInputBinding
 import com.tom.rv2ide.projects.IProjectManager
-import com.tom.rv2ide.resources.R
 import com.tom.rv2ide.utils.DialogUtils
 import com.tom.rv2ide.utils.Environment
 import com.tom.rv2ide.utils.ProjectWriter

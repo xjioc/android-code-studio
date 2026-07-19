@@ -17,6 +17,7 @@
 
 package com.tom.rv2ide.activities
 
+import com.tom.rv2ide.R
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
@@ -30,7 +31,6 @@ import android.widget.TextView
 import androidx.core.content.FileProvider
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.progressindicator.LinearProgressIndicator
-import com.tom.rv2ide.resources.R
 import java.io.*
 import java.net.HttpURLConnection
 import java.net.URL

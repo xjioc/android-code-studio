@@ -17,10 +17,10 @@
 
 package com.tom.rv2ide.preferences
 
+import com.tom.rv2ide.R
 import android.content.Intent
 import com.tom.rv2ide.activities.AboutActivity
 import com.tom.rv2ide.app.IDEApplication
-import com.tom.rv2ide.resources.R
 
 private const val KEY_CHANGELOG = "idepref_changelog"
 private const val KEY_ABOUT = "idepref_about"

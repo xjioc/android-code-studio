@@ -17,6 +17,7 @@
 
 package com.tom.rv2ide.preferences
 
+import com.tom.rv2ide.R
 import androidx.preference.Preference
 import com.tom.rv2ide.lsp.kotlin.etc.LspFeatures
 import com.tom.rv2ide.preferences.internal.LSPPreferences

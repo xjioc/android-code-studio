@@ -19,7 +19,7 @@
             android:background="?attr/colorSurfaceContainer"
             app:navigationIcon="@drawable/ic_arrow_back"
             app:navigationIconTint="?attr/colorOnSurface"
-            app:title="Material Icons"
+            app:title="@string/material_icons_web_title"
             app:titleTextAppearance="@style/TextAppearance.Material3.HeadlineSmall" />
 
     </com.google.android.material.appbar.AppBarLayout>

@@ -17,6 +17,7 @@ import android.widget.LinearLayout
 import android.widget.PopupWindow
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import com.tom.rv2ide.R
 import com.tom.rv2ide.ui.CodeEditorView
 import java.io.File
 import java.util.concurrent.ConcurrentHashMap
@@ -450,7 +451,7 @@ class StringExtractionHelper(private val context: Context, private val scope: Co
                 "java" -> "Java"
                 else -> "File"
               }
-          text = "Extract String from $fileType?"
+          text = context.getString(R.string.string_extract_from, fileType)
           textSize = 16f // Slightly larger
           setTextColor(primaryTextColor)
           setPadding(0, 0, 0, 16)
@@ -497,7 +498,7 @@ class StringExtractionHelper(private val context: Context, private val scope: Co
     // Translatable checkbox
     val translatableCheckbox =
         CheckBox(context).apply {
-          text = "Translatable"
+          text = context.getString(R.string.string_translatable)
           isChecked = true // Default to true
           setTextColor(primaryTextColor)
           setPadding(8, 4, 8, 16)
@@ -524,7 +525,7 @@ class StringExtractionHelper(private val context: Context, private val scope: Co
     // Skip button (secondary action, shown first but less prominent)
     val skipButton =
         Button(context).apply {
-          text = "Skip"
+          text = context.getString(R.string.string_skip)
           textSize = 14f
           setPadding(32, 16, 32, 16)
           setTextColor(secondaryTextColor)
@@ -554,7 +555,7 @@ class StringExtractionHelper(private val context: Context, private val scope: Co
     // Extract button (primary action)
     val extractButton =
         Button(context).apply {
-          text = "Extract"
+          text = context.getString(R.string.string_extract)
           textSize = 14f
           setPadding(32, 16, 32, 16)
           setTextColor(android.graphics.Color.WHITE) // White text on colored background

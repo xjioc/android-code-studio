@@ -17,6 +17,7 @@
 
 package com.tom.rv2ide.adapters
 
+import com.tom.rv2ide.R
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
@@ -24,7 +25,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.tom.rv2ide.R
 import com.tom.rv2ide.databinding.DialogEditModuleConfigBinding
 import com.tom.rv2ide.databinding.LayoutBuildVariantItemBinding
 import com.tom.rv2ide.tooling.api.IAndroidProject
@@ -139,7 +139,7 @@ class BuildVariantsAdapter(
     MaterialAlertDialogBuilder(context)
         .setTitle("Edit ${variantInfo.projectPath}")
         .setView(dialogBinding.root)
-        .setPositiveButton("Save") { _, _ ->
+        .setPositiveButton(context.getString(R.string.save)) { _, _ ->
           val updatedInfo = variantInfo.copy(
               versionName = dialogBinding.versionName.text?.toString()?.takeIf { it.isNotEmpty() },
               versionCode = dialogBinding.versionCode.text?.toString()?.toIntOrNull(),
@@ -153,7 +153,7 @@ class BuildVariantsAdapter(
           
           viewModel.updateModuleConfig(variantInfo.projectPath, updatedInfo)
         }
-        .setNegativeButton("Cancel", null)
+        .setNegativeButton(context.getString(R.string.cancel), null)
         .show()
   }
 }

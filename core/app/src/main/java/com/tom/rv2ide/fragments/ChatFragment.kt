@@ -184,7 +184,7 @@ class ChatFragment : Fragment() {
             val userRequest = promptInput.text.toString()
             
             if (userRequest.isBlank()) {
-                showSnackbar("Please enter a request")
+                showSnackbar(getString(R.string.ai_enter_request))
                 return@setOnClickListener
             }
             
@@ -258,12 +258,12 @@ class ChatFragment : Fragment() {
                 val success = aiAgent.setProjectRoot(userRootProject)
                 
                 if (success) {
-                    statusText.text = "Project loaded successfully"
+                    statusText.text = getString(R.string.ai_project_loaded)
                 } else {
-                    statusText.text = "Failed to load project"
+                    statusText.text = getString(R.string.ai_project_load_failed)
                 }
             } catch (e: Exception) {
-                statusText.text = "Error loading project: ${e.message}"
+                statusText.text = getString(R.string.ai_error_loading_project, e.message ?: "")
             }
         }
     }
@@ -351,7 +351,7 @@ class ChatFragment : Fragment() {
 
     private fun openFileInEditor(fileName: String) {
         if (userRootProject.isBlank()) {
-            showSnackbar("Project path not set")
+            showSnackbar(getString(R.string.ai_project_path_not_set))
             return
         }
         
@@ -359,21 +359,21 @@ class ChatFragment : Fragment() {
             try {
                 val file = findFileInProject(File(userRootProject), fileName)
                 if (file == null) {
-                    showSnackbar("File not found: $fileName")
+                    showSnackbar(getString(R.string.ai_file_not_found, fileName))
                     return@launch
                 }
                 
                 val activity = requireActivity()
                 if (activity is EditorHandlerActivity) {
                     activity.openFile(file)
-                    showSnackbar("Opened: ${file.name}")
+                    showSnackbar(getString(R.string.ai_opened, file.name))
                     
                     lastMonitoredFile = file
                     delay(500)
                     setupCodeCompletionForCurrentFile()
                 }
             } catch (e: Exception) {
-                showSnackbar("Error opening file: ${e.message}")
+                showSnackbar(getString(R.string.ai_error_opening_file, e.message ?: ""))
             }
         }
     }
@@ -422,14 +422,14 @@ class ChatFragment : Fragment() {
                 aiAgent.clearConversation()
                 
                 promptInput.text?.clear()
-                statusText.text = "Conversation cleared. Ready for new request."
+                statusText.text = getString(R.string.ai_conversation_cleared_ready)
                 fileModificationList.visibility = View.GONE
                 summaryCard.visibility = View.GONE
                 fileModificationAdapter.clear()
                 
-                showSnackbar("Conversation cleared")
+                showSnackbar(getString(R.string.ai_conversation_cleared))
             } catch (e: Exception) {
-                showSnackbar("Error clearing: ${e.message}")
+                showSnackbar(getString(R.string.ai_error_clearing, e.message ?: ""))
             }
         }
     }

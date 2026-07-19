@@ -17,6 +17,7 @@
 
 package com.tom.rv2ide.templates.android
 
+import com.tom.rv2ide.R
 import android.content.Context
 import android.util.Log
 import android.widget.Toast
@@ -40,7 +41,7 @@ import com.tom.rv2ide.templates.preferences.Options
  */
 
 class ComposeEmptyActivity : Template {
-  override val displayName = "Compose Activity"
+  override fun displayName(context: Context) = context.getString(R.string.template_compose_activity)
   override val templateType = Template.TemplateType.ACTIVITY
 
   private val projectStructBuilder = ProjectStructBuilder()
@@ -70,7 +71,7 @@ class ComposeEmptyActivity : Template {
 
           // Show toast on main thread
           withContext(Dispatchers.Main) {
-            Toast.makeText(context, "Creating Compose Empty Activity...", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, context.getString(R.string.creating_compose_empty_activity), Toast.LENGTH_SHORT).show()
           }
 
           val packageHelper =

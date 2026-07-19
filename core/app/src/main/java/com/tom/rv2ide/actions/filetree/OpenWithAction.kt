@@ -17,11 +17,11 @@
 
 package com.tom.rv2ide.actions.filetree
 
+import com.tom.rv2ide.R
 import android.content.Context
 import android.content.Intent
 import com.tom.rv2ide.actions.ActionData
 import com.tom.rv2ide.actions.requireFile
-import com.tom.rv2ide.resources.R
 import com.tom.rv2ide.utils.IntentUtils
 
 /**

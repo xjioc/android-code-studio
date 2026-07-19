@@ -17,13 +17,13 @@
 
 package com.tom.rv2ide.actions.etc
 
+import com.tom.rv2ide.R
 import android.content.Context
 import androidx.core.content.ContextCompat
 import com.tom.rv2ide.actions.ActionData
 import com.tom.rv2ide.actions.EditorActivityAction
 import com.tom.rv2ide.actions.markInvisible
 import com.tom.rv2ide.projects.IProjectManager
-import com.tom.rv2ide.resources.R
 
 /** @author Akash Yadav */
 class FindInProjectAction() : EditorActivityAction() {

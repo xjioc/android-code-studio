@@ -17,13 +17,13 @@
 
 package com.tom.rv2ide.actions.filetree
 
+import com.tom.rv2ide.R
 import android.content.Context
 import android.view.LayoutInflater
 import com.tom.rv2ide.actions.ActionData
 import com.tom.rv2ide.actions.requireFile
 import com.tom.rv2ide.adapters.viewholders.FileTreeViewHolder
 import com.tom.rv2ide.preferences.databinding.LayoutDialogTextInputBinding
-import com.tom.rv2ide.resources.R
 import com.tom.rv2ide.utils.DialogUtils
 import com.tom.rv2ide.utils.flashError
 import com.tom.rv2ide.utils.flashSuccess

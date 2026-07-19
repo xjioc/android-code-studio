@@ -17,6 +17,7 @@
 
 package com.tom.rv2ide.templates.android
 
+import com.tom.rv2ide.R
 import android.content.Context
 import android.util.Log
 import android.widget.Toast
@@ -43,7 +44,7 @@ import kotlinx.coroutines.withContext
  */
 
 class BottomNavigationActivity : Template {
-  override val displayName = "Bottom Navigation"
+  override fun displayName(context: Context) = context.getString(R.string.template_bottom_navigation)
   override val templateType = Template.TemplateType.ACTIVITY
 
   private val projectStructBuilder = ProjectStructBuilder()
@@ -74,7 +75,7 @@ class BottomNavigationActivity : Template {
 
           // Show toast on main thread
           withContext(Dispatchers.Main) {
-            Toast.makeText(context, "Creating Bottom Navigation Activity...", Toast.LENGTH_SHORT)
+            Toast.makeText(context, context.getString(R.string.creating_bottom_nav_activity), Toast.LENGTH_SHORT)
                 .show()
           }
 

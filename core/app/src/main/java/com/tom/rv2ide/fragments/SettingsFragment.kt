@@ -65,7 +65,7 @@ class SettingsFragment : Fragment() {
         binding.switchRememberCredentials.isChecked = prefsManager.shouldRememberCredentials()
         
         val hasCredentials = prefsManager.getUsername() != null
-        binding.textCredentialsStatus.text = if (hasCredentials) "Saved" else "Not saved"
+        binding.textCredentialsStatus.text = if (hasCredentials) getString(R.string.git_saved) else getString(R.string.git_not_saved)
     }
     
     private fun setupButtons() {
@@ -77,24 +77,24 @@ class SettingsFragment : Fragment() {
             prefsManager.setRememberCredentials(isChecked)
             if (!isChecked) {
                 prefsManager.clearCredentials()
-                binding.textCredentialsStatus.text = "Not saved"
+                binding.textCredentialsStatus.text = getString(R.string.git_not_saved)
             }
         }
         
         binding.buttonClearCredentials.setOnClickListener {
             MaterialAlertDialogBuilder(requireContext())
-                .setTitle("Clear Credentials")
-                .setMessage("Are you sure you want to clear saved credentials?")
-                .setPositiveButton("Clear") { _, _ ->
+                .setTitle(requireContext().getString(R.string.git_clear_credentials_title))
+                .setMessage(requireContext().getString(R.string.git_clear_credentials_message))
+                .setPositiveButton(requireContext().getString(R.string.clear)) { _, _ ->
                     prefsManager.clearCredentials()
-                    binding.textCredentialsStatus.text = "Not saved"
-                    Snackbar.make(binding.root, "Credentials cleared", Snackbar.LENGTH_SHORT).show()
+                    binding.textCredentialsStatus.text = getString(R.string.git_not_saved)
+                    Snackbar.make(binding.root, getString(R.string.git_credentials_cleared), Snackbar.LENGTH_SHORT).show()
                 }
-                .setNegativeButton("Cancel", null)
+                .setNegativeButton(requireContext().getString(R.string.cancel), null)
                 .show()
         }
     }
-    
+
     private fun showEditUserConfigDialog() {
         val dialogView = layoutInflater.inflate(R.layout.dialog_user_config, null)
         val editTextName = dialogView.findViewById<TextInputEditText>(R.id.editTextUserName)
@@ -104,9 +104,9 @@ class SettingsFragment : Fragment() {
         editTextEmail.setText(prefsManager.getGitUserEmail())
         
         MaterialAlertDialogBuilder(requireContext())
-            .setTitle("Git User Config")
+            .setTitle(requireContext().getString(R.string.git_user_config_title))
             .setView(dialogView)
-            .setPositiveButton("Save") { _, _ ->
+            .setPositiveButton(requireContext().getString(R.string.save)) { _, _ ->
                 val name = editTextName.text.toString().trim()
                 val email = editTextEmail.text.toString().trim()
                 
@@ -117,13 +117,13 @@ class SettingsFragment : Fragment() {
                     loadSettings()
                     Snackbar.make(binding.root, "User config updated", Snackbar.LENGTH_SHORT).show()
                 } else {
-                    Snackbar.make(binding.root, "Name and email cannot be empty", Snackbar.LENGTH_SHORT).show()
+                    Snackbar.make(binding.root, getString(R.string.git_name_email_empty), Snackbar.LENGTH_SHORT).show()
                 }
             }
-            .setNegativeButton("Cancel", null)
+            .setNegativeButton(requireContext().getString(R.string.cancel), null)
             .show()
     }
-    
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

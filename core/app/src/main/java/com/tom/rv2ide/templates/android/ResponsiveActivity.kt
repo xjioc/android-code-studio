@@ -17,6 +17,7 @@
 
 package com.tom.rv2ide.templates.android
 
+import com.tom.rv2ide.R
 import android.content.Context
 import android.util.Log
 import android.widget.Toast
@@ -43,7 +44,7 @@ import kotlinx.coroutines.withContext
  */
 
 class ResponsiveActivity : Template {
-  override val displayName = "Responsive activity"
+  override fun displayName(context: Context) = context.getString(R.string.template_responsive_activity)
   override val templateType = Template.TemplateType.ACTIVITY
 
   private val projectStructBuilder = ProjectStructBuilder()
@@ -74,7 +75,7 @@ class ResponsiveActivity : Template {
 
           // Show toast on main thread
           withContext(Dispatchers.Main) {
-            Toast.makeText(context, "Creating Responsive activity Activity...", Toast.LENGTH_SHORT)
+            Toast.makeText(context, context.getString(R.string.creating_responsive_activity), Toast.LENGTH_SHORT)
                 .show()
           }
 

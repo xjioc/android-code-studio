@@ -24,7 +24,7 @@
             <com.google.android.material.appbar.MaterialToolbar
                 android:layout_height="?attr/actionBarSize"
                 android:layout_width="match_parent"
-                app:title="Select Destination"
+                app:title="@string/select_destination"
                 style="@style/Widget.Material3.Toolbar.Surface"
                 android:id="@+id/toolbar_dialog">
 
@@ -68,7 +68,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/gotoMyProj"
-        android:text="Goto My project"
+        android:text="@string/goto_my_project"
         android:layout_margin="32dp"
         android:contentDescription="Paste Here"
         app:icon="@drawable/ic_arrow_back"

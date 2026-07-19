@@ -17,6 +17,7 @@
 
 package com.tom.rv2ide.adapters;
 
+import com.tom.rv2ide.R;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.collection.LongSparseArray;
@@ -29,7 +30,7 @@ import com.termux.app.TerminalFragment;
 import com.tom.rv2ide.fragments.output.AppLogFragment;
 import com.tom.rv2ide.fragments.output.BuildOutputFragment;
 import com.tom.rv2ide.fragments.output.IDELogFragment;
-import com.tom.rv2ide.resources.R;
+
 import java.util.ArrayList;
 import java.util.List;
 import org.slf4j.Logger;

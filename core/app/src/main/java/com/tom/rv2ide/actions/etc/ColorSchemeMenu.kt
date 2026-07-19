@@ -17,6 +17,7 @@
 
 package com.tom.rv2ide.actions.etc
 
+import com.tom.rv2ide.R
 import android.content.Context
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
@@ -26,7 +27,6 @@ import com.tom.rv2ide.actions.ActionMenu
 import com.tom.rv2ide.actions.EditorActivityAction
 import com.tom.rv2ide.editor.schemes.IDEColorSchemeProvider
 import com.tom.rv2ide.preferences.internal.EditorPreferences
-import com.tom.rv2ide.resources.R
 import com.tom.rv2ide.tasks.launchAsyncWithProgress
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

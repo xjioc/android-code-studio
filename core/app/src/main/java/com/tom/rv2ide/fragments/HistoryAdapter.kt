@@ -44,11 +44,12 @@ class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder>() 
 
         fun bind(item: UnifiedModificationAttempt) {
             val fileName = File(item.filePath).name
-            val status = if (item.success) "Modified" else "Failed to modify"
+            val ctx = itemView.context
+            val status = if (item.success) ctx.getString(R.string.file_status_modified) else ctx.getString(R.string.file_modified_fail)
             
             historyTitle.text = "$status $fileName"
             historyTime.text = dateFormat.format(Date(item.timestamp))
-            historyDetails.text = "Attempt #${item.attemptNumber} - ${if (item.success) "Success" else "Failed"}"
+            historyDetails.text = "${ctx.getString(R.string.file_attempt, item.attemptNumber)} - ${if (item.success) ctx.getString(R.string.file_attempt_success) else ctx.getString(R.string.file_attempt_failed)}"
             
             // Set icon tint based on success/failure
             val colorRes = if (item.success) {

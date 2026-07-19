@@ -16,12 +16,12 @@
  */
 package com.tom.rv2ide.activities
 
+import com.tom.rv2ide.R
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.core.graphics.Insets
 import androidx.fragment.app.Fragment
-import com.tom.rv2ide.R
 import com.tom.rv2ide.app.EdgeToEdgeIDEActivity
 import com.tom.rv2ide.databinding.ActivityPreferencesBinding
 import com.tom.rv2ide.fragments.IDEPreferencesFragment
@@ -87,9 +87,9 @@ class PreferencesActivity : EdgeToEdgeIDEActivity() {
                       }
                   }
                   
-                  Toast.makeText(this, "Font copied successfully: $fileName", Toast.LENGTH_SHORT).show()
+                  Toast.makeText(this, getString(R.string.font_copied_success, fileName), Toast.LENGTH_SHORT).show()
               } catch (e: Exception) {
-                  Toast.makeText(this, "Error copying font: ${e.message}", Toast.LENGTH_LONG).show()
+                  Toast.makeText(this, getString(R.string.error_copying_font, e.message), Toast.LENGTH_LONG).show()
               }
           }
       }

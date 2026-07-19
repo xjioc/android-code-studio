@@ -20,6 +20,7 @@
 
 package com.tom.rv2ide.adapters.viewholders;
 
+import com.tom.rv2ide.R;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,7 +30,6 @@ import androidx.transition.TransitionManager;
 import com.blankj.utilcode.util.SizeUtils;
 import com.tom.rv2ide.databinding.LayoutFiletreeItemBinding;
 import com.tom.rv2ide.models.FileExtension;
-import com.tom.rv2ide.resources.R;
 import com.unnamed.b.atv.model.TreeNode;
 import java.io.File;
 

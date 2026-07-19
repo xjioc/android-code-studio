@@ -17,6 +17,8 @@
 
 package com.tom.rv2ide.templates.android
 
+import android.content.Context
+
 /*
  * @author Mohammed-baqer-null @ https://github.com/Mohammed-baqer-null
  */
@@ -50,7 +52,7 @@ object TemplateRegistry {
 
   fun getAllTemplates(): List<Template> = templates.toList()
 
-  fun getTemplateByName(displayName: String): Template? {
-    return templates.find { it.displayName == displayName }
+  fun getTemplateByName(context: Context, displayName: String): Template? {
+    return templates.find { it.displayName(context) == displayName }
   }
 }

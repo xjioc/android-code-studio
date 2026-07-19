@@ -16,6 +16,7 @@
  */
 package com.tom.rv2ide.fragments
 
+import com.tom.rv2ide.R
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -26,7 +27,6 @@ import androidx.fragment.app.Fragment
 import com.blankj.utilcode.util.ClipboardUtils
 import com.tom.rv2ide.buildinfo.BuildInfo
 import com.tom.rv2ide.databinding.LayoutCrashReportBinding
-import com.tom.rv2ide.resources.R
 import com.tom.rv2ide.utils.BuildInfoUtils
 
 class CrashReportFragment : Fragment() {

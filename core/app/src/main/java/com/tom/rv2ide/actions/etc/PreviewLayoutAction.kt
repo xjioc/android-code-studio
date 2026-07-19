@@ -17,6 +17,7 @@
 
 package com.tom.rv2ide.actions.etc
 
+import com.tom.rv2ide.R
 import android.content.Context
 import android.content.Intent
 import android.view.MenuItem
@@ -29,7 +30,6 @@ import com.tom.rv2ide.actions.EditorRelatedAction
 import com.tom.rv2ide.actions.markInvisible
 import com.tom.rv2ide.activities.editor.EditorHandlerActivity
 import com.tom.rv2ide.editor.ui.IDEEditor
-import com.tom.rv2ide.resources.R
 import com.tom.rv2ide.uidesigner.UIDesignerActivity
 import java.io.File
 

@@ -17,6 +17,7 @@
 
 package com.tom.rv2ide.provider;
 
+import com.tom.rv2ide.R;
 import android.content.res.AssetFileDescriptor;
 import android.database.Cursor;
 import android.database.MatrixCursor;
@@ -28,7 +29,7 @@ import android.provider.DocumentsContract.Root;
 import android.provider.DocumentsProvider;
 import android.webkit.MimeTypeMap;
 import androidx.annotation.NonNull;
-import com.tom.rv2ide.resources.R;
+
 import com.tom.rv2ide.utils.Environment;
 import java.io.File;
 import java.io.FileNotFoundException;

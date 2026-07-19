@@ -17,12 +17,12 @@
 
 package com.tom.rv2ide.actions.editor
 
+import com.tom.rv2ide.R
 import android.content.Context
 import androidx.core.content.ContextCompat
 import com.tom.rv2ide.actions.ActionData
 import com.tom.rv2ide.actions.ActionItem
 import com.tom.rv2ide.actions.EditorRelatedAction
-import com.tom.rv2ide.resources.R
 
 /**
  * Expands the current selection using the language server set in editor.

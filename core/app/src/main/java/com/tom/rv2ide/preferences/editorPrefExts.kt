@@ -17,10 +17,10 @@
 
 package com.tom.rv2ide.preferences
 
+import com.tom.rv2ide.R
 import android.view.LayoutInflater
 import androidx.preference.Preference
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.tom.rv2ide.R
 import com.tom.rv2ide.databinding.LayoutTextSizeSliderBinding
 import com.tom.rv2ide.editor.schemes.IDEColorScheme
 import com.tom.rv2ide.editor.schemes.IDEColorSchemeProvider
@@ -419,11 +419,11 @@ private class UseCustomFont(
       }
       null -> {
         EditorPreferences.selectedCustomFont = null
-        Toast.makeText(preference.context, "Using default font", Toast.LENGTH_SHORT).show()
+        Toast.makeText(preference.context, preference.context.getString(R.string.using_default_font), Toast.LENGTH_SHORT).show()
       }
       else -> {
         EditorPreferences.selectedCustomFont = entry.data as String
-        Toast.makeText(preference.context, "Font selected: ${entry.label}", Toast.LENGTH_SHORT).show()
+        Toast.makeText(preference.context, preference.context.getString(R.string.font_selected, entry.label), Toast.LENGTH_SHORT).show()
       }
     }
   }
@@ -442,7 +442,7 @@ private class UseCustomFont(
           PICK_FONT_REQUEST
       )
     } catch (e: Exception) {
-      Toast.makeText(preference.context, "Error opening file picker: ${e.message}", Toast.LENGTH_SHORT).show()
+      Toast.makeText(preference.context, preference.context.getString(R.string.error_opening_file_picker, e.message), Toast.LENGTH_SHORT).show()
     }
   }
 }

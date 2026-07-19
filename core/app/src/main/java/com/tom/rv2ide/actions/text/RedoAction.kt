@@ -17,6 +17,7 @@
 
 package com.tom.rv2ide.actions.text
 
+import com.tom.rv2ide.R
 import android.app.Activity
 import android.content.Context
 import android.view.MenuItem
@@ -26,7 +27,6 @@ import com.tom.rv2ide.actions.ActionData
 import com.tom.rv2ide.actions.EditorRelatedAction
 import com.tom.rv2ide.actions.editor.ExtractAction
 import com.tom.rv2ide.actions.markInvisible
-import com.tom.rv2ide.resources.R
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

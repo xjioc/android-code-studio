@@ -17,6 +17,7 @@
 
 package com.tom.rv2ide.templates.android
 
+import com.tom.rv2ide.R
 import android.content.Context
 import android.util.Log
 import android.widget.Toast
@@ -42,7 +43,7 @@ import kotlinx.coroutines.withContext
  */
 
 class EmptyActivity : Template {
-  override val displayName = "Empty Activity"
+  override fun displayName(context: Context) = context.getString(R.string.template_empty_activity)
   override val templateType = Template.TemplateType.ACTIVITY
 
   private val projectStructBuilder = ProjectStructBuilder()
@@ -70,7 +71,7 @@ class EmptyActivity : Template {
 
           // Show toast on main thread
           withContext(Dispatchers.Main) {
-            Toast.makeText(context, "Creating Empty Activity...", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, context.getString(R.string.creating_empty_activity), Toast.LENGTH_SHORT).show()
           }
 
           val packageHelper =

@@ -17,6 +17,7 @@
 
 package com.tom.rv2ide.activities
 
+import com.tom.rv2ide.R
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
@@ -38,7 +39,6 @@ import com.tom.rv2ide.resources.R.string
 import com.tom.rv2ide.templates.ITemplateProvider
 import com.tom.rv2ide.utils.DialogUtils
 import com.tom.rv2ide.utils.flashInfo
-import com.tom.rv2ide.R
 import com.tom.rv2ide.viewmodel.MainViewModel
 import com.tom.rv2ide.viewmodel.MainViewModel.Companion.SCREEN_MAIN
 import com.tom.rv2ide.viewmodel.MainViewModel.Companion.SCREEN_TEMPLATE_DETAILS

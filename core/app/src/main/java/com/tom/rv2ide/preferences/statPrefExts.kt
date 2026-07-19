@@ -17,10 +17,10 @@
 
 package com.tom.rv2ide.preferences
 
+import com.tom.rv2ide.R
 import android.content.Context
 import androidx.preference.Preference
 import com.tom.rv2ide.preferences.internal.StatPreferences
-import com.tom.rv2ide.resources.R
 import com.tom.rv2ide.stats.AndroidIDEStats
 import com.tom.rv2ide.stats.StatUploadWorker
 import kotlinx.parcelize.Parcelize

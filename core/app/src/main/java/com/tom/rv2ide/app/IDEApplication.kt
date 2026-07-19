@@ -18,6 +18,7 @@
 
 package com.tom.rv2ide.app
 
+import com.tom.rv2ide.R
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -179,7 +180,7 @@ class IDEApplication : TermuxApplication() {
       startActivity(intent)
     } catch (th: Throwable) {
       log.error("Unable to start activity to show changelog", th)
-      flashError("Unable to start activity")
+      flashError(getString(R.string.unable_to_start_activity))
     }
   }
 

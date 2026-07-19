@@ -17,10 +17,10 @@
 
 package com.tom.rv2ide.models
 
+import com.tom.rv2ide.R
 import android.view.View
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import com.tom.rv2ide.resources.R
 import java.util.Collections
 
 /**

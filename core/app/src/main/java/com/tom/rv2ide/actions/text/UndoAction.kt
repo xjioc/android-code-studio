@@ -17,12 +17,12 @@
 
 package com.tom.rv2ide.actions.text
 
+import com.tom.rv2ide.R
 import android.content.Context
 import androidx.core.content.ContextCompat
 import com.tom.rv2ide.actions.ActionData
 import com.tom.rv2ide.actions.EditorRelatedAction
 import com.tom.rv2ide.actions.editor.ExtractAction
-import com.tom.rv2ide.resources.R
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

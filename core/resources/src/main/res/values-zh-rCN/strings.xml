@@ -540,9 +540,10 @@
   <string name="sidebar_git_title">Git客户端</string>
   <string name="sidebar_git_settings_msg">设置</string>
   <string name="sidebar_git_history_msg">历史</string>
-  <string name="sidebar_git_branches_msg">分支机构</string>
-  <string name="sidebar_git_remotes_msg">遥控器</string>
-  <string name="sidebar_git_changes_msg">变化</string>
+  <string name="sidebar_git_branches_msg">分支</string>
+  <string name="sidebar_git_remotes_msg">远程仓库</string>
+  <string name="sidebar_git_changes_msg">变更</string>
+  <string name="msg_use_ndk">为此项目添加 C++ 模板</string>
 
 
   <!--The text sorrounded with '@@' is spanned as clickable.-->
@@ -1118,4 +1119,501 @@
   <string name="lsp_ok_button">好的</string>
   <string name="lsp_installation_failed_description">无法安装更新：%s</string>
   <string name="lsp_retry_button">重试</string>
+
+  <!-- 通用按钮 -->
+  <string name="ok">确定</string>
+  <string name="apply">应用</string>
+  <string name="close">关闭</string>
+  <string name="clear">清除</string>
+  <string name="retry">重试</string>
+  <string name="discard">丢弃</string>
+  <string name="push">推送</string>
+  <string name="pull">拉取</string>
+  <string name="fetch">获取</string>
+  <string name="remove">移除</string>
+  <string name="add">添加</string>
+  <string name="import_">导入</string>
+  <string name="generate">生成</string>
+  <string name="edit">编辑</string>
+  <string name="init_">初始化</string>
+  <string name="clone">克隆</string>
+  <string name="refresh">刷新</string>
+  <string name="loading">加载中…</string>
+  <string name="without_credentials">不使用凭据</string>
+
+  <!-- Git 相关 -->
+  <string name="git_settings_title">Git 用户配置</string>
+  <string name="git_name_label">姓名：</string>
+  <string name="git_user_label">用户</string>
+  <string name="git_email_label">邮箱：</string>
+  <string name="git_edit_user_config">编辑用户配置</string>
+  <string name="git_credentials">凭据</string>
+  <string name="git_remember_credentials">记住凭据</string>
+  <string name="git_remember_credentials_summary">保存用户名和密码用于推送/拉取</string>
+  <string name="git_status_label">状态：</string>
+  <string name="git_not_saved">未保存</string>
+  <string name="git_saved">已保存</string>
+  <string name="git_clear_credentials">清除已保存的凭据</string>
+  <string name="git_clear_credentials_title">清除凭据</string>
+  <string name="git_clear_credentials_message">确定要清除已保存的凭据吗？</string>
+  <string name="git_user_config_title">Git 用户配置</string>
+  <string name="git_commit_changes">提交更改</string>
+  <string name="git_commit">提交</string>
+  <string name="git_discard_changes">丢弃更改</string>
+  <string name="git_discard_changes_message">确定要丢弃 %1$s 中的更改吗？此操作无法撤销。</string>
+  <string name="git_create_branch">创建新分支</string>
+  <string name="git_delete_branch">删除分支</string>
+  <string name="git_delete_branch_message">确定要删除分支「%1$s」吗？</string>
+  <string name="git_add_remote">添加远程仓库</string>
+  <string name="git_push_to_remote">推送到远程</string>
+  <string name="git_push_message">将您的提交推送到 %1$s</string>
+  <string name="git_pull_from_remote">从远程拉取</string>
+  <string name="git_pull_message">从 %1$s 拉取更改</string>
+  <string name="git_fetch_from_remote">从远程获取</string>
+  <string name="git_fetch_message">从 %1$s 获取更改</string>
+  <string name="git_remove_remote">移除远程仓库</string>
+  <string name="git_remove_remote_message">确定要移除远程仓库「%1$s」吗？</string>
+  <string name="git_init_repo">初始化仓库</string>
+  <string name="git_init_repo_message">在以下位置初始化新的 Git 仓库：\n%1$s\n\n选择初始分支名称：</string>
+  <string name="git_clone_repo_message">克隆到：%1$s</string>
+  <string name="git_no_repo">未找到仓库</string>
+  <string name="git_no_repo_summary">初始化新仓库、克隆现有仓库或打开现有仓库</string>
+  <string name="git_remote_operations">远程操作</string>
+  <string name="git_no_remotes">未配置远程仓库\n添加远程仓库以推送/拉取更改</string>
+  <string name="git_commit_history">提交历史</string>
+  <string name="git_no_commits">暂无提交</string>
+  <string name="git_current_branch">当前：%1$s</string>
+
+  <!-- 编辑器操作 -->
+  <string name="editor_uppercase">转换为大写</string>
+  <string name="editor_lowercase">转换为小写</string>
+  <string name="editor_delete_line">删除行</string>
+  <string name="editor_duplicate_line">复制行</string>
+  <string name="editor_copy_line">复制行内容</string>
+  <string name="editor_comment_line">注释行</string>
+  <string name="editor_move_up">上移行</string>
+  <string name="editor_move_down">下移行</string>
+  <string name="editor_insert_above">在上方插入行</string>
+  <string name="editor_insert_below">在下方插入行</string>
+  <string name="editor_select_line">选择行</string>
+  <string name="editor_trim_whitespace">清除尾部空白</string>
+  <string name="editor_indent_line">增加缩进</string>
+  <string name="editor_unindent_line">减少缩进</string>
+  <string name="editor_join_lines">合并行</string>
+  <string name="editor_clear_all">全部清除</string>
+  <string name="editor_confirm_clear">确定要清除所有文本吗？此操作无法撤销。</string>
+  <string name="editor_cleared">编辑器已清除</string>
+  <string name="editor_auto_saved">自动保存：%1$s</string>
+  <string name="editor_installation_succeeded">安装成功</string>
+  <string name="editor_select_module">选择模块</string>
+  <string name="editor_font_default">JetBrains Mono（默认）</string>
+
+  <!-- 文件修改 -->
+  <string name="file_modifying">正在修改…</string>
+  <string name="file_modified_success">修改成功</string>
+  <string name="file_modified_fail">修改失败</string>
+  <string name="file_status_modified">已修改</string>
+  <string name="file_attempt">第 %1$d 次尝试</string>
+  <string name="file_attempt_success">成功</string>
+  <string name="file_attempt_failed">失败</string>
+
+  <!-- 字符串提取 -->
+  <string name="string_extract_from">从 %1$s 提取字符串？</string>
+  <string name="string_translatable">可翻译</string>
+  <string name="string_skip">跳过</string>
+  <string name="string_extract">提取</string>
+
+  <!-- 文件管理 -->
+  <string name="file_no_match_filters">没有匹配筛选条件的文件</string>
+  <string name="file_click">已点击文件：%1$s</string>
+  <string name="file_copy_to">复制到</string>
+  <string name="file_move_to">移动到</string>
+  <string name="file_copy_path">复制完整路径</string>
+  <string name="file_name_empty">名称不能为空</string>
+  <string name="file_already_exists">已存在同名文件</string>
+  <string name="file_renamed">重命名成功</string>
+  <string name="file_rename_fail">重命名失败</string>
+  <string name="file_path_copied">路径已复制到剪贴板</string>
+  <string name="file_delete_confirm_file">确定要删除此文件吗？</string>
+  <string name="file_delete_confirm_folder">确定要删除此文件夹及其所有内容吗？</string>
+  <string name="file_deleted">删除成功</string>
+  <string name="file_delete_fail">删除失败</string>
+  <string name="file_cannot_access_folder">无法访问此文件夹</string>
+  <string name="file_source_not_exist">源文件不存在</string>
+  <string name="file_dest_already_exists">目标位置已存在同名文件</string>
+  <string name="file_same_source_dest">源和目标相同</string>
+  <string name="file_cannot_move_into_self">无法将文件夹移动到自身</string>
+  <string name="file_moving">正在将 %1$s 移动到 %2$s</string>
+  <string name="file_moved">文件移动成功！</string>
+  <string name="file_move_fail">移动失败：%1$s</string>
+  <string name="file_copying">正在将 %1$s 复制到 %2$s</string>
+  <string name="file_copied">文件复制成功！</string>
+  <string name="file_copy_fail">复制失败：%1$s</string>
+  <string name="file_dir_not_exist">目录不存在：%1$s</string>
+  <string name="file_cannot_read_dir">无法读取目录：%1$s</string>
+
+  <!-- NDK / CMake -->
+  <string name="ndk_cmake_not_installed">未安装</string>
+  <string name="ndk_cmake_no_versions">没有可用版本</string>
+  <string name="ndk_cmake_select_version">请先从下拉列表中选择版本</string>
+  <string name="ndk_cmake_remove_confirm">确定要移除 %1$s 版本 %2$s 吗？</string>
+  <string name="ndk_cmake_remove_success">%1$s %2$s 已移除</string>
+  <string name="ndk_cmake_remove_fail">移除 %1$s %2$s 失败</string>
+  <string name="ndk_cmake_no_versions_to_remove">未找到可移除的版本</string>
+  <string name="ndk_cmake_unsupported_arch">不支持的架构：%1$s</string>
+  <string name="ndk_cmake_package_filename_fail">获取包文件名失败：%1$s</string>
+  <string name="ndk_cmake_empty_filename">从清单接收到空文件名</string>
+  <string name="ndk_cmake_download_success">下载成功</string>
+  <string name="ndk_cmake_install_success">安装已完成！</string>
+
+  <!-- 颜色选择器 -->
+  <string name="color_dynamic">动态颜色</string>
+  <string name="color_hex_hint">十六进制颜色值</string>
+  <string name="color_alpha">透明度</string>
+  <string name="color_red">红色</string>
+  <string name="color_green">绿色</string>
+  <string name="color_blue">蓝色</string>
+
+  <!-- 审查变更 -->
+  <string name="review_changes">审查变更</string>
+  <string name="review_summary">摘要</string>
+  <string name="review_files_to_modify">待修改的文件</string>
+  <string name="review_code_preview">代码预览</string>
+  <string name="review_apply">应用更改</string>
+
+  <!-- 构建变体 -->
+  <string name="build_variant_hint">构建变体</string>
+  <string name="compile_sdk_hint">编译 SDK</string>
+
+  <!-- Material 图标 -->
+  <string name="material_icons_web_title">Material 图标</string>
+  <string name="m3icons_search_hint">搜索图标…</string>
+
+  <!-- 素材工作室 -->
+  <string name="asset_studio_title">素材工作室</string>
+  <string name="asset_icon_name_hint">图标名称</string>
+
+  <!-- 日志查看器 -->
+  <string name="log_search_hint">搜索日志</string>
+
+  <!-- 依赖更新 -->
+  <string name="dep_update_available">有可用更新：%1$s</string>
+  <string name="dep_up_to_date">已是最新</string>
+  <string name="dep_not_found">在仓库中未找到</string>
+  <string name="dep_update_warning">警告</string>
+  <string name="dep_update_confirm_single">您即将更新：\n\n%1$s\n是否继续？</string>
+  <string name="dep_update_confirm_multi">您即将更新 %1$d 个依赖，是否继续全部更新？</string>
+  <string name="dep_update_confirm_btn">确认更新</string>
+  <string name="dep_update_complete">更新完成</string>
+  <string name="dep_update_success">已成功更新：%1$s</string>
+  <string name="dep_update_fail">更新失败：%1$s</string>
+  <string name="dep_update_multi_fail">依赖更新失败：%1$s</string>
+  <string name="dep_error">错误</string>
+
+  <!-- 模板显示名称 -->
+  <string name="template_native_cpp">Native C++</string>
+  <string name="template_empty_activity">空 Activity</string>
+  <string name="template_responsive_activity">响应式 Activity</string>
+  <string name="template_bottom_navigation">底部导航</string>
+  <string name="template_compose_activity">Compose Activity</string>
+  <string name="template_basic_activity">基础 Activity</string>
+  <string name="template_game_activity">游戏 Activity</string>
+
+  <!-- 其他 -->
+  <string name="select_destination">选择目标位置</string>
+  <string name="review_changes_title">审查变更</string>
+  <string name="agent_settings">助手设置</string>
+  <string name="ide_configurations">IDE 配置</string>
+
+  <!-- 聊天导航菜单 -->
+  <string name="nav_chat">聊天</string>
+  <string name="nav_settings">设置</string>
+
+  <!-- 终端导航菜单 -->
+  <string name="nav_hide">隐藏</string>
+  <string name="nav_terminal">终端</string>
+  <string name="nav_new_session">新会话</string>
+
+  <!-- Git 导航栏 -->
+  <string name="nav_changes">变更</string>
+
+  <!-- 文件浏览器菜单 -->
+  <string name="menu_search">搜索</string>
+  <string name="menu_filter">筛选</string>
+  <string name="menu_show_all">显示全部</string>
+  <string name="menu_folders_only">仅文件夹</string>
+  <string name="menu_files_only">仅文件</string>
+  <string name="menu_filter_by_ext">按扩展名筛选</string>
+  <string name="menu_all_files">所有文件</string>
+  <string name="menu_xml_files">XML 文件 (.xml)</string>
+  <string name="menu_text_files">文本文件 (.txt)</string>
+  <string name="menu_pdf_files">PDF 文件 (.pdf)</string>
+  <string name="menu_images">图片 (.jpg, .png, .gif)</string>
+  <string name="menu_videos">视频 (.mp4, .mkv, .avi)</string>
+  <string name="menu_audio">音频 (.mp3, .wav, .m4a)</string>
+  <string name="menu_apk_files">APK 文件 (.apk)</string>
+  <string name="menu_archives">压缩包 (.zip, .rar, .7z)</string>
+  <string name="menu_custom_ext">自定义扩展名…</string>
+
+  <!-- AI 侧边栏 -->
+  <string name="ai_undo_done">已撤销上次修改</string>
+  <string name="ai_undo_none">没有可撤销的内容</string>
+  <string name="git_new_branch">新分支</string>
+
+  <!-- 备份 -->
+  <string name="backup_in_progress">备份进行中</string>
+  <string name="backup_creating">正在创建 %1$s 的备份</string>
+  <string name="backup_completed">备份完成</string>
+  <string name="backup_failed">备份失败</string>
+  <string name="backup_failed_message">项目备份失败：%1$s</string>
+  <string name="delete_in_progress">删除进行中</string>
+  <string name="deleting">正在删除 %1$s</string>
+
+  <!-- 终端 -->
+  <string name="terminal_appearance">外观</string>
+  <string name="terminal_text_size">文字大小</string>
+  <string name="terminal_hide_extra_keys">隐藏扩展键工具栏</string>
+
+  <!-- 文件浏览器 -->
+  <string name="enter_custom_extension">输入自定义扩展名</string>
+  <string name="enter_extension_hint">输入文件扩展名（不带点）</string>
+  <string name="file_rename">重命名</string>
+  <string name="file_rename_message">输入 %1$s 的新名称</string>
+  <string name="file_delete_format">删除 %1$s</string>
+  <string name="file_too_big">文件太大！</string>
+
+  <!-- 对话框标签 -->
+  <string name="commit_message">提交信息</string>
+  <string name="credentials_optional">凭据（可选）</string>
+  <string name="username">用户名</string>
+  <string name="password">密码</string>
+  <string name="password_token">密码/令牌</string>
+  <string name="user_name">用户名</string>
+  <string name="user_email">用户邮箱</string>
+  <string name="repository_url">仓库 URL</string>
+  <string name="remote_name_hint">远程名称（例如 origin）</string>
+  <string name="remote_url">远程 URL</string>
+  <string name="branch_name">分支名称</string>
+  <string name="destination">目标位置</string>
+  <string name="version_name">版本名称</string>
+  <string name="version_code">版本代码</string>
+  <string name="min_sdk">最低 SDK</string>
+  <string name="target_sdk">目标 SDK</string>
+  <string name="edit_icon">编辑图标</string>
+  <string name="color_label">颜色</string>
+  <string name="change">更改</string>
+  <string name="save_and_copy">保存并复制</string>
+  <string name="current_color">当前颜色</string>
+  <string name="color_presets">颜色预设</string>
+  <string name="update_dependency">更新依赖项</string>
+  <string name="import_vector_xml">导入矢量 XML</string>
+  <string name="material_icons">Material 图标</string>
+  <string name="save_to">保存到</string>
+  <string name="select_module">选择模块</string>
+  <string name="select_ndk_version">选择 NDK 版本</string>
+  <string name="select_cmake_version">选择 CMake 版本</string>
+  <string name="ndk_not_found">未找到 NDK</string>
+  <string name="remove_ndk">移除 NDK</string>
+  <string name="remove_ndk_message">确定要移除 NDK 版本 %1$s 吗？</string>
+  <string name="remove_cmake">移除 CMake</string>
+  <string name="remove_cmake_message">确定要移除 CMake 版本 %1$s 吗？</string>
+  <string name="project_setup_failed">项目设置失败</string>
+  <string name="view_error">查看错误</string>
+  <string name="full_error_details">完整错误详情</string>
+  <string name="copy_again">再次复制</string>
+  <string name="loading_versions">加载版本中…</string>
+  <string name="no_versions_available">没有可用版本</string>
+  <string name="failed_to_load">加载失败</string>
+  <string name="failed_to_fetch_versions">获取版本失败：%1$s</string>
+  <string name="error_loading">加载出错</string>
+  <string name="error_fetching_versions">获取版本出错：%1$s</string>
+  <string name="request_timed_out">请求超时</string>
+  <string name="error_occurred">发生错误：%1$s</string>
+  <string name="unsupported_architecture">不支持的架构：%1$s</string>
+  <string name="no_ndk_versions">仓库中未找到 NDK 版本</string>
+  <string name="no_cmake_versions">仓库中未找到 CMake 版本</string>
+
+  <!-- Toast 提示 -->
+  <string name="copied_to_clipboard">已复制到剪贴板</string>
+  <string name="trailing_whitespace_removed">已移除尾部空格</string>
+  <string name="permission_denied_read">读取存储权限被拒绝</string>
+  <string name="permission_denied_manage">管理存储权限被拒绝</string>
+  <string name="unable_to_start_activity">无法启动活动</string>
+  <string name="permission_denied">权限被拒绝</string>
+  <string name="selected_build_variant_not_found">未找到选定的构建变体</string>
+  <string name="cannot_run_application">无法运行应用。无法确定包名。</string>
+  <string name="install_failure">安装失败：%1$s</string>
+  <string name="invalid_ndk">无效的 NDK：%1$s</string>
+  <string name="ndk_version_selected">已选择 NDK %1$s</string>
+  <string name="invalid_cmake">无效的 CMake：%1$s</string>
+  <string name="cmake_selected">已选择 CMake %1$s</string>
+  <string name="please_select_ndk">请先从下拉列表中选择 NDK 版本</string>
+  <string name="failed_get_package_filename">获取包文件名失败：%1$s</string>
+  <string name="empty_filename_from_manifest">从清单接收到空文件名</string>
+  <string name="installation_failed">安装失败：%1$s</string>
+  <string name="download_failed">下载失败：%1$s</string>
+  <string name="failed_get_package_info">获取包信息失败：%1$s</string>
+  <string name="please_select_cmake">请先从下拉列表中选择 CMake 版本</string>
+
+  <!-- 素材工作室 -->
+  <string name="icon_imported">已从 Material 图标导入</string>
+  <string name="failed_load_vector">从选择中加载矢量失败</string>
+  <string name="error_loading_image">加载图片出错：%1$s</string>
+  <string name="failed_read_xml">读取 XML 内容失败</string>
+  <string name="error_loading_xml">加载 XML 出错：%1$s</string>
+  <string name="xml_preview_updated">XML 预览已更新</string>
+  <string name="image_preview_updated">图片预览已更新</string>
+  <string name="select_image_or_xml">请先选择图片或 XML 文件</string>
+  <string name="vector_imported">矢量已导入</string>
+  <string name="failed_parse_vector">解析矢量 XML 失败</string>
+  <string name="no_project_opened">未打开项目</string>
+  <string name="generated_icons">已在 %2$s 中生成 %1$d 个图标</string>
+  <string name="error_generating_icons">生成图标出错：%1$s</string>
+  <string name="copy_to">复制到</string>
+  <string name="select_color">选择颜色</string>
+  <string name="what_would_you_like">您希望我做什么？</string>
+  <string name="m3_icons">M3 图标</string>
+  <string name="no_recent_assets">暂无最近素材</string>
+
+  <!-- 设置提示 -->
+  <string name="font_copied_success">字体复制成功：%1$s</string>
+  <string name="error_copying_font">复制字体出错：%1$s</string>
+  <string name="using_default_font">使用默认字体</string>
+  <string name="font_selected">已选择字体：%1$s</string>
+  <string name="error_opening_file_picker">打开文件选择器出错：%1$s</string>
+  <string name="restarting">重启中…</string>
+
+  <!-- 模板提示 -->
+  <string name="creating_native_cpp">正在创建 Native C++…</string>
+  <string name="creating_empty_activity">正在创建空 Activity…</string>
+  <string name="creating_responsive_activity">正在创建响应式 Activity…</string>
+  <string name="creating_no_activity">正在创建无 Activity…</string>
+  <string name="creating_bottom_nav_activity">正在创建底部导航 Activity…</string>
+  <string name="creating_compose_empty_activity">正在创建 Compose 空 Activity…</string>
+  <string name="creating_basic_activity">正在创建基础 Activity…</string>
+  <string name="creating_nav_drawer_activity">正在创建导航抽屉 Activity…</string>
+
+  <!-- 其他 -->
+  <string name="import_project">导入项目</string>
+  <string name="git_nav">Git</string>
+
+  <!-- AI 助手 -->
+  <string name="ai_tab_chat">聊天</string>
+  <string name="ai_tab_history">历史</string>
+  <string name="ai_send">发送</string>
+  <string name="ai_status">状态</string>
+  <string name="ai_ready_to_assist">准备为您提供帮助</string>
+  <string name="ai_modification_summary">修改摘要</string>
+  <string name="ai_modifying">正在修改…</string>
+  <string name="ai_ask_hint">询问 AI 任何问题…</string>
+  <string name="ai_enter_request">请输入请求内容</string>
+  <string name="ai_project_loaded">项目加载成功</string>
+  <string name="ai_project_load_failed">项目加载失败</string>
+  <string name="ai_error_loading_project">加载项目出错：%1$s</string>
+  <string name="ai_project_path_not_set">未设置项目路径</string>
+  <string name="ai_file_not_found">文件未找到：%1$s</string>
+  <string name="ai_opened">已打开：%1$s</string>
+  <string name="ai_error_opening_file">打开文件出错：%1$s</string>
+  <string name="ai_conversation_cleared_ready">对话已清除，准备接收新请求。</string>
+  <string name="ai_conversation_cleared">对话已清除</string>
+  <string name="ai_error_clearing">清除出错：%1$s</string>
+  <string name="ai_copy">复制</string>
+  <string name="ai_code_copied">代码已复制到剪贴板</string>
+  <string name="ai_switched_to">已切换到 %1$s</string>
+  <string name="ai_no_valid_api_key">%1$s 没有有效的 API 密钥</string>
+  <string name="ai_model_switched_to">模型已切换到：%1$s</string>
+  <string name="ai_modified_successfully">修改成功</string>
+
+  <!-- Git ViewModel 消息 -->
+  <string name="git_user_config_updated">用户配置已更新</string>
+  <string name="git_user_config_update_failed">用户配置更新失败</string>
+  <string name="git_remote_added">远程仓库添加成功</string>
+  <string name="git_remote_add_failed">远程仓库添加失败</string>
+  <string name="git_remote_removed">远程仓库已移除</string>
+  <string name="git_remote_remove_failed">远程仓库移除失败</string>
+  <string name="git_staging_file">正在暂存文件…</string>
+  <string name="git_file_staged">文件已暂存</string>
+  <string name="git_file_staging_failed">文件暂存失败</string>
+  <string name="git_staging_all">正在暂存所有文件…</string>
+  <string name="git_all_files_staged">所有文件已暂存</string>
+  <string name="git_staging_all_failed">文件暂存失败</string>
+  <string name="git_unstaging_file">正在取消暂存文件…</string>
+  <string name="git_file_unstaged">文件已取消暂存</string>
+  <string name="git_file_unstaging_failed">取消暂存失败</string>
+  <string name="git_fetching">正在从远程获取…</string>
+  <string name="git_discarding_changes">正在丢弃变更…</string>
+  <string name="git_changes_discarded">变更已丢弃</string>
+  <string name="git_discard_failed">丢弃变更失败</string>
+  <string name="git_creating_branch">正在创建分支…</string>
+  <string name="git_branch_created">分支已创建</string>
+  <string name="git_branch_create_failed">创建分支失败</string>
+  <string name="git_switching_branch">正在切换分支…</string>
+  <string name="git_switched_to">已切换到 %1$s</string>
+  <string name="git_checkout_failed">分支切换失败</string>
+  <string name="git_deleting_branch">正在删除分支…</string>
+  <string name="git_branch_deleted">分支已删除</string>
+  <string name="git_branch_delete_failed">删除分支失败</string>
+  <string name="git_committing">正在提交变更…</string>
+  <string name="git_changes_committed">变更已提交</string>
+  <string name="git_commit_failed">提交失败</string>
+  <string name="git_pushing">正在推送到远程…</string>
+  <string name="git_pulling">正在从远程拉取…</string>
+  <string name="git_cloning">正在克隆仓库…</string>
+  <string name="git_initializing">正在初始化仓库…</string>
+  <string name="git_opening">正在打开仓库…</string>
+
+  <!-- Git Fragment 消息 -->
+  <string name="git_clone_single_branch">仅克隆单一分支</string>
+  <string name="git_clone_shallow">浅克隆（更快）</string>
+  <string name="git_clone_submodules">克隆包含子模块</string>
+  <string name="git_clone_no_tags">不获取标签</string>
+  <string name="git_clone_bare">创建裸仓库</string>
+  <string name="git_backup_project">备份项目</string>
+  <string name="git_delete_project">删除项目</string>
+  <string name="git_rename">重命名</string>
+  <string name="git_backing_up">正在备份项目…</string>
+  <string name="git_deleting_project">正在删除项目…</string>
+  <string name="git_branch_name_empty">分支名称不能为空</string>
+  <string name="git_cannot_delete_current">无法删除当前分支</string>
+  <string name="git_commit_empty">提交消息不能为空</string>
+  <string name="git_credentials_cleared">凭据已清除</string>
+  <string name="git_name_email_empty">姓名和邮箱不能为空</string>
+  <string name="git_init_failed">初始化仓库失败</string>
+  <string name="git_url_empty">URL 不能为空</string>
+
+  <!-- Git 界面 -->
+  <string name="git_stage_all">全部暂存</string>
+  <string name="git_no_changes">未检测到更改</string>
+  <string name="git_stage">暂存</string>
+  <string name="git_unstage">取消暂存</string>
+  <string name="git_checkout">切换</string>
+  <string name="git_remove">移除</string>
+  <string name="git_file_tree">文件树</string>
+
+  <!-- 素材工作室 -->
+  <string name="asset_preview">预览</string>
+  <string name="asset_source">源码</string>
+  <string name="asset_select_image">选择图片</string>
+  <string name="asset_load_xml">加载 XML</string>
+  <string name="asset_choose_image_or_xml">选择图片或 XML 矢量来创建应用图标</string>
+  <string name="asset_icon_settings">图标设置</string>
+  <string name="asset_shape">形状</string>
+  <string name="asset_circle">圆形</string>
+  <string name="asset_square">方形</string>
+  <string name="asset_rounded">圆角</string>
+  <string name="asset_background_color">背景颜色</string>
+  <string name="asset_choose_color">选择颜色</string>
+  <string name="asset_custom">自定义</string>
+  <string name="asset_foreground_scale">前景色缩放</string>
+  <string name="asset_rounded_corners">圆角</string>
+  <string name="asset_generate_icons">生成图标</string>
+
+  <!-- 其他 -->
+  <string name="download">下载</string>
+  <string name="edit_version_sdk">编辑版本和 SDK</string>
+  <string name="goto_my_project">前往我的项目</string>
+  <string name="updating_dependencies">更新依赖中</string>
+  <string name="project_settings">项目设置</string>
+  <string name="backup_my_project">备份我的项目</string>
+
 </resources>

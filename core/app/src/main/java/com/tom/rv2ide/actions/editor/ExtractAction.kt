@@ -17,10 +17,10 @@
 
 package com.tom.rv2ide.actions.editor
 
+import com.tom.rv2ide.R
 import android.content.Context
 import androidx.core.content.ContextCompat
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.tom.rv2ide.R
 import com.tom.rv2ide.actions.ActionData
 import com.tom.rv2ide.actions.BaseEditorAction
 import java.io.File
@@ -209,13 +209,13 @@ class ExtractAction(private val context: Context, override val order: Int) : Bas
       val moduleNames = modules.map { it.name }.toTypedArray()
 
       MaterialAlertDialogBuilder(context)
-          .setTitle("Select Module")
+          .setTitle(context.getString(R.string.select_module))
           .setItems(moduleNames) { dialog, which ->
             val selectedModule = modules[which]
             onModuleSelected(selectedModule)
             dialog.dismiss()
           }
-          .setNegativeButton("Cancel") { dialog, _ -> dialog.dismiss() }
+          .setNegativeButton(context.getString(R.string.cancel)) { dialog, _ -> dialog.dismiss() }
           .show()
     }
   }

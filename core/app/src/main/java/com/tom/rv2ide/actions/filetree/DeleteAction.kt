@@ -17,6 +17,7 @@
 
 package com.tom.rv2ide.actions.filetree
 
+import com.tom.rv2ide.R
 import android.app.ProgressDialog
 import android.content.Context
 import com.blankj.utilcode.util.FileUtils
@@ -24,7 +25,6 @@ import com.tom.rv2ide.actions.ActionData
 import com.tom.rv2ide.actions.requireFile
 import com.tom.rv2ide.eventbus.events.file.FileDeletionEvent
 import com.tom.rv2ide.projects.FileManager
-import com.tom.rv2ide.resources.R
 import com.tom.rv2ide.tasks.executeAsync
 import com.tom.rv2ide.utils.DialogUtils
 import com.tom.rv2ide.utils.FlashType

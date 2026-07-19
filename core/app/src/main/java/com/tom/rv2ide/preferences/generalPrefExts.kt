@@ -17,11 +17,13 @@
 
 package com.tom.rv2ide.preferences
 
+import com.tom.rv2ide.R
 import android.content.Context
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import androidx.preference.Preference
 import com.tom.rv2ide.R as MainR
+import com.tom.rv2ide.resources.R as ResourcesR
 import com.tom.rv2ide.preferences.internal.GeneralPreferences
 import com.tom.rv2ide.resources.R.drawable
 import com.tom.rv2ide.resources.R.string
@@ -126,7 +128,7 @@ class UiMode(
     AppRestartDialog.show(preference.context) { restart ->
         if (restart) { 
             GeneralPreferences.uiMode = (entry?.data as? Int?) ?: AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
-            android.widget.Toast.makeText(preference.context, "Restarting...", 0).show()
+            android.widget.Toast.makeText(preference.context, preference.context.getString(ResourcesR.string.restarting), 0).show()
             Handler(Looper.getMainLooper()).postDelayed({ AppRestartDialog.restartApp(preference.context) }, 1000)
         }
     }
@@ -165,7 +167,7 @@ class ThemeSelector(
     AppRestartDialog.show(preference.context) { restart ->
         if (restart) { 
             GeneralPreferences.selectedTheme = (entry?.data as? IDETheme?)?.name ?: IDETheme.DEFAULT.name
-            android.widget.Toast.makeText(preference.context, "Restarting...", 0).show()
+            android.widget.Toast.makeText(preference.context, preference.context.getString(ResourcesR.string.restarting), 0).show()
             Handler(Looper.getMainLooper()).postDelayed({ AppRestartDialog.restartApp(preference.context) }, 1000)
         }
     }

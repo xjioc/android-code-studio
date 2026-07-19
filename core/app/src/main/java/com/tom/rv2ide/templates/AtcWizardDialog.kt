@@ -1,5 +1,6 @@
 package com.tom.rv2ide.templates
 
+import com.tom.rv2ide.R
 import android.app.Dialog
 import android.content.Context
 import android.content.Intent
@@ -24,7 +25,6 @@ import com.google.android.material.card.MaterialCardView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.transition.MaterialSharedAxis
 import com.tom.androidcodestudio.project.manager.builder.LanguageType
-import com.tom.rv2ide.R
 import com.tom.rv2ide.activities.FolderPickerActivity
 import com.tom.rv2ide.activities.IDEConfigurations
 import com.tom.rv2ide.databinding.DialogAtcWizardBinding
@@ -233,9 +233,9 @@ class AtcWizardDialog : BottomSheetDialogFragment() {
 
   private fun proceedToOptionsPage(ctx: Context) {
     binding.root.post {
-      val templateName = "My${selectedTemplate?.displayName?.replace(" ", "")}" ?: "MyProject"
+      val templateName = "My${selectedTemplate?.displayName(ctx)?.replace(" ", "")}" ?: "MyProject"
       val packageSuffix =
-          "my${selectedTemplate?.displayName?.replace(" ", ".")?.lowercase()}" ?: "myproject"
+          "my${selectedTemplate?.displayName(ctx)?.replace(" ", ".")?.lowercase()}" ?: "myproject"
 
       binding.projectNameInput.setText(templateName)
       binding.packageNameInput.setText("com.example.$packageSuffix")
@@ -244,7 +244,7 @@ class AtcWizardDialog : BottomSheetDialogFragment() {
       binding.useCMakeSwitch.visibility = if (isNative) View.VISIBLE else View.GONE
       binding.nativeLanguageInputLayout.visibility = if (isNative) View.VISIBLE else View.GONE
       binding.ndkVersionButton.visibility = if (isNative) View.VISIBLE else View.GONE
-      binding.ndkVersionButton.text = "NDK: ${Options.OPT_SELECTED_NDK_VERSION ?: "Auto"}"
+      binding.ndkVersionButton.text = getString(R.string.cfg_installed_ndk_version, Options.OPT_SELECTED_NDK_VERSION ?: "Auto")
 
       SheetTransitions.slide(
           binding.wizardContainer,
@@ -261,11 +261,11 @@ class AtcWizardDialog : BottomSheetDialogFragment() {
   private fun createProject(ctx: Context) {
     val proj =
         binding.projectNameInput.text?.toString()?.trim().takeUnless { it.isNullOrBlank() }
-            ?: selectedTemplate?.displayName?.replace(" ", "")
+            ?: selectedTemplate?.displayName(ctx)?.replace(" ", "")
             ?: "MyProject"
     val pkg =
         binding.packageNameInput.text?.toString()?.trim().takeUnless { it.isNullOrBlank() }
-            ?: "com.example.${selectedTemplate?.displayName?.replace(" ", ".")?.lowercase() ?: "myproject"}"
+            ?: "com.example.${selectedTemplate?.displayName(ctx)?.replace(" ", ".")?.lowercase() ?: "myproject"}"
 
     var lang =
         if (binding.languageInput.text?.toString()?.lowercase()?.startsWith("java") == true)
@@ -349,7 +349,7 @@ class AtcWizardDialog : BottomSheetDialogFragment() {
 
     when {
       projectDir.exists() -> {
-        binding.projectNameLayout.error = "A project with this name already exists at this location"
+        binding.projectNameLayout.error = getString(R.string.file_already_exists)
         binding.createButton.isEnabled = false
       }
       !projectName.matches(Regex("^[a-zA-Z][a-zA-Z0-9_]*$")) -> {
@@ -391,18 +391,18 @@ class AtcWizardDialog : BottomSheetDialogFragment() {
     val currentIndex = versions.indexOf(Options.OPT_SELECTED_NDK_VERSION).coerceAtLeast(0)
 
     MaterialAlertDialogBuilder(ctx)
-        .setTitle("Select NDK Version")
+        .setTitle(getString(R.string.select_ndk_version))
         .setSingleChoiceItems(versionLabels, currentIndex) { dialog, which ->
           val selectedVersion = versions[which]
           if (Check.validateNdkVersion(selectedVersion)) {
             Options.OPT_SELECTED_NDK_VERSION = selectedVersion
-            binding.ndkVersionButton.text = "NDK: $selectedVersion"
+            binding.ndkVersionButton.text = getString(R.string.cfg_installed_ndk_version, selectedVersion)
             dialog.dismiss()
           } else {
-            Toast.makeText(ctx, "Invalid NDK: $selectedVersion", Toast.LENGTH_SHORT).show()
+            Toast.makeText(ctx, getString(R.string.invalid_ndk, selectedVersion), Toast.LENGTH_SHORT).show()
           }
         }
-        .setNegativeButton("Cancel", null)
+        .setNegativeButton(getString(R.string.cancel), null)
         .show()
   }
 
@@ -413,16 +413,16 @@ class AtcWizardDialog : BottomSheetDialogFragment() {
             .toTypedArray()
 
     MaterialAlertDialogBuilder(ctx)
-        .setTitle("Select CMake Version")
+        .setTitle(getString(R.string.select_cmake_version))
         .setSingleChoiceItems(versionLabels, 0) { dialog, which ->
           val selectedVersion = versions[which]
           Check.validateCMakeVersion(selectedVersion)?.let { path ->
             Options.OPT_CMAKE_PATH = path
-            Toast.makeText(ctx, "CMake $selectedVersion selected", Toast.LENGTH_SHORT).show()
+            Toast.makeText(ctx, getString(R.string.cmake_selected, selectedVersion), Toast.LENGTH_SHORT).show()
             dialog.dismiss()
-          } ?: Toast.makeText(ctx, "Invalid CMake: $selectedVersion", Toast.LENGTH_SHORT).show()
+          } ?: Toast.makeText(ctx, getString(R.string.invalid_cmake, selectedVersion), Toast.LENGTH_SHORT).show()
         }
-        .setNegativeButton("Cancel") { _, _ -> binding.useCMakeSwitch.isChecked = false }
+        .setNegativeButton(getString(R.string.cancel)) { _, _ -> binding.useCMakeSwitch.isChecked = false }
         .show()
   }
 
@@ -511,7 +511,7 @@ class TemplateAdapter(
 
   override fun onBindViewHolder(holder: TemplateVH, position: Int) {
     val template = templates[position]
-    holder.title.text = template.displayName
+    holder.title.text = template.displayName(ctx)
 
     val resId =
         ctx.resources.getIdentifier(

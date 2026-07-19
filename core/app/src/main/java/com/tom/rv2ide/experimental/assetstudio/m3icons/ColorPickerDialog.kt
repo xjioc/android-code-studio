@@ -17,12 +17,12 @@
 
 package com.tom.rv2ide.experimental.assetstudio.m3icons
 
+import com.tom.rv2ide.R
 import android.content.Context
 import android.graphics.Color
 import android.util.TypedValue
 import android.view.LayoutInflater
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.tom.rv2ide.R
 
 /**
  * @author Mohammed-baqer-null @ https://github.com/Mohammed-baqer-null
@@ -179,13 +179,13 @@ object ColorPickerDialog {
         }
 
         MaterialAlertDialogBuilder(context)
-            .setTitle("Select Color")
+            .setTitle(context.getString(R.string.select_color))
             .setView(dialogView)
-            .setPositiveButton("OK") { dialog, _ ->
+            .setPositiveButton(context.getString(R.string.ok)) { dialog, _ ->
                 onColorSelected(currentColor, selectedDynamicColor)
                 dialog.dismiss()
             }
-            .setNegativeButton("Cancel", null)
+            .setNegativeButton(context.getString(R.string.cancel), null)
             .show()
     }
 }

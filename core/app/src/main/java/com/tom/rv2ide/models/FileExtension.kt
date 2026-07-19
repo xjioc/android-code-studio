@@ -17,9 +17,9 @@
 
 package com.tom.rv2ide.models
 
+import com.tom.rv2ide.R
 import androidx.annotation.DrawableRes
 import com.blankj.utilcode.util.ImageUtils
-import com.tom.rv2ide.resources.R
 import java.io.File
 
 /**

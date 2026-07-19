@@ -17,13 +17,13 @@
 
 package com.tom.rv2ide.actions.sidebar
 
+import com.tom.rv2ide.R
 import android.content.Context
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.tom.rv2ide.actions.ActionData
 import com.tom.rv2ide.actions.requireContext
 import com.tom.rv2ide.activities.editor.BaseEditorActivity
-import com.tom.rv2ide.resources.R
 import kotlin.reflect.KClass
 
 /**

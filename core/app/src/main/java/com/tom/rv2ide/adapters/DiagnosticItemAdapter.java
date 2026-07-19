@@ -17,6 +17,7 @@
  */
 package com.tom.rv2ide.adapters;
 
+import com.tom.rv2ide.R;
 import android.graphics.PorterDuff;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -27,7 +28,6 @@ import com.tom.rv2ide.databinding.LayoutDiagnosticItemBinding;
 import com.tom.rv2ide.interfaces.DiagnosticClickListener;
 import com.tom.rv2ide.lsp.models.DiagnosticItem;
 import com.tom.rv2ide.lsp.models.DiagnosticSeverity;
-import com.tom.rv2ide.resources.R;
 import java.io.File;
 import java.util.List;
 import java.util.Objects;

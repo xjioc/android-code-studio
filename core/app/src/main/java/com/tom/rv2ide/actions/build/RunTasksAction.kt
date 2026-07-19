@@ -17,12 +17,12 @@
 
 package com.tom.rv2ide.actions.build
 
+import com.tom.rv2ide.R
 import android.content.Context
 import androidx.core.content.ContextCompat
 import com.tom.rv2ide.actions.ActionData
 import com.tom.rv2ide.actions.BaseBuildAction
 import com.tom.rv2ide.fragments.RunTasksDialogFragment
-import com.tom.rv2ide.resources.R
 
 /** @author Akash Yadav */
 class RunTasksAction(context: Context, override val order: Int) : BaseBuildAction() {

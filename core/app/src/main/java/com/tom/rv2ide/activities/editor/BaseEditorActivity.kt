@@ -498,7 +498,7 @@ abstract class BaseEditorActivity :
   /** Show a subtle indicator that a file was auto-saved */
   private fun showAutoSaveIndicator(fileName: String) {
     // Update status to show auto-save happened
-    val statusText = "Auto-saved: $fileName"
+    val statusText = getString(R.string.editor_auto_saved, fileName)
     doSetStatus(statusText, android.view.Gravity.CENTER)
 
     // Clear the status after a short delay
@@ -732,7 +732,7 @@ override fun onApplySystemBarInsets(insets: Insets) {
     val setup = Setup(this)
     setup.scanProjectForLanguageServers(ProjectManagerImpl.getInstance().projectDir) { isSuccessfullyInstalled ->
       if (isSuccessfullyInstalled) {
-        flashSuccess("Installation succeeded")
+        flashSuccess(getString(R.string.editor_installation_succeeded))
         if (!editorViewModel.isInitializing) {
           flashInfo("Reinitializing project...")
           (this as? ProjectHandlerActivity)?.initializeProject()
@@ -1174,14 +1174,14 @@ override fun onApplySystemBarInsets(insets: Insets) {
 
   private fun showNdkNotInstalledDialog(context: Context, onDismiss: () -> Unit = {}) {
     MaterialAlertDialogBuilder(context)
-        .setTitle("NDK Not Found")
+        .setTitle(getString(R.string.ndk_not_found))
         .setMessage(
             "A compatible NDK (version 28.2.13676358) is not installed.\n\n" +
                 "Native code features will be disabled for this project.\n\n" +
                 "To enable native development, please install NDK version 28.2.13676358 " +
                 "open a terminal then run: 'idesetup -y -c -wn'."
         )
-        .setPositiveButton("OK") { dialog, _ ->
+        .setPositiveButton(getString(R.string.ok)) { dialog, _ ->
           dialog.dismiss()
           onDismiss()
         }

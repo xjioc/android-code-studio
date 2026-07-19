@@ -302,9 +302,9 @@ class AIPreferencesFragment(
                 }
             }
             
-            showSnackbar("Switched to $providerName")
+            showSnackbar(getString(R.string.ai_switched_to, providerName))
         } else {
-            showSnackbar("⚠️ No valid API key for $providerName")
+            showSnackbar("⚠️ " + getString(R.string.ai_no_valid_api_key, providerName))
         }
     }
 
@@ -322,7 +322,7 @@ class AIPreferencesFragment(
             }
         }
         
-        showSnackbar("Model switched to: $modelName")
+        showSnackbar(getString(R.string.ai_model_switched_to, modelName))
     }
 
     private fun showSnackbar(message: String) {

@@ -17,6 +17,7 @@
 
 package com.tom.rv2ide.preferences
 
+import com.tom.rv2ide.R
 import androidx.preference.Preference
 import com.tom.rv2ide.preferences.internal.XmlPreferences
 import com.tom.rv2ide.resources.R.string

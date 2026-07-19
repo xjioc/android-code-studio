@@ -17,11 +17,11 @@
 
 package com.tom.rv2ide.actions.build
 
+import com.tom.rv2ide.R
 import android.content.Context
 import androidx.core.content.ContextCompat
 import com.tom.rv2ide.actions.ActionData
 import com.tom.rv2ide.actions.BaseBuildAction
-import com.tom.rv2ide.resources.R
 import com.tom.rv2ide.resources.R.string
 
 /**

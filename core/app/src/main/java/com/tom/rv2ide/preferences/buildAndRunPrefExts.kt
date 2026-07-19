@@ -17,6 +17,7 @@
 
 package com.tom.rv2ide.preferences
 
+import com.tom.rv2ide.R
 import android.content.Context
 import androidx.preference.Preference
 import com.google.android.material.dialog.MaterialAlertDialogBuilder

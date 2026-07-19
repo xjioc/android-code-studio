@@ -84,7 +84,7 @@ class InitFragment : Fragment() {
                     // Repository is ready, MainActivity will handle navigation
                 }
                 RepositoryStatus.ERROR -> {
-                    Snackbar.make(binding.root, "Failed to initialize repository", Snackbar.LENGTH_LONG).show()
+                    Snackbar.make(binding.root, getString(R.string.git_init_failed), Snackbar.LENGTH_LONG).show()
                 }
                 else -> {}
             }
@@ -142,20 +142,20 @@ class InitFragment : Fragment() {
         editText.setText("main")
         
         MaterialAlertDialogBuilder(requireContext())
-            .setTitle("Initialize Repository")
-            .setMessage("Initialize a new Git repository at:\n${GCProperties.userProject}\n\nChoose initial branch name:")
+            .setTitle(requireContext().getString(R.string.git_init_repo))
+            .setMessage(requireContext().getString(R.string.git_init_repo_message, GCProperties.userProject))
             .setView(dialogView)
-            .setPositiveButton("Initialize") { _, _ ->
+            .setPositiveButton(requireContext().getString(R.string.init_)) { _, _ ->
                 val branchName = editText.text.toString().trim()
                 val finalBranchName = if (branchName.isBlank()) "main" else branchName
                 
                 createGitIgnoreAndOthers()
                 viewModel.initializeRepository(GCProperties.userProject, finalBranchName)
             }
-            .setNegativeButton("Cancel", null)
+            .setNegativeButton(requireContext().getString(R.string.cancel), null)
             .show()
     }
-        
+
     private fun showCloneDialog() {
         val dialogView = layoutInflater.inflate(R.layout.dialog_clone, null)
         val editTextUrl = dialogView.findViewById<TextInputEditText>(R.id.editTextCloneUrl)
@@ -163,10 +163,10 @@ class InitFragment : Fragment() {
         val editTextPassword = dialogView.findViewById<TextInputEditText>(R.id.editTextClonePassword)
         
         MaterialAlertDialogBuilder(requireContext())
-            .setTitle("Clone Repository")
-            .setMessage("Clone to: ${GCProperties.userProject}")
+            .setTitle(requireContext().getString(R.string.git_clone_repo))
+            .setMessage(requireContext().getString(R.string.git_clone_repo_message, GCProperties.userProject))
             .setView(dialogView)
-            .setPositiveButton("Clone") { _, _ ->
+            .setPositiveButton(requireContext().getString(R.string.clone)) { _, _ ->
                 val url = editTextUrl.text.toString()
                 val username = editTextUsername.text.toString().takeIf { it.isNotBlank() }
                 val password = editTextPassword.text.toString().takeIf { it.isNotBlank() }
@@ -174,13 +174,13 @@ class InitFragment : Fragment() {
                 if (url.isNotBlank()) {
                     viewModel.cloneRepository(url, GCProperties.userProject, username, password)
                 } else {
-                    Snackbar.make(binding.root, "URL cannot be empty", Snackbar.LENGTH_SHORT).show()
+                    Snackbar.make(binding.root, getString(R.string.git_url_empty), Snackbar.LENGTH_SHORT).show()
                 }
             }
-            .setNegativeButton("Cancel", null)
+            .setNegativeButton(requireContext().getString(R.string.cancel), null)
             .show()
     }
-    
+
     override fun onDestroyView() {
         super.onDestroyView()
         progressDialog.dismiss()
