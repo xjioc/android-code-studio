@@ -11,6 +11,10 @@
     android:protectionLevel="normal"
     tools:ignore="ManifestOrder" />
 
+  <permission
+    android:name="com.tom.rv2ide.permission.BIND_BUILD_SERVICE"
+    android:protectionLevel="normal" />
+
   <uses-permission android:name="com.tom.rv2ide.permission.BIND_LOG_SERVICE" />
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -153,6 +157,15 @@
     <service
       android:exported="false"
       android:name=".services.builder.GradleBuildService" />
+
+    <service
+      android:name=".services.builder.AetherBuildAidlService"
+      android:exported="true"
+      android:permission="com.tom.rv2ide.permission.BIND_BUILD_SERVICE">
+      <intent-filter>
+        <action android:name="com.tom.rv2ide.action.AETHER_BUILD_SERVICE" />
+      </intent-filter>
+    </service>
 
     <service
       android:name="com.termux.app.TermuxService"
