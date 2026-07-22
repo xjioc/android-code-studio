@@ -205,6 +205,8 @@ object RepositoryPresets {
               maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
               maven { url 'https://maven.aliyun.com/repository/google' }
               maven { url 'https://maven.aliyun.com/repository/central' }
+              maven { url 'https://mirrors.cloud.tencent.com/nexus/repository/maven-public/' }
+              maven { url 'https://repo.huaweicloud.com/repository/maven/' }
               google()
               mavenCentral()
               gradlePluginPortal()
@@ -219,6 +221,8 @@ object RepositoryPresets {
               maven { url = uri("https://maven.aliyun.com/repository/gradle-plugin") }
               maven { url = uri("https://maven.aliyun.com/repository/google") }
               maven { url = uri("https://maven.aliyun.com/repository/central") }
+              maven { url = uri("https://mirrors.cloud.tencent.com/nexus/repository/maven-public/") }
+              maven { url = uri("https://repo.huaweicloud.com/repository/maven/") }
               google()
               mavenCentral()
               gradlePluginPortal()
@@ -233,6 +237,8 @@ object RepositoryPresets {
           repositories {
               maven { url 'https://maven.aliyun.com/repository/google' }
               maven { url 'https://maven.aliyun.com/repository/central' }
+              maven { url 'https://mirrors.cloud.tencent.com/nexus/repository/maven-public/' }
+              maven { url 'https://repo.huaweicloud.com/repository/maven/' }
               google()
               mavenCentral()
           }
@@ -246,6 +252,8 @@ object RepositoryPresets {
           repositories {
               maven { url = uri("https://maven.aliyun.com/repository/google") }
               maven { url = uri("https://maven.aliyun.com/repository/central") }
+              maven { url = uri("https://mirrors.cloud.tencent.com/nexus/repository/maven-public/") }
+              maven { url = uri("https://repo.huaweicloud.com/repository/maven/") }
               google()
               mavenCentral()
           }

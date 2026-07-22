@@ -32,7 +32,7 @@ internal fun ProjectTemplateBuilder.gradleWrapperPropsSrc(): String {
   return """
     distributionBase=GRADLE_USER_HOME
     distributionPath=wrapper/dists
-    distributionUrl=https\://services.gradle.org/distributions/gradle-${com.tom.rv2ide.templates.GRADLE_WRAPPER_DISTRIBUTION_VERSION}-bin.zip
+    distributionUrl=https\://mirrors.cloud.tencent.com/gradle/gradle-${com.tom.rv2ide.templates.GRADLE_WRAPPER_DISTRIBUTION_VERSION}-bin.zip
     networkTimeout=10000
     zipStoreBase=GRADLE_USER_HOME
     zipStorePath=wrapper/dists
