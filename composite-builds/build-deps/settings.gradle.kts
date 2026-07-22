@@ -23,9 +23,9 @@ pluginManagement {
   includeBuild("../build-logic")
 
   repositories {
-    // maven { url = uri("https://maven.aliyun.com/repository/gradle-plugin") }
-    // maven { url = uri("https://maven.aliyun.com/repository/central") }
-    // maven { url = uri("https://maven.aliyun.com/repository/google") }
+    maven { url = uri("https://maven.aliyun.com/repository/gradle-plugin") }
+    maven { url = uri("https://maven.aliyun.com/repository/central") }
+    maven { url = uri("https://maven.aliyun.com/repository/google") }
     
     gradlePluginPortal()
     google()
@@ -35,9 +35,8 @@ pluginManagement {
 
 dependencyResolutionManagement {
   repositories {
-    // maven { url = uri("https://maven.aliyun.com/repository/central") }
-    // maven { url = uri("https://maven.aliyun.com/repository/google") }
-    google()
+    maven { url = uri("https://maven.aliyun.com/repository/central") }
+    maven { url = uri("https://maven.aliyun.com/repository/google") }
     mavenCentral()
   }
 
